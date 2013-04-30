@@ -1,0 +1,517 @@
+Description: Add KDE integration to Firefox (browser parts)
+Author: Wolfgang Rosenauer <wolfgang@rosenauer.org>
+Author: Felix Geyer <debfx-pkg@fobos.de>
+Bug: https://bugzilla.mozilla.org/show_bug.cgi?id=140751
+Bug-Ubuntu: https://launchpad.net/bugs/494067
+Bug-OpenSUSE: https://bugzilla.novell.com/show_bug.cgi?id=170055
+Forwarded: no
+
+Index: firefox-trunk-18.0~a1~hg20121008r109581/browser/base/content/browser-kde.xul
+===================================================================
+--- firefox-trunk-18.0~a1~hg20121008r109581.orig/browser/base/content/browser-kde.xul	2012-10-08 18:19:48.372338969 +0100
++++ firefox-trunk-18.0~a1~hg20121008r109581/browser/base/content/browser-kde.xul	2012-10-08 18:21:25.244337248 +0100
+@@ -154,7 +154,7 @@
+       </row>
+       <vbox id="editBookmarkPanelContent" flex="1" hidden="true"/>
+       <hbox id="editBookmarkPanelBottomButtons" pack="end">
+-#ifndef XP_UNIX
++#ifdef XP_UNIX
+         <button id="editBookmarkPanelDoneButton"
+                 class="editBookmarkPanelBottomButton"
+                 label="&editBookmark.done.label;"
+Index: firefox-trunk-18.0~a1~hg20121008r109581/browser/base/jar.mn
+===================================================================
+--- firefox-trunk-18.0~a1~hg20121008r109581.orig/browser/base/jar.mn	2012-10-08 03:04:23.000000000 +0100
++++ firefox-trunk-18.0~a1~hg20121008r109581/browser/base/jar.mn	2012-10-08 18:21:25.244337248 +0100
+@@ -55,6 +55,8 @@
+ *       content/browser/browser.css                   (content/browser.css)
+ *       content/browser/browser.js                    (content/browser.js)
+ *       content/browser/browser.xul                   (content/browser.xul)
++*       content/browser/browser-kde.xul               (content/browser-kde.xul)
++%       override chrome://browser/content/browser.xul chrome://browser/content/browser-kde.xul desktop=kde
+ *       content/browser/browser-tabPreviews.xml       (content/browser-tabPreviews.xml)
+         content/browser/content.js                    (content/content.js)
+         content/browser/newtab/newTab.xul             (content/newtab/newTab.xul)
+Index: firefox-trunk-18.0~a1~hg20121008r109581/browser/components/build/nsModule.cpp
+===================================================================
+--- firefox-trunk-18.0~a1~hg20121008r109581.orig/browser/components/build/nsModule.cpp	2012-10-08 03:04:29.000000000 +0100
++++ firefox-trunk-18.0~a1~hg20121008r109581/browser/components/build/nsModule.cpp	2012-10-08 18:21:25.244337248 +0100
+@@ -13,7 +13,7 @@
+ #elif defined(XP_MACOSX)
+ #include "nsMacShellService.h"
+ #elif defined(MOZ_WIDGET_GTK2)
+-#include "nsGNOMEShellService.h"
++#include "nsUnixShellService.h"
+ #endif
+ 
+ #if defined(XP_WIN)
+@@ -37,8 +37,6 @@
+ NS_GENERIC_FACTORY_CONSTRUCTOR(nsWindowsShellService)
+ #elif defined(XP_MACOSX)
+ NS_GENERIC_FACTORY_CONSTRUCTOR(nsMacShellService)
+-#elif defined(MOZ_WIDGET_GTK2)
+-NS_GENERIC_FACTORY_CONSTRUCTOR_INIT(nsGNOMEShellService, Init)
+ #endif
+ 
+ #if defined(XP_WIN)
+@@ -69,7 +67,7 @@
+ #if defined(XP_WIN)
+     { &kNS_SHELLSERVICE_CID, false, NULL, nsWindowsShellServiceConstructor },
+ #elif defined(MOZ_WIDGET_GTK2)
+-    { &kNS_SHELLSERVICE_CID, false, NULL, nsGNOMEShellServiceConstructor },
++    { &kNS_SHELLSERVICE_CID, false, NULL, nsUnixShellServiceConstructor },
+ #endif
+     { &kNS_FEEDSNIFFER_CID, false, NULL, nsFeedSnifferConstructor },
+     { &kNS_BROWSER_ABOUT_REDIRECTOR_CID, false, NULL, AboutRedirector::Create },
+Index: firefox-trunk-18.0~a1~hg20121008r109581/browser/components/shell/src/Makefile.in
+===================================================================
+--- firefox-trunk-18.0~a1~hg20121008r109581.orig/browser/components/shell/src/Makefile.in	2012-10-08 03:04:40.000000000 +0100
++++ firefox-trunk-18.0~a1~hg20121008r109581/browser/components/shell/src/Makefile.in	2012-10-08 18:21:25.244337248 +0100
+@@ -22,7 +22,8 @@
+ CPPSRCS = nsMacShellService.cpp
+ else
+ ifeq ($(MOZ_WIDGET_TOOLKIT), gtk2)
+-CPPSRCS = nsGNOMEShellService.cpp
++CPPSRCS = nsUnixShellService.cpp nsGNOMEShellService.cpp nsKDEShellService.cpp
++LOCAL_INCLUDES += -I$(topsrcdir)/toolkit/xre
+ endif
+ endif
+ endif
+Index: firefox-trunk-18.0~a1~hg20121008r109581/browser/components/shell/src/nsKDEShellService.cpp
+===================================================================
+--- /dev/null	1970-01-01 00:00:00.000000000 +0000
++++ firefox-trunk-18.0~a1~hg20121008r109581/browser/components/shell/src/nsKDEShellService.cpp	2012-10-08 18:22:24.868336190 +0100
+@@ -0,0 +1,262 @@
++/* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
++/* ***** BEGIN LICENSE BLOCK *****
++ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
++ *
++ * The contents of this file are subject to the Mozilla Public License Version
++ * 1.1 (the "License"); you may not use this file except in compliance with
++ * the License. You may obtain a copy of the License at
++ * http://www.mozilla.org/MPL/
++ *
++ * Software distributed under the License is distributed on an "AS IS" basis,
++ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
++ * for the specific language governing rights and limitations under the
++ * License.
++ *
++ * The Original Code is Shell Service.
++ *
++ * The Initial Developer of the Original Code is mozilla.org.
++ * Portions created by the Initial Developer are Copyright (C) 2004
++ * the Initial Developer. All Rights Reserved.
++ *
++ * Contributor(s):
++ *
++ * Alternatively, the contents of this file may be used under the terms of
++ * either the GNU General Public License Version 2 or later (the "GPL"), or
++ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
++ * in which case the provisions of the GPL or the LGPL are applicable instead
++ * of those above. If you wish to allow use of your version of this file only
++ * under the terms of either the GPL or the LGPL, and not to allow others to
++ * use your version of this file under the terms of the MPL, indicate your
++ * decision by deleting the provisions above and replace them with the notice
++ * and other provisions required by the GPL or the LGPL. If you do not delete
++ * the provisions above, a recipient may use your version of this file under
++ * the terms of any one of the MPL, the GPL or the LGPL.
++ *
++ * ***** END LICENSE BLOCK ***** */
++
++#include "nsKDEShellService.h"
++#include "nsShellService.h"
++#include "nsKDEUtils.h"
++#include "nsCOMPtr.h"
++#include "nsIPrefService.h"
++#include "nsIProcess.h"
++#include "nsIFile.h"
++#include "nsServiceManagerUtils.h"
++#include "nsComponentManagerUtils.h"
++#include "nsIMutableArray.h"
++#include "nsISupportsPrimitives.h"
++#include "nsArrayUtils.h"
++
++
++nsresult
++nsKDEShellService::Init()
++    {
++    if( !nsKDEUtils::kdeSupport())
++        return NS_ERROR_NOT_AVAILABLE;
++    return NS_OK;
++    }
++
++NS_IMPL_ISUPPORTS1(nsKDEShellService, nsIShellService)
++
++NS_IMETHODIMP
++nsKDEShellService::IsDefaultBrowser(bool aStartupCheck,
++                                    bool aForAllTypes,
++                                    bool* aIsDefaultBrowser)
++    {
++    *aIsDefaultBrowser = PR_FALSE;
++    if (aStartupCheck)
++        mCheckedThisSession = PR_TRUE;
++
++    nsCOMPtr<nsIMutableArray> command = do_CreateInstance( NS_ARRAY_CONTRACTID );
++    if (!command)
++        return NS_ERROR_FAILURE;
++
++    nsCOMPtr<nsISupportsCString> str = do_CreateInstance( NS_SUPPORTS_CSTRING_CONTRACTID );
++    if (!str)
++        return NS_ERROR_FAILURE;
++
++    str->SetData( NS_LITERAL_CSTRING( "ISDEFAULTBROWSER" ));
++    command->AppendElement( str, false );
++
++    if( nsKDEUtils::command( command ))
++        *aIsDefaultBrowser = PR_TRUE;
++    return NS_OK;
++    }
++
++NS_IMETHODIMP
++nsKDEShellService::SetDefaultBrowser(bool aClaimAllTypes,
++                                     bool aForAllUsers)
++    {
++    nsCOMPtr<nsIMutableArray> command = do_CreateInstance( NS_ARRAY_CONTRACTID );
++    if (!command)
++        return NS_ERROR_FAILURE;
++
++    nsCOMPtr<nsISupportsCString> cmdstr = do_CreateInstance( NS_SUPPORTS_CSTRING_CONTRACTID );
++    nsCOMPtr<nsISupportsCString> paramstr = do_CreateInstance( NS_SUPPORTS_CSTRING_CONTRACTID );
++    if (!cmdstr || !paramstr)
++        return NS_ERROR_FAILURE;
++
++    cmdstr->SetData( NS_LITERAL_CSTRING( "SETDEFAULTBROWSER" ));
++    command->AppendElement( cmdstr, false );
++
++    paramstr->SetData( aClaimAllTypes ? NS_LITERAL_CSTRING( "ALLTYPES" ) : NS_LITERAL_CSTRING( "NORMAL" ));
++    command->AppendElement( paramstr, false );
++
++    return nsKDEUtils::command( command ) ? NS_OK : NS_ERROR_FAILURE;
++    }
++
++NS_IMETHODIMP
++nsKDEShellService::GetShouldCheckDefaultBrowser(bool* aResult)
++{
++  // If we've already checked, the browser has been started and this is a 
++  // new window open, and we don't want to check again.
++  if (mCheckedThisSession) {
++    *aResult = PR_FALSE;
++    return NS_OK;
++  }
++
++  nsCOMPtr<nsIPrefBranch> prefs;
++  nsCOMPtr<nsIPrefService> pserve(do_GetService(NS_PREFSERVICE_CONTRACTID));
++  if (pserve)
++    pserve->GetBranch("", getter_AddRefs(prefs));
++
++  if (prefs)
++    prefs->GetBoolPref(PREF_CHECKDEFAULTBROWSER, aResult);
++
++  return NS_OK;
++}
++
++NS_IMETHODIMP
++nsKDEShellService::SetShouldCheckDefaultBrowser(bool aShouldCheck)
++{
++  nsCOMPtr<nsIPrefBranch> prefs;
++  nsCOMPtr<nsIPrefService> pserve(do_GetService(NS_PREFSERVICE_CONTRACTID));
++  if (pserve)
++    pserve->GetBranch("", getter_AddRefs(prefs));
++
++  if (prefs)
++    prefs->SetBoolPref(PREF_CHECKDEFAULTBROWSER, aShouldCheck);
++
++  return NS_OK;
++}
++
++NS_IMETHODIMP
++nsKDEShellService::GetCanSetDesktopBackground(bool* aResult)
++    {
++    *aResult = false;
++    return NS_OK;
++    }
++
++NS_IMETHODIMP
++nsKDEShellService::SetDesktopBackground(nsIDOMElement* aElement, 
++                                        int32_t aPosition)
++    {
++    return NS_ERROR_NOT_IMPLEMENTED;
++    }
++
++NS_IMETHODIMP
++nsKDEShellService::GetDesktopBackgroundColor(uint32_t *aColor)
++    {
++    return NS_ERROR_NOT_IMPLEMENTED;
++    }
++
++NS_IMETHODIMP
++nsKDEShellService::SetDesktopBackgroundColor(uint32_t aColor)
++    {
++    return NS_ERROR_NOT_IMPLEMENTED;
++    }
++
++NS_IMETHODIMP
++nsKDEShellService::OpenApplication(int32_t aApplication)
++    {
++    nsCOMPtr<nsIMutableArray> command = do_CreateInstance( NS_ARRAY_CONTRACTID );
++    if (!command)
++        return NS_ERROR_FAILURE;
++
++    nsCOMPtr<nsISupportsCString> str = do_CreateInstance( NS_SUPPORTS_CSTRING_CONTRACTID );
++    if (!str)
++        return NS_ERROR_FAILURE;
++
++    if( aApplication == APPLICATION_MAIL )
++        str->SetData( NS_LITERAL_CSTRING( "OPENMAIL" ));
++    else if( aApplication == APPLICATION_NEWS )
++        str->SetData( NS_LITERAL_CSTRING( "OPENNEWS" ));
++    else
++        return NS_ERROR_NOT_IMPLEMENTED;
++
++    command->AppendElement( str, false );
++    return nsKDEUtils::command( command ) ? NS_OK : NS_ERROR_FAILURE;
++    }
++
++NS_IMETHODIMP
++nsKDEShellService::OpenApplicationWithURI(nsIFile* aApplication, const nsACString& aURI)
++    {
++    nsCOMPtr<nsIMutableArray> command = do_CreateInstance( NS_ARRAY_CONTRACTID );
++    if (!command)
++        return NS_ERROR_FAILURE;
++
++    nsCOMPtr<nsISupportsCString> cmdstr = do_CreateInstance( NS_SUPPORTS_CSTRING_CONTRACTID );
++    nsCOMPtr<nsISupportsCString> appstr = do_CreateInstance( NS_SUPPORTS_CSTRING_CONTRACTID );
++    nsCOMPtr<nsISupportsCString> uristr = do_CreateInstance( NS_SUPPORTS_CSTRING_CONTRACTID );
++    if (!cmdstr || !appstr || !uristr)
++        return NS_ERROR_FAILURE;
++
++    cmdstr->SetData( NS_LITERAL_CSTRING( "RUN" ));
++    command->AppendElement( cmdstr, false );
++    nsAutoCString app;
++    nsresult rv = aApplication->GetNativePath( app );
++    NS_ENSURE_SUCCESS( rv, rv );
++    appstr->SetData( app );
++    command->AppendElement( appstr, false );
++    uristr->SetData( aURI );
++    command->AppendElement( uristr, false );
++    return nsKDEUtils::command( command ) ? NS_OK : NS_ERROR_FAILURE;
++    }
++
++NS_IMETHODIMP
++nsKDEShellService::GetDefaultFeedReader(nsIFile** _retval)
++    {
++    *_retval = nullptr;
++
++    nsCOMPtr<nsIMutableArray> command = do_CreateInstance( NS_ARRAY_CONTRACTID );
++    if( !command )
++        return NS_ERROR_FAILURE;
++
++    nsCOMPtr<nsISupportsCString> str = do_CreateInstance( NS_SUPPORTS_CSTRING_CONTRACTID );
++    if( !str )
++        return NS_ERROR_FAILURE;
++
++    str->SetData( NS_LITERAL_CSTRING( "GETDEFAULTFEEDREADER" ));
++    command->AppendElement( str, false );
++
++    nsCOMPtr<nsIArray> output;
++    if( !nsKDEUtils::command( command, getter_AddRefs( output ) ) )
++        return NS_ERROR_FAILURE;
++
++    uint32_t length;
++    output->GetLength( &length );
++    if( length != 1 )
++        return NS_ERROR_FAILURE;
++
++    nsCOMPtr<nsISupportsCString> resstr = do_QueryElementAt( output, 0 );
++    if( !resstr )
++        return NS_ERROR_FAILURE;
++
++    nsAutoCString path;
++    resstr->GetData( path );
++    if (path.IsEmpty())
++        return NS_ERROR_FAILURE;
++
++    nsCOMPtr<nsIFile> defaultReader;
++    nsresult rv = NS_NewNativeLocalFile(path, false, getter_AddRefs(defaultReader));
++    NS_ENSURE_SUCCESS(rv, rv);
++
++    bool exists;
++    rv = defaultReader->Exists(&exists);
++    NS_ENSURE_SUCCESS(rv, rv);
++    if (!exists)
++        return NS_ERROR_FAILURE;
++
++    NS_ADDREF(*_retval = defaultReader);
++    return NS_OK;
++    }
+Index: firefox-trunk-18.0~a1~hg20121008r109581/browser/components/shell/src/nsKDEShellService.h
+===================================================================
+--- /dev/null	1970-01-01 00:00:00.000000000 +0000
++++ firefox-trunk-18.0~a1~hg20121008r109581/browser/components/shell/src/nsKDEShellService.h	2012-10-08 18:21:25.244337248 +0100
+@@ -0,0 +1,59 @@
++/* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
++/* ***** BEGIN LICENSE BLOCK *****
++ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
++ *
++ * The contents of this file are subject to the Mozilla Public License Version
++ * 1.1 (the "License"); you may not use this file except in compliance with
++ * the License. You may obtain a copy of the License at
++ * http://www.mozilla.org/MPL/
++ *
++ * Software distributed under the License is distributed on an "AS IS" basis,
++ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
++ * for the specific language governing rights and limitations under the
++ * License.
++ *
++ * The Original Code is Shell Service.
++ *
++ * The Initial Developer of the Original Code is mozilla.org.
++ * Portions created by the Initial Developer are Copyright (C) 2004
++ * the Initial Developer. All Rights Reserved.
++ *
++ * Contributor(s):
++ *
++ * Alternatively, the contents of this file may be used under the terms of
++ * either the GNU General Public License Version 2 or later (the "GPL"), or
++ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
++ * in which case the provisions of the GPL or the LGPL are applicable instead
++ * of those above. If you wish to allow use of your version of this file only
++ * under the terms of either the GPL or the LGPL, and not to allow others to
++ * use your version of this file under the terms of the MPL, indicate your
++ * decision by deleting the provisions above and replace them with the notice
++ * and other provisions required by the GPL or the LGPL. If you do not delete
++ * the provisions above, a recipient may use your version of this file under
++ * the terms of any one of the MPL, the GPL or the LGPL.
++ *
++ * ***** END LICENSE BLOCK ***** */
++
++#ifndef nskdeshellservice_h____
++#define nskdeshellservice_h____
++
++#include "nsIShellService.h"
++#include "nsStringAPI.h"
++
++class nsKDEShellService : public nsIShellService
++{
++public:
++  nsKDEShellService() : mCheckedThisSession(PR_FALSE) { }
++
++  NS_DECL_ISUPPORTS
++  NS_DECL_NSISHELLSERVICE
++
++  nsresult Init() NS_HIDDEN;
++
++private:
++  ~nsKDEShellService() {}
++
++  PRPackedBool mCheckedThisSession;
++};
++
++#endif // nskdeshellservice_h____
+Index: firefox-trunk-18.0~a1~hg20121008r109581/browser/components/shell/src/nsUnixShellService.cpp
+===================================================================
+--- /dev/null	1970-01-01 00:00:00.000000000 +0000
++++ firefox-trunk-18.0~a1~hg20121008r109581/browser/components/shell/src/nsUnixShellService.cpp	2012-10-08 18:21:25.244337248 +0100
+@@ -0,0 +1,52 @@
++/* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
++/* ***** BEGIN LICENSE BLOCK *****
++ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
++ *
++ * The contents of this file are subject to the Mozilla Public License Version
++ * 1.1 (the "License"); you may not use this file except in compliance with
++ * the License. You may obtain a copy of the License at
++ * http://www.mozilla.org/MPL/
++ *
++ * Software distributed under the License is distributed on an "AS IS" basis,
++ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
++ * for the specific language governing rights and limitations under the
++ * License.
++ *
++ * The Original Code is Shell Service.
++ *
++ * The Initial Developer of the Original Code is mozilla.org.
++ * Portions created by the Initial Developer are Copyright (C) 2004
++ * the Initial Developer. All Rights Reserved.
++ *
++ * Contributor(s):
++ *
++ * Alternatively, the contents of this file may be used under the terms of
++ * either the GNU General Public License Version 2 or later (the "GPL"), or
++ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
++ * in which case the provisions of the GPL or the LGPL are applicable instead
++ * of those above. If you wish to allow use of your version of this file only
++ * under the terms of either the GPL or the LGPL, and not to allow others to
++ * use your version of this file under the terms of the MPL, indicate your
++ * decision by deleting the provisions above and replace them with the notice
++ * and other provisions required by the GPL or the LGPL. If you do not delete
++ * the provisions above, a recipient may use your version of this file under
++ * the terms of any one of the MPL, the GPL or the LGPL.
++ *
++ * ***** END LICENSE BLOCK ***** */
++
++#include "nsUnixShellService.h"
++#include "nsGNOMEShellService.h"
++#include "nsKDEShellService.h"
++#include "nsKDEUtils.h"
++#include "mozilla/ModuleUtils.h"
++
++NS_GENERIC_FACTORY_CONSTRUCTOR_INIT(nsGNOMEShellService, Init)
++NS_GENERIC_FACTORY_CONSTRUCTOR_INIT(nsKDEShellService, Init)
++
++NS_METHOD
++nsUnixShellServiceConstructor(nsISupports *aOuter, REFNSIID aIID, void **aResult)
++{
++    if( nsKDEUtils::kdeSupport())
++        return nsKDEShellServiceConstructor( aOuter, aIID, aResult );
++    return nsGNOMEShellServiceConstructor( aOuter, aIID, aResult );
++}
+Index: firefox-trunk-18.0~a1~hg20121008r109581/browser/components/shell/src/nsUnixShellService.h
+===================================================================
+--- /dev/null	1970-01-01 00:00:00.000000000 +0000
++++ firefox-trunk-18.0~a1~hg20121008r109581/browser/components/shell/src/nsUnixShellService.h	2012-10-08 18:21:25.244337248 +0100
+@@ -0,0 +1,45 @@
++/* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
++/* ***** BEGIN LICENSE BLOCK *****
++ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
++ *
++ * The contents of this file are subject to the Mozilla Public License Version
++ * 1.1 (the "License"); you may not use this file except in compliance with
++ * the License. You may obtain a copy of the License at
++ * http://www.mozilla.org/MPL/
++ *
++ * Software distributed under the License is distributed on an "AS IS" basis,
++ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
++ * for the specific language governing rights and limitations under the
++ * License.
++ *
++ * The Original Code is Shell Service.
++ *
++ * The Initial Developer of the Original Code is mozilla.org.
++ * Portions created by the Initial Developer are Copyright (C) 2004
++ * the Initial Developer. All Rights Reserved.
++ *
++ * Contributor(s):
++ *
++ * Alternatively, the contents of this file may be used under the terms of
++ * either the GNU General Public License Version 2 or later (the "GPL"), or
++ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
++ * in which case the provisions of the GPL or the LGPL are applicable instead
++ * of those above. If you wish to allow use of your version of this file only
++ * under the terms of either the GPL or the LGPL, and not to allow others to
++ * use your version of this file under the terms of the MPL, indicate your
++ * decision by deleting the provisions above and replace them with the notice
++ * and other provisions required by the GPL or the LGPL. If you do not delete
++ * the provisions above, a recipient may use your version of this file under
++ * the terms of any one of the MPL, the GPL or the LGPL.
++ *
++ * ***** END LICENSE BLOCK ***** */
++
++#ifndef nsunixshellservice_h____
++#define nsunixshellservice_h____
++
++#include "nsIShellService.h"
++
++NS_METHOD
++nsUnixShellServiceConstructor(nsISupports *aOuter, REFNSIID aIID, void **aResult);
++
++#endif // nsunixshellservice_h____

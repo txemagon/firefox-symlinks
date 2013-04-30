@@ -1,0 +1,1 @@
+_xpidlgen/nsIUrlClassifierStreamUpdater.xpt: /home/txema/work/firefox-20.0+build1/toolkit/components/url-classifier/nsIUrlClassifierStreamUpdater.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl /home/txema/work/firefox-20.0+build1/toolkit/components/url-classifier/nsIUrlClassifierDBService.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

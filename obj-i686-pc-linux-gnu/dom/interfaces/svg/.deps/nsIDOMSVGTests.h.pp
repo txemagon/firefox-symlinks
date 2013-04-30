@@ -1,0 +1,1 @@
+_xpidlgen/nsIDOMSVGTests.h: /home/txema/work/firefox-20.0+build1/dom/interfaces/svg/nsIDOMSVGTests.idl /home/txema/work/firefox-20.0+build1/dom/interfaces/svg/nsIDOMSVGStringList.idl ../../../dist/idl/domstubs.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

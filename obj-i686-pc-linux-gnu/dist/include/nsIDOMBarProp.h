@@ -1,0 +1,1 @@
+../../dom/interfaces/base/_xpidlgen/nsIDOMBarProp.h

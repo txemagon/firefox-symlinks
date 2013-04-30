@@ -1,0 +1,1 @@
+libmozipc_s.a.desc : AsyncChannel.o BrowserProcessSubThread.o FileDescriptor.o GeckoChildProcessHost.o InputStreamUtils.o MessagePump.o ProcessChild.o ProtocolUtils.o RPCChannel.o ScopedXREEmbed.o SharedMemory.o Shmem.o StringUtil.o SyncChannel.o URIUtils.o SharedMemory_posix.o Transport_posix.o CrossProcessMutex_unimplemented.o ProcessUtils_linux.o

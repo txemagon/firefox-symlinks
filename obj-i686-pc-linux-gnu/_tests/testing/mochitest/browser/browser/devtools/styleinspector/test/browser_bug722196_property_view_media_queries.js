@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/browser/devtools/styleinspector/test/browser_bug722196_property_view_media_queries.js

@@ -1,0 +1,1 @@
+_xpidlgen/nsIDOMMozApplicationEvent.xpt: /home/txema/work/firefox-20.0+build1/dom/interfaces/apps/nsIDOMMozApplicationEvent.idl ../../../dist/idl/nsIDOMEvent.idl ../../../dist/idl/domstubs.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

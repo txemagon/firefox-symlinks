@@ -1,0 +1,1 @@
+libmozgraphite2.a.desc : direct_machine.o gr_char_info.o gr_face.o gr_features.o gr_font.o gr_logging.o gr_segment.o gr_slot.o json.o Bidi.o CachedFace.o CmapCache.o Code.o Face.o FeatureMap.o FileFace.o Font.o GlyphCache.o GlyphFace.o Justifier.o NameTable.o Pass.o SegCache.o SegCacheEntry.o SegCacheStore.o Segment.o Silf.o Slot.o Sparse.o TtfUtil.o UtfCodec.o

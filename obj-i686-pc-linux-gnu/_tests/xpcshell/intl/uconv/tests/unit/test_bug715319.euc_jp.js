@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/intl/uconv/tests/unit/test_bug715319.euc_jp.js

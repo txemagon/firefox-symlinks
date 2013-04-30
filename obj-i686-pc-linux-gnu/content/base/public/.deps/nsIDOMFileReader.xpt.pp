@@ -1,0 +1,1 @@
+_xpidlgen/nsIDOMFileReader.xpt: /home/txema/work/firefox-20.0+build1/content/base/public/nsIDOMFileReader.idl ../../../dist/idl/nsIDOMEventTarget.idl ../../../dist/idl/domstubs.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

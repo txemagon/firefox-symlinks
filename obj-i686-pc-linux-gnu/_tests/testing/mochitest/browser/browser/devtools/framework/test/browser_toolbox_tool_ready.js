@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/browser/devtools/framework/test/browser_toolbox_tool_ready.js

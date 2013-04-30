@@ -1,0 +1,1 @@
+_xpidlgen/nsIDOMNodeFilter.h: /home/txema/work/firefox-20.0+build1/dom/interfaces/traversal/nsIDOMNodeFilter.idl ../../../dist/idl/domstubs.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

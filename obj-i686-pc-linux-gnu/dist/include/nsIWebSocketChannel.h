@@ -1,0 +1,1 @@
+../../netwerk/protocol/websocket/_xpidlgen/nsIWebSocketChannel.h

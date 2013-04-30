@@ -1,0 +1,1 @@
+_xpidlgen/nsIDocShell.h: /home/txema/work/firefox-20.0+build1/docshell/base/nsIDocShell.idl ../../dist/idl/nsISupports.idl ../../dist/idl/nsrootidl.idl ../../dist/idl/nsIAtom.idl ../../dist/idl/nsISupports.idl ../../dist/idl/nsrootidl.idl

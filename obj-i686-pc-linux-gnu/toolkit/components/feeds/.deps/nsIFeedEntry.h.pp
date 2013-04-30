@@ -1,0 +1,1 @@
+_xpidlgen/nsIFeedEntry.h: /home/txema/work/firefox-20.0+build1/toolkit/components/feeds/nsIFeedEntry.idl /home/txema/work/firefox-20.0+build1/toolkit/components/feeds/nsIFeedContainer.idl /home/txema/work/firefox-20.0+build1/toolkit/components/feeds/nsIFeedElementBase.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

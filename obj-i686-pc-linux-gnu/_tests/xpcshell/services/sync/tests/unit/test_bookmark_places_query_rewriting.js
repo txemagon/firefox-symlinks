@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/services/sync/tests/unit/test_bookmark_places_query_rewriting.js

@@ -1,0 +1,173 @@
+Index: firefox-trunk-19.0~a1~hg20121114r113217/xpcom/tests/unit/test_bug476919.js
+===================================================================
+--- firefox-trunk-19.0~a1~hg20121114r113217.orig/xpcom/tests/unit/test_bug476919.js	2012-11-14 21:08:45.000000000 +0000
++++ firefox-trunk-19.0~a1~hg20121114r113217/xpcom/tests/unit/test_bug476919.js	2012-11-17 01:53:49.599156760 +0000
+@@ -5,17 +5,14 @@
+   // skip this test on Windows
+   var isWindows = ("@mozilla.org/windows-registry-key;1" in Components.classes);
+   if (!isWindows) {
+-    var testDir = __LOCATION__.parent;
++    var testDir = do_get_profile();
+     // create a test file, then symlink it, then check that we think it's a symlink
+     var targetFile = testDir.clone();
+     targetFile.append("target.txt");
+-    if (!targetFile.exists())
+-      targetFile.create(Ci.nsIFile.NORMAL_FILE_TYPE, 0644);
++    targetFile.create(Ci.nsIFile.NORMAL_FILE_TYPE, 0644);
+ 
+     var link = testDir.clone();
+     link.append("link");
+-    if (link.exists())
+-      link.remove(false);
+ 
+     var ln = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
+     ln.initWithPath("/bin/ln");
+Index: firefox-trunk-19.0~a1~hg20121114r113217/xpcom/tests/unit/test_iniProcessor.js
+===================================================================
+--- firefox-trunk-19.0~a1~hg20121114r113217.orig/xpcom/tests/unit/test_iniProcessor.js	2012-11-14 21:08:45.000000000 +0000
++++ firefox-trunk-19.0~a1~hg20121114r113217/xpcom/tests/unit/test_iniProcessor.js	2012-11-19 15:09:32.934061498 +0000
+@@ -171,6 +171,9 @@
+           getService(Ci.nsIINIParserFactory);
+ do_check_true(!!factory);
+ 
++var outputDir = do_get_profile();
++outputDir.append("test_iniProcessor_data");
++
+ // Test reading from a variety of files. While we're at it, write out each one
+ // and read it back to ensure that nothing changed.
+ while (testnum < testdata.length) {
+@@ -183,24 +186,23 @@
+         continue;
+     do_check_true(parser instanceof Ci.nsIINIParserWriter);
+     // write contents out to a new file
+-    let newfilename = filename + ".new";
+-    let newfile = do_get_file(filename);
+-    newfile.leafName += ".new";
++    let newfile = outputDir.clone();
++    newfile.appendRelativePath(filename);
++    if (!newfile.parent.exists()) {
++        newfile.parent.create(Ci.nsIFile.DIRECTORY_TYPE, 0755);
++    }
+     parser.writeFile(newfile);
+     // read new file and make sure the contents are the same.
+-    parser = parserForFile(newfilename);
++    parser = factory.createINIParser(newfile);
++    do_check_true(!!parser);
+     checkParserOutput(parser, testdata[testnum - 1].reference);
+-    // cleanup after the test
+-    newfile.remove(false);
+ }
+ 
+ dump("INFO | test #" + ++testnum + "\n");
+ 
+ // test writing to a new file.
+-let newfile = do_get_file("data/");
++let newfile = outputDir.clone();
+ newfile.append("nonexistent-file.ini");
+-if (newfile.exists())
+-    newfile.remove(false);
+ do_check_false(newfile.exists());
+ 
+ let parser = factory.createINIParser(newfile);
+@@ -216,10 +218,8 @@
+ do_check_true(newfile.exists());
+ checkParserOutput(parser, {section: {key: "value"} });
+ // read it in again, check for same data.
+-parser = parserForFile("data/nonexistent-file.ini");
++parser = factory.createINIParser(newfile);
+ checkParserOutput(parser, {section: {key: "value"} });
+-// cleanup after the test
+-newfile.remove(false);
+ 
+ dump("INFO | test #" + ++testnum + "\n");
+ 
+Index: firefox-trunk-19.0~a1~hg20121114r113217/xpcom/tests/unit/test_nsIProcess.js
+===================================================================
+--- firefox-trunk-19.0~a1~hg20121114r113217.orig/xpcom/tests/unit/test_nsIProcess.js	2012-11-14 21:08:45.000000000 +0000
++++ firefox-trunk-19.0~a1~hg20121114r113217/xpcom/tests/unit/test_nsIProcess.js	2012-11-19 19:07:55.765807352 +0000
+@@ -10,6 +10,8 @@
+                            "\u09AE\u09CB\u099C\u09BF\u09B2\u09BE",
+                            "\uD808\uDE2C\uD808\uDF63\uD808\uDDB7"];
+ 
++gProfileDir = do_get_profile();
++
+ // test if a process can be started, polled for its running status
+ // and then killed
+ function test_kill()
+@@ -86,33 +88,31 @@
+   test_args(get_test_program("TestUnicodeArguments"), TEST_UNICODE_ARGS, false);
+ }
+ 
+-function rename_and_test(asciiName, unicodeName, args, argsAreASCII)
++function copy_and_test(asciiName, unicodeName, args, argsAreASCII)
+ {
+   var asciiFile = get_test_program(asciiName);
+   var asciiLeaf = asciiFile.leafName;
+   var unicodeLeaf = asciiLeaf.replace(asciiName, unicodeName);
+ 
+-  asciiFile.moveTo(null, unicodeLeaf);
++  asciiFile.copyTo(gProfileDir, unicodeLeaf);
+ 
+-  var unicodeFile = get_test_program(unicodeName);
++  var unicodeFile = get_test_program(unicodeName, gProfileDir);
+ 
+   test_args(unicodeFile, args, argsAreASCII);
+-
+-  unicodeFile.moveTo(null, asciiLeaf);
+ }
+ 
+ // test passing ASCII and Unicode arguments to an application with a Unicode name
+ function test_unicode_app()
+ {
+-  rename_and_test("TestArguments",
+-                  // "Unicode" in Tamil
+-                  "\u0BAF\u0BC1\u0BA9\u0BBF\u0B95\u0BCB\u0B9F\u0BCD",
+-                  TEST_ARGS, true);
+-
+-  rename_and_test("TestUnicodeArguments",
+-                  // "Unicode" in Thai
+-                  "\u0E22\u0E39\u0E19\u0E34\u0E42\u0E04\u0E14",
+-                  TEST_UNICODE_ARGS, false);
++  copy_and_test("TestArguments",
++                // "Unicode" in Tamil
++                "\u0BAF\u0BC1\u0BA9\u0BBF\u0B95\u0BCB\u0B9F\u0BCD",
++                TEST_ARGS, true);
++
++  copy_and_test("TestUnicodeArguments",
++                // "Unicode" in Thai
++                "\u0E22\u0E39\u0E19\u0E34\u0E42\u0E04\u0E14",
++                TEST_UNICODE_ARGS, false);
+ }
+ 
+ // test if we get notified about a blocking process
+Index: firefox-trunk-19.0~a1~hg20121114r113217/xpcom/tests/unit/test_symlinks.js
+===================================================================
+--- firefox-trunk-19.0~a1~hg20121114r113217.orig/xpcom/tests/unit/test_symlinks.js	2012-11-14 21:08:45.000000000 +0000
++++ firefox-trunk-19.0~a1~hg20121114r113217/xpcom/tests/unit/test_symlinks.js	2012-11-19 16:07:43.461999474 +0000
+@@ -144,7 +144,7 @@
+   if (isWin || isOS2)
+     return;
+ 
+-  var testDir = CWD;
++  var testDir = do_get_profile();
+   testDir.append("test_symlinks");
+ 
+   testSymLinks(testDir, false);
+Index: firefox-trunk-19.0~a1~hg20121114r113217/xpcom/tests/unit/head_xpcom.js
+===================================================================
+--- firefox-trunk-19.0~a1~hg20121114r113217.orig/xpcom/tests/unit/head_xpcom.js	2012-11-14 21:08:45.000000000 +0000
++++ firefox-trunk-19.0~a1~hg20121114r113217/xpcom/tests/unit/head_xpcom.js	2012-11-19 19:07:21.373807965 +0000
+@@ -1,8 +1,11 @@
+ var isWindows = ("@mozilla.org/windows-registry-key;1" in Components.classes);
+ 
+-function get_test_program(prog)
++function get_test_program(prog, dir)
+ {
+-  var progPath = do_get_cwd();
++  if (!dir)
++    var progPath = do_get_cwd();
++  else
++    var progPath = dir.clone();
+   progPath.append(prog);
+   if (isWindows)
+     progPath.leafName = progPath.leafName + ".exe";

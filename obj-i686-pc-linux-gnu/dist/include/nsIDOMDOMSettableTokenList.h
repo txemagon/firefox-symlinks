@@ -1,0 +1,1 @@
+../../dom/interfaces/core/_xpidlgen/nsIDOMDOMSettableTokenList.h

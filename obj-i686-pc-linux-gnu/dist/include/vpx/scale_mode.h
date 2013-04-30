@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/media/libvpx/vpx_scale/scale_mode.h

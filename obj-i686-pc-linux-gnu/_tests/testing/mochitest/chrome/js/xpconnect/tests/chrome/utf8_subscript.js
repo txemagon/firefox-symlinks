@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/js/xpconnect/tests/chrome/utf8_subscript.js

@@ -1,0 +1,1 @@
+_xpidlgen/nsIInlineSpellChecker.h: /home/txema/work/firefox-20.0+build1/editor/txtsvc/public/nsIInlineSpellChecker.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl ../../../dist/idl/domstubs.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

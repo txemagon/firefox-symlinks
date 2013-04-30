@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/docshell/test/unit_ipc/test_pb_notification_ipc.js

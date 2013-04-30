@@ -1,0 +1,1 @@
+../../netwerk/protocol/file/_xpidlgen/nsIFileProtocolHandler.h

@@ -1,0 +1,1 @@
+libnkcache_s.a.desc : nsCache.o nsCacheEntry.o nsCacheEntryDescriptor.o nsCacheMetaData.o nsCacheService.o nsCacheSession.o nsMemoryCacheDevice.o nsDiskCacheBinding.o nsDiskCacheBlockFile.o nsDiskCacheDevice.o nsDiskCacheDeviceSQL.o nsDiskCacheEntry.o nsDiskCacheMap.o nsDiskCacheStreams.o nsDeleteDir.o nsApplicationCacheService.o

@@ -1,0 +1,26 @@
+Index: firefox-trunk-21.0~a1~hg20130205r120792/testing/xpcshell/runxpcshelltests.py
+===================================================================
+--- firefox-trunk-21.0~a1~hg20130205r120792.orig/testing/xpcshell/runxpcshelltests.py	2013-02-05 22:49:57.525807392 +0000
++++ firefox-trunk-21.0~a1~hg20130205r120792/testing/xpcshell/runxpcshelltests.py	2013-02-05 22:49:57.517807392 +0000
+@@ -550,7 +550,7 @@
+ 
+     testsuite.setAttribute("tests", str(total))
+     testsuite.setAttribute("failures", str(failed))
+-    testsuite.setAttribute("skip", str(skipped))
++    testsuite.setAttribute("skipped", str(skipped))
+ 
+     doc.writexml(fh, addindent="  ", newl="\n", encoding="utf-8")
+ 
+Index: firefox-trunk-21.0~a1~hg20130205r120792/testing/xpcshell/selftest.py
+===================================================================
+--- firefox-trunk-21.0~a1~hg20130205r120792.orig/testing/xpcshell/selftest.py	2013-02-05 15:17:37.000000000 +0000
++++ firefox-trunk-21.0~a1~hg20130205r120792/testing/xpcshell/selftest.py	2013-02-05 22:52:51.041804309 +0000
+@@ -432,7 +432,7 @@
+         self.assertTrue(suite is not None)
+         self.assertEqual(suite.get("tests"), "3")
+         self.assertEqual(suite.get("failures"), "1")
+-        self.assertEqual(suite.get("skip"), "1")
++        self.assertEqual(suite.get("skipped"), "1")
+ 
+         testcases = suite.findall("testcase")
+         self.assertEqual(len(testcases), 3)

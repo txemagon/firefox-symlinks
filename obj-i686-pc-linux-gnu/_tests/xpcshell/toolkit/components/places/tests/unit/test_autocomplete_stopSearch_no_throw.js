@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/toolkit/components/places/tests/unit/test_autocomplete_stopSearch_no_throw.js

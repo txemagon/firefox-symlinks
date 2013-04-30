@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/toolkit/components/places/tests/favicons/test_moz-anno_favicon_mime_type.js

@@ -1,0 +1,1 @@
+../../dom/interfaces/svg/_xpidlgen/nsIDOMSVGEvent.h

@@ -1,0 +1,1 @@
+libgkconwebaudio_s.a.desc : AudioBuffer.o AudioBufferSourceNode.o AudioContext.o AudioDestinationNode.o AudioListener.o AudioNode.o AudioParam.o AudioSourceNode.o BiquadFilterNode.o DelayNode.o DynamicsCompressorNode.o EnableWebAudioCheck.o GainNode.o PannerNode.o

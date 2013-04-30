@@ -1,0 +1,1 @@
+_xpidlgen/nsIDOMTouchEvent.h: /home/txema/work/firefox-20.0+build1/dom/interfaces/events/nsIDOMTouchEvent.idl /home/txema/work/firefox-20.0+build1/dom/interfaces/events/nsIDOMUIEvent.idl /home/txema/work/firefox-20.0+build1/dom/interfaces/events/nsIDOMEvent.idl ../../../dist/idl/domstubs.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

@@ -1,0 +1,76 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+DEPTH            = ../../..
+topsrcdir        = /home/txema/work/firefox-20.0+build1
+srcdir           = /home/txema/work/firefox-20.0+build1/dom/network/src
+VPATH            = $(srcdir)
+
+include $(DEPTH)/config/autoconf.mk
+
+LIBRARY_NAME     = dom_network_s
+LIBXUL_LIBRARY   = 1
+FORCE_STATIC_LIB = 1
+ifndef _MSC_VER
+FAIL_ON_WARNINGS := 1
+endif # !_MSC_VER
+
+EXTRA_COMPONENTS = \
+	TCPSocket.js \
+	TCPSocketParentIntermediary.js \
+	TCPSocket.manifest \
+	$(NULL)
+
+ifdef MOZ_B2G_RIL
+EXTRA_COMPONENTS += \
+  NetworkStatsManager.manifest \
+  NetworkStatsManager.js \
+  $(NULL)
+
+EXTRA_JS_MODULES =   \
+  NetworkStatsService.jsm \
+  NetworkStatsDB.jsm \
+  $(NULL)
+endif
+
+include $(topsrcdir)/dom/dom-config.mk
+
+EXPORTS_NAMESPACES = mozilla/dom/network
+
+EXPORTS_mozilla/dom/network = \
+  Utils.h \
+  Types.h \
+  Constants.h \
+  TCPSocketChild.h \
+  TCPSocketParent.h \
+  $(NULL)
+
+CPPSRCS = \
+  Connection.cpp \
+  Utils.cpp \
+  USSDReceivedEvent.cpp \
+  DataErrorEvent.cpp \
+  TCPSocketParent.cpp \
+  TCPSocketChild.cpp \
+  $(NULL)
+
+ifdef MOZ_B2G_RIL
+CPPSRCS += \
+  MobileConnection.cpp \
+  $(NULL)
+endif
+
+LOCAL_INCLUDES = \
+  -I$(topsrcdir)/content/events/src \
+  $(NULL)
+
+ifdef MOZ_B2G_RIL
+LOCAL_INCLUDES += \
+  -I$(topsrcdir)/dom/icc/src \
+  $(NULL)
+endif
+
+include $(topsrcdir)/config/config.mk
+include $(topsrcdir)/ipc/chromium/chromium-config.mk
+include $(topsrcdir)/config/rules.mk

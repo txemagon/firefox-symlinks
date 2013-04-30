@@ -1,0 +1,1 @@
+../../xpcom/sample/_xpidlgen/nsISample.h

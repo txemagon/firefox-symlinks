@@ -1,0 +1,1 @@
+../../dom/network/interfaces/_xpidlgen/nsIDOMDataErrorEvent.h

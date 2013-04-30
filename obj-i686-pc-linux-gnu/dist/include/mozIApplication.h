@@ -1,0 +1,1 @@
+../../dom/interfaces/apps/_xpidlgen/mozIApplication.h

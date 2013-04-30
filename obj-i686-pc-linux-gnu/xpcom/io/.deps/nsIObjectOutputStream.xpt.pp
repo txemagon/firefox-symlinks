@@ -1,0 +1,1 @@
+_xpidlgen/nsIObjectOutputStream.xpt: /home/txema/work/firefox-20.0+build1/xpcom/io/nsIObjectOutputStream.idl /home/txema/work/firefox-20.0+build1/xpcom/io/nsIBinaryOutputStream.idl /home/txema/work/firefox-20.0+build1/xpcom/io/nsIOutputStream.idl ../../dist/idl/nsISupports.idl ../../dist/idl/nsrootidl.idl ../../dist/idl/nsrootidl.idl ../../dist/idl/nsrootidl.idl

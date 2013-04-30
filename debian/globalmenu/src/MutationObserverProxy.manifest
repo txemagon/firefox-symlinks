@@ -1,0 +1,5 @@
+component {2084d756-7c14-4aec-8238-93e2b17a581d} MutationObserverProxy.js
+contract @canonical.com/globalmenu-mutation-observer;1 {2084d756-7c14-4aec-8238-93e2b17a581d}
+
+component {eb2cf0b6-b438-49a4-a8d4-225fcd8edb62} MutationObserverProxy.js
+contract @canonical.com/globalmenu-mutation-observer-init;1 {eb2cf0b6-b438-49a4-a8d4-225fcd8edb62}

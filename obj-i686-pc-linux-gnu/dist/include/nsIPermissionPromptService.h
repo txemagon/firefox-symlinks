@@ -1,0 +1,1 @@
+../../dom/interfaces/permission/_xpidlgen/nsIPermissionPromptService.h

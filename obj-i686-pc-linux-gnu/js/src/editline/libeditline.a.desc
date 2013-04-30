@@ -1,0 +1,1 @@
+OBJS = /home/txema/work/firefox-20.0+build1/obj-i686-pc-linux-gnu/js/src/editline/editline.o /home/txema/work/firefox-20.0+build1/obj-i686-pc-linux-gnu/js/src/editline/sysunix.o

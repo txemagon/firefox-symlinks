@@ -1,0 +1,59 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
+<!ENTITY aboutSupport.pageTitle "Ախտորոշիչ տեղեկատվություն">
+
+<!-- LOCALIZATION NOTE (aboutSupport.pageSubtitle): don't change the 'supportLink' id. -->
+<!ENTITY aboutSupport.pageSubtitle "
+  Այս էջը պարունակում է տեխնիկական ինֆորմացիա, որը կարող է օգտակար լինել,
+  երբ դուք փորձում եք լուծել խնդիրը:Եթե դուք փնտրում եք &brandShortName;-ին
+  վերաբերող ընդհանուր հարցերին պատասխաններ,փորձեք մեր <a id='supportLink'> աջակցող կայքը </a>:
+">
+
+<!ENTITY aboutSupport.extensionsTitle "Ընդլայնում">
+<!ENTITY aboutSupport.extensionName "Անուն">
+<!ENTITY aboutSupport.extensionEnabled "Միացված է">
+<!ENTITY aboutSupport.extensionVersion "Տարբերակ">
+<!ENTITY aboutSupport.extensionId "ID">
+
+<!ENTITY aboutSupport.appBasicsTitle "Տեղեկություն հավելվածի մասին">
+<!ENTITY aboutSupport.appBasicsName "Անուն">
+<!ENTITY aboutSupport.appBasicsVersion "Տարբերակ">
+
+<!ENTITY aboutSupport.appBasicsProfileDir "Պրոֆիլի պահոց">
+<!-- LOCALIZATION NOTE (aboutSupport.appBasicsProfileDirWinMac):
+This is the Windows- and Mac-specific variant of aboutSupport.appBasicsProfileDir.
+Windows/Mac use the term "Folder" instead of "Directory" -->
+<!ENTITY aboutSupport.appBasicsProfileDirWinMac "Profile Folder">
+
+<!ENTITY aboutSupport.appBasicsEnabledPlugins "Միացված պլագիններ">
+<!ENTITY aboutSupport.appBasicsBuildConfig "Հավաքման ձևաչափ">
+<!ENTITY aboutSupport.appBasicsUserAgent "Օգտագործողի զննարկիչը">
+<!ENTITY aboutSupport.appBasicsCrashIDs "Crash Reports">
+<!ENTITY aboutSupport.appBasicsMemoryUse "Հիշողության ծավալ">
+
+<!ENTITY aboutSupport.showDir.label "Open Directory">
+<!-- LOCALIZATION NOTE (aboutSupport.showMac.label): This is the Mac-specific
+variant of aboutSupport.showDir.label.  This allows us to use the preferred
+"Finder" terminology on Mac. -->
+<!ENTITY aboutSupport.showMac.label "Ցույց տալ Finder -ում">
+<!-- LOCALIZATION NOTE (aboutSupport.showWin.label): This is the Windows-specific
+variant of aboutSupport.showDir.label. -->
+<!ENTITY aboutSupport.showWin.label "Show Folder">
+
+<!ENTITY aboutSupport.modifiedKeyPrefsTitle "Important Modified Preferences">
+<!ENTITY aboutSupport.modifiedPrefsName "Անուն">
+<!ENTITY aboutSupport.modifiedPrefsValue "Արժեքը">
+
+<!ENTITY aboutSupport.graphicsTitle "Գրաֆիկա">
+
+<!ENTITY aboutSupport.jsTitle "JavaScript">
+<!ENTITY aboutSupport.jsIncrementalGC "Incremental GC">
+
+<!ENTITY aboutSupport.libraryVersionsTitle "Library Versions">
+
+<!ENTITY aboutSupport.installationHistoryTitle "Տեղակայման մատյան">
+<!ENTITY aboutSupport.updateHistoryTitle "Թարմացումների մատյան">
+
+<!ENTITY aboutSupport.copyToClipboard.label "Պատճենել  հիշողության մեջ">

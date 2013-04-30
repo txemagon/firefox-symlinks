@@ -1,0 +1,1 @@
+_xpidlgen/nsILocaleService.xpt: /home/txema/work/firefox-20.0+build1/intl/locale/idl/nsILocaleService.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl /home/txema/work/firefox-20.0+build1/intl/locale/idl/nsILocale.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

@@ -1,0 +1,1 @@
+_xpidlgen/nsIDOMCSSValueList.xpt: /home/txema/work/firefox-20.0+build1/dom/interfaces/css/nsIDOMCSSValueList.idl ../../../dist/idl/domstubs.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl /home/txema/work/firefox-20.0+build1/dom/interfaces/css/nsIDOMCSSValue.idl ../../../dist/idl/domstubs.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

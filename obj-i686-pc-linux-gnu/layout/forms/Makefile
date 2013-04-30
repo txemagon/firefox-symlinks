@@ -1,0 +1,70 @@
+#
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+DEPTH		= ../..
+topsrcdir	= /home/txema/work/firefox-20.0+build1
+srcdir		= /home/txema/work/firefox-20.0+build1/layout/forms
+VPATH		= /home/txema/work/firefox-20.0+build1/layout/forms
+
+include $(DEPTH)/config/autoconf.mk
+
+DIRS = $(NULL)
+
+TEST_DIRS += test
+
+MODULE		= layout
+XPIDL_MODULE	= layout_forms
+LIBRARY_NAME	= gkforms_s
+LIBXUL_LIBRARY	= 1
+ifndef _MSC_VER
+FAIL_ON_WARNINGS = 1
+endif # !_MSC_VER
+
+XPIDLSRCS       = nsICapturePicker.idl
+
+EXPORTS		= \
+		nsIListControlFrame.h \
+		nsIComboboxControlFrame.h \
+		nsIFormControlFrame.h \
+		nsISelectControlFrame.h \
+		nsITextControlFrame.h \
+		$(NULL)
+
+CPPSRCS		= \
+		nsButtonFrameRenderer.cpp \
+		nsComboboxControlFrame.cpp \
+		nsFieldSetFrame.cpp \
+		nsFileControlFrame.cpp \
+		nsFormControlFrame.cpp \
+		nsGfxButtonControlFrame.cpp \
+		nsGfxCheckboxControlFrame.cpp \
+		nsGfxRadioControlFrame.cpp \
+		nsProgressFrame.cpp \
+		nsMeterFrame.cpp \
+		nsTextControlFrame.cpp \
+		nsHTMLButtonControlFrame.cpp \
+		nsImageControlFrame.cpp \
+		nsLegendFrame.cpp \
+		nsListControlFrame.cpp \
+		nsSelectsAreaFrame.cpp \
+		$(NULL)
+
+# we don't want the shared lib, but we want to force the creation of a static lib.
+FORCE_STATIC_LIB = 1
+
+include $(topsrcdir)/config/rules.mk
+
+LOCAL_INCLUDES	= \
+		-I$(srcdir)/../base \
+		-I$(srcdir)/../generic \
+		-I$(srcdir)/../xul/base/src \
+		-I$(srcdir)/../../content/base/src \
+		-I$(srcdir)/../../content/html/content/src \
+		-I$(srcdir)/../../editor/libeditor/base \
+		-I$(srcdir)/../../editor/libeditor/text \
+		-I$(srcdir)/../../editor/txmgr/src \
+		$(NULL)
+
+DEFINES += -D_IMPL_NS_LAYOUT

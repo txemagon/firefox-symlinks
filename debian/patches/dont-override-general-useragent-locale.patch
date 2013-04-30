@@ -1,0 +1,22 @@
+Index: firefox-trunk-16.0~a1~hg20120617r96908/browser/app/profile/firefox.js
+===================================================================
+--- firefox-trunk-16.0~a1~hg20120617r96908.orig/browser/app/profile/firefox.js	2012-06-18 14:28:33.691701290 +0100
++++ firefox-trunk-16.0~a1~hg20120617r96908/browser/app/profile/firefox.js	2012-06-18 14:28:41.067701160 +0100
+@@ -212,7 +212,6 @@
+ // "use the search service's default engine"
+ pref("keyword.URL", "");
+ 
+-pref("general.useragent.locale", "@AB_CD@");
+ pref("general.skins.selectedSkin", "classic/1.0");
+ 
+ pref("general.smoothScroll", true);
+Index: firefox-trunk-16.0~a1~hg20120617r96908/browser/locales/en-US/firefox-l10n.js
+===================================================================
+--- firefox-trunk-16.0~a1~hg20120617r96908.orig/browser/locales/en-US/firefox-l10n.js	2012-06-18 14:28:33.691701290 +0100
++++ firefox-trunk-16.0~a1~hg20120617r96908/browser/locales/en-US/firefox-l10n.js	2012-06-18 14:28:41.067701160 +0100
+@@ -3,5 +3,3 @@
+ # file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ 
+ #filter substitution
+-
+-pref("general.useragent.locale", "@AB_CD@");

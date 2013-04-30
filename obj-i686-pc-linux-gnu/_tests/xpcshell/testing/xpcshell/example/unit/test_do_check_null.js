@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/testing/xpcshell/example/unit/test_do_check_null.js

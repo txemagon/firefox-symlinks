@@ -1,0 +1,1 @@
+libgkplugin.a.desc : nsNPAPIPlugin.o nsNPAPIPluginInstance.o nsNPAPIPluginStreamListener.o nsPluginStreamListenerPeer.o nsPluginHost.o nsPluginModule.o nsJSNPRuntime.o nsPluginTags.o PluginPRLibrary.o nsPluginInstanceOwner.o nsPluginsDirUnix.o nsPluginNativeWindowGtk2.o

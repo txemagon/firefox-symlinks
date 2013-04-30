@@ -1,0 +1,5 @@
+[Additions]
+duckduckgo
+
+[Overrides]
+google

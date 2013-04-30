@@ -1,0 +1,1 @@
+libvideo_capture_module.a.desc : video_capture/main/source/video_capture_factory.o video_capture/main/source/video_capture_impl.o video_capture/main/source/device_info_impl.o video_capture/main/source/Linux/device_info_linux.o video_capture/main/source/Linux/video_capture_linux.o

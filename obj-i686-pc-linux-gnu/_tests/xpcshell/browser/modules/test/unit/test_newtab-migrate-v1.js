@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/browser/modules/test/unit/test_newtab-migrate-v1.js

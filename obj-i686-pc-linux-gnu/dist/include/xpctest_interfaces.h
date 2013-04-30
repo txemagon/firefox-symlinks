@@ -1,0 +1,1 @@
+../../js/xpconnect/tests/idl/_xpidlgen/xpctest_interfaces.h

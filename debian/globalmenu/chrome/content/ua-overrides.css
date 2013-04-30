@@ -1,0 +1,13 @@
+window[shellshowingmenubar="true"] menubar {
+  display: none ! important;
+}
+
+window[shellshowingmenubar="true"]
+toolbar[type="menubar"]:not([customizing="true"]) {
+  min-height: 0 !important;
+  border: 0 !important;
+}
+
+menubar menupopup:not([type]) {
+  -moz-binding: url("chrome://globalmenu/content/bindings.xml#popup") !important;
+}

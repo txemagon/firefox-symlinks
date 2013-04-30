@@ -1,0 +1,1 @@
+_xpidlgen/nsIDOMScreen.h: /home/txema/work/firefox-20.0+build1/dom/interfaces/base/nsIDOMScreen.idl /home/txema/work/firefox-20.0+build1/dom/interfaces/events/nsIDOMEventTarget.idl /home/txema/work/firefox-20.0+build1/dom/interfaces/base/domstubs.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

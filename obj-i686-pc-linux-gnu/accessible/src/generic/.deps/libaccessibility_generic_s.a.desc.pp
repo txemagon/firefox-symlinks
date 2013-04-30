@@ -1,0 +1,1 @@
+libaccessibility_generic_s.a.desc : Accessible.o ApplicationAccessible.o ARIAGridAccessible.o BaseAccessibles.o DocAccessible.o FormControlAccessible.o HyperTextAccessible.o ImageAccessible.o OuterDocAccessible.o RootAccessible.o TableCellAccessible.o TextLeafAccessible.o

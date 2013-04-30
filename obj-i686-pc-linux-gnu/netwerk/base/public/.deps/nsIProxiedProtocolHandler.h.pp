@@ -1,0 +1,1 @@
+_xpidlgen/nsIProxiedProtocolHandler.h: /home/txema/work/firefox-20.0+build1/netwerk/base/public/nsIProxiedProtocolHandler.idl /home/txema/work/firefox-20.0+build1/netwerk/base/public/nsIProtocolHandler.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

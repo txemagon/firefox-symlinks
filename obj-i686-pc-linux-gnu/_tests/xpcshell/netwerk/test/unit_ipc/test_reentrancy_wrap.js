@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/netwerk/test/unit_ipc/test_reentrancy_wrap.js

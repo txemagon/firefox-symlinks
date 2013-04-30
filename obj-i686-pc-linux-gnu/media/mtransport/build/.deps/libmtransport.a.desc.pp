@@ -1,0 +1,1 @@
+libmtransport.a.desc : dtlsidentity.o nricectx.o nricemediastream.o nr_socket_prsock.o nr_timer.o transportflow.o transportlayer.o transportlayerice.o transportlayerdtls.o transportlayerlog.o transportlayerloopback.o transportlayerprsock.o

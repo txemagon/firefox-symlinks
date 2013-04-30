@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/layout/generic/test/plugin_clipping_lib.js

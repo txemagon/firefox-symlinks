@@ -1,0 +1,1 @@
+../../dom/camera/_xpidlgen/nsIDOMNavigatorCamera.h

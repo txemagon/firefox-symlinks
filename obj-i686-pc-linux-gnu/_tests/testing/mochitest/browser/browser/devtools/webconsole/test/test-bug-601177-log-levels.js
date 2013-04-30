@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/browser/devtools/webconsole/test/test-bug-601177-log-levels.js

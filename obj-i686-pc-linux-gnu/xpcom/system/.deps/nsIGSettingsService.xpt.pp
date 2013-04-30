@@ -1,0 +1,1 @@
+_xpidlgen/nsIGSettingsService.xpt: /home/txema/work/firefox-20.0+build1/xpcom/system/nsIGSettingsService.idl ../../dist/idl/nsISupports.idl ../../dist/idl/nsrootidl.idl ../../dist/idl/nsIArray.idl ../../dist/idl/nsISupports.idl ../../dist/idl/nsrootidl.idl

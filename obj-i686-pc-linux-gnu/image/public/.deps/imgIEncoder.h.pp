@@ -1,0 +1,1 @@
+_xpidlgen/imgIEncoder.h: /home/txema/work/firefox-20.0+build1/image/public/imgIEncoder.idl ../../dist/idl/nsISupports.idl ../../dist/idl/nsrootidl.idl ../../dist/idl/nsIAsyncInputStream.idl ../../dist/idl/nsIInputStream.idl ../../dist/idl/nsISupports.idl ../../dist/idl/nsrootidl.idl ../../dist/idl/nsIEventTarget.idl ../../dist/idl/nsISupports.idl ../../dist/idl/nsrootidl.idl

@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/browser/devtools/webconsole/test/browser_bug664688_sandbox_update_after_navigation.js

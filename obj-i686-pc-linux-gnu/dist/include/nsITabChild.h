@@ -1,0 +1,1 @@
+../../dom/interfaces/base/_xpidlgen/nsITabChild.h

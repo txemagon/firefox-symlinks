@@ -1,0 +1,1 @@
+../../dom/interfaces/events/_xpidlgen/nsIDOMSimpleGestureEvent.h

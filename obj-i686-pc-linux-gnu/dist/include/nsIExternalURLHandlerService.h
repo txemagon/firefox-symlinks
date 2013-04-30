@@ -1,0 +1,1 @@
+../../uriloader/exthandler/_xpidlgen/nsIExternalURLHandlerService.h

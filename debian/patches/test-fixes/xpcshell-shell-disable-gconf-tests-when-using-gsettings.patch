@@ -1,0 +1,19 @@
+Index: firefox-trunk-19.0~a1~hg20121114r113217/browser/components/shell/test/unit/test_421977.js
+===================================================================
+--- firefox-trunk-19.0~a1~hg20121114r113217.orig/browser/components/shell/test/unit/test_421977.js	2012-11-14 21:07:25.000000000 +0000
++++ firefox-trunk-19.0~a1~hg20121114r113217/browser/components/shell/test/unit/test_421977.js	2012-11-19 20:36:33.069712870 +0000
+@@ -67,6 +67,14 @@
+   if (!("@mozilla.org/gnome-gconf-service;1" in Cc))
+     return;
+ 
++  try {
++    // If GSettings is available, then the GConf tests
++    // will fail
++    var gsettings = Cc["@mozilla.org/gsettings-service;1"].
++                    getService(Ci.nsIGSettingsService);
++    return;
++  } catch(e) { }
++
+   gGConf = Cc["@mozilla.org/gnome-gconf-service;1"].
+            getService(Ci.nsIGConfService);
+ 

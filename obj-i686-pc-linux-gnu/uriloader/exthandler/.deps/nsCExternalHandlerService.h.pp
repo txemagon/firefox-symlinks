@@ -1,0 +1,1 @@
+_xpidlgen/nsCExternalHandlerService.h: /home/txema/work/firefox-20.0+build1/uriloader/exthandler/nsCExternalHandlerService.idl /home/txema/work/firefox-20.0+build1/uriloader/exthandler/nsIExternalHelperAppService.idl ../../dist/idl/nsICancelable.idl ../../dist/idl/nsISupports.idl ../../dist/idl/nsrootidl.idl

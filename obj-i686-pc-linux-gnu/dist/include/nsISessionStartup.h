@@ -1,0 +1,1 @@
+../../browser/components/sessionstore/_xpidlgen/nsISessionStartup.h

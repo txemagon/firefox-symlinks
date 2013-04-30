@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/toolkit/forgetaboutsite/test/browser/browser_clearplugindata.js

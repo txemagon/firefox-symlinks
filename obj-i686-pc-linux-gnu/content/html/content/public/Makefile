@@ -1,0 +1,45 @@
+#
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+DEPTH     = ../../../..
+topsrcdir = /home/txema/work/firefox-20.0+build1
+srcdir    = /home/txema/work/firefox-20.0+build1/content/html/content/public
+VPATH     = /home/txema/work/firefox-20.0+build1/content/html/content/public
+
+include $(DEPTH)/config/autoconf.mk
+
+MODULE       = content
+XPIDL_MODULE = content_html
+
+XPIDLSRCS = \
+		nsIFormSubmitObserver.idl \
+		nsIPhonetic.idl \
+		nsIHTMLMenu.idl \
+		nsIMenuBuilder.idl \
+		$(NULL)
+
+EXPORTS = \
+		nsIConstraintValidation.h \
+		nsIFormControl.h \
+		nsIForm.h \
+		nsIFormProcessor.h \
+		nsILink.h \
+		nsIRadioVisitor.h \
+		nsIRadioGroupContainer.h \
+		nsITextControlElement.h \
+		nsFormSubmission.h \
+		nsHTMLAudioElement.h \
+		nsHTMLMediaElement.h \
+		nsHTMLVideoElement.h \
+		nsIHTMLCollection.h \
+		$(NULL)
+
+EXPORTS_NAMESPACES = mozilla/dom
+
+EXPORTS_mozilla/dom = \
+		HTMLCanvasElement.h \
+		$(NULL)
+
+include $(topsrcdir)/config/rules.mk

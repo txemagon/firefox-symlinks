@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/uriloader/exthandler/tests/unit/test_getTypeFromExtension_with_empty_Content_Type.js

@@ -1,0 +1,1 @@
+_xpidlgen/nsISystemProxySettings.h: /home/txema/work/firefox-20.0+build1/netwerk/base/public/nsISystemProxySettings.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl /home/txema/work/firefox-20.0+build1/netwerk/base/public/nsIURI.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

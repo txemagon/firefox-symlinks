@@ -1,0 +1,1 @@
+_xpidlgen/nsIDOMPaintRequest.xpt: /home/txema/work/firefox-20.0+build1/dom/interfaces/events/nsIDOMPaintRequest.idl ../../../dist/idl/domstubs.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

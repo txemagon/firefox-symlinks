@@ -1,0 +1,1 @@
+../../widget/_xpidlgen/nsIClipboard.h

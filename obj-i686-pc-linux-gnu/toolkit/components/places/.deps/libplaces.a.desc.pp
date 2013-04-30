@@ -1,0 +1,1 @@
+libplaces.a.desc : nsAnnoProtocolHandler.o nsAnnotationService.o nsFaviconService.o nsNavHistory.o nsNavHistoryQuery.o nsNavHistoryResult.o nsNavBookmarks.o nsMaybeWeakPtr.o nsPlacesModule.o SQLFunctions.o Helpers.o History.o AsyncFaviconHelpers.o PlaceInfo.o VisitInfo.o Database.o

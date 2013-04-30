@@ -1,0 +1,1 @@
+_xpidlgen/nsIXSLTProcessor.h: /home/txema/work/firefox-20.0+build1/content/xslt/public/nsIXSLTProcessor.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl ../../../dist/idl/domstubs.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

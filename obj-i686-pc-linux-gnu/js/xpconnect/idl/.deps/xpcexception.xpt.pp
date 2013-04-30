@@ -1,0 +1,1 @@
+_xpidlgen/xpcexception.xpt: /home/txema/work/firefox-20.0+build1/js/xpconnect/idl/xpcexception.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl ../../../dist/idl/nsIException.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl ../../../dist/idl/nsIProgrammingLanguage.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

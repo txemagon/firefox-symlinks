@@ -1,0 +1,1 @@
+libaccessibility_html_s.a.desc : HTMLCanvasAccessible.o HTMLElementAccessibles.o HTMLFormControlAccessible.o HTMLImageMapAccessible.o HTMLLinkAccessible.o HTMLListAccessible.o HTMLSelectAccessible.o HTMLTableAccessible.o

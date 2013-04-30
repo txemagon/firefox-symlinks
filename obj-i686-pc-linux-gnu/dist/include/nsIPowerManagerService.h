@@ -1,0 +1,1 @@
+../../dom/power/_xpidlgen/nsIPowerManagerService.h

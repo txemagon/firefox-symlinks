@@ -1,0 +1,52 @@
+#
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+DEPTH      = ../../../..
+topsrcdir  = /home/txema/work/firefox-20.0+build1
+srcdir     = /home/txema/work/firefox-20.0+build1/browser/app/profile/extensions
+VPATH      = /home/txema/work/firefox-20.0+build1/browser/app/profile/extensions
+
+DISTROEXT = $(call core_abspath,$(FINAL_TARGET))/distribution/extensions
+
+include $(DEPTH)/config/autoconf.mk
+
+DIRS = \
+  {972ce4c6-7e08-4474-a285-3208198ce6fd} \
+  $(NULL)
+
+include $(topsrcdir)/config/config.mk
+
+ifneq (,$(filter beta,$(MOZ_UPDATE_CHANNEL)))
+EXTENSIONS = \
+  testpilot@labs.mozilla.com \
+  $(NULL)
+
+all_xpis = $(foreach dir,$(EXTENSIONS),$(DISTROEXT)/$(dir).xpi)
+libs:: $(all_xpis)
+GARBAGE += $(all_xpis)
+
+define pp_one
+$(2) := $(2)
+$(2)_PATH := $(dir $(2))
+$(2)_TARGET := libs-$(1)
+PP_TARGETS += $(2)
+endef
+$(foreach d,$(EXTENSIONS), \
+  $(foreach in,$(shell cd $(srcdir) ; find $(d) -name '*.in'), \
+    $(eval $(call pp_one,$(d),$(in))) \
+  ) \
+)
+
+endif
+
+include $(topsrcdir)/config/rules.mk
+
+$(all_xpis): $(DISTROEXT)/%.xpi: $(call mkdir_deps,$(DISTROEXT)) libs-%
+	cd $* && \
+	$(ZIP) -r9XD $@ * -x \*.in -x \*.mkdir.done
+	cd $(call core_abspath,$(srcdir)/$*) && \
+	$(ZIP) -r9XD $@ * -x \*.in -x \*.mkdir.done
+
+.PHONY: $(all_xpis:.xpi=)

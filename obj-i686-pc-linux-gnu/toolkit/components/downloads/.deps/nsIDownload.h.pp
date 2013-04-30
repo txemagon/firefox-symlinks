@@ -1,0 +1,1 @@
+_xpidlgen/nsIDownload.h: /home/txema/work/firefox-20.0+build1/toolkit/components/downloads/nsIDownload.idl ../../../dist/idl/nsITransfer.idl ../../../dist/idl/nsIWebProgressListener2.idl ../../../dist/idl/nsIWebProgressListener.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

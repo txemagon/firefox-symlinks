@@ -1,0 +1,1 @@
+libhal_s.a.desc : Hal.o SandboxHal.o WindowIdentifier.o HalWakeLock.o LinuxPower.o FallbackScreenConfiguration.o FallbackSensor.o FallbackVibration.o FallbackAlarm.o UPowerClient.o FallbackLights.o FallbackTime.o FallbackWakeLocks.o FallbackSwitch.o FallbackScreenPower.o FallbackProcessPriority.o FallbackFMRadio.o FallbackFactoryReset.o FallbackNetwork.o

@@ -1,0 +1,1 @@
+_xpidlgen/nsIProtocolProxyService2.h: /home/txema/work/firefox-20.0+build1/netwerk/base/public/nsIProtocolProxyService2.idl /home/txema/work/firefox-20.0+build1/netwerk/base/public/nsIProtocolProxyService.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

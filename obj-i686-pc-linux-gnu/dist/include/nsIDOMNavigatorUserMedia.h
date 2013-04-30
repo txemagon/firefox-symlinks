@@ -1,0 +1,1 @@
+../../dom/media/_xpidlgen/nsIDOMNavigatorUserMedia.h

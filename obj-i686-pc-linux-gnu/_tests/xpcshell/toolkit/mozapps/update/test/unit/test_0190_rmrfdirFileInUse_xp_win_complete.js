@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/toolkit/mozapps/update/test/unit/test_0190_rmrfdirFileInUse_xp_win_complete.js

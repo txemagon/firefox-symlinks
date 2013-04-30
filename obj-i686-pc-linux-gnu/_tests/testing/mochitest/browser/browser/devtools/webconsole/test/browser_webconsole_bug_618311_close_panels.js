@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/browser/devtools/webconsole/test/browser_webconsole_bug_618311_close_panels.js

@@ -1,0 +1,1 @@
+_xpidlgen/nsICategoryManager.h: /home/txema/work/firefox-20.0+build1/xpcom/components/nsICategoryManager.idl ../../dist/idl/nsISupports.idl ../../dist/idl/nsrootidl.idl ../../dist/idl/nsISimpleEnumerator.idl ../../dist/idl/nsISupports.idl ../../dist/idl/nsrootidl.idl

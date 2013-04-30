@@ -1,0 +1,1 @@
+libdom_indexeddb_s.a.desc : AsyncConnectionHelper.o CheckPermissionsHelper.o DatabaseInfo.o FileInfo.o FileManager.o IDBCursor.o IDBDatabase.o IDBEvents.o IDBFactory.o IDBFileHandle.o IDBIndex.o IDBKeyRange.o IDBObjectStore.o IDBRequest.o IDBTransaction.o IDBWrapperCache.o IndexedDatabaseManager.o Key.o KeyPath.o OpenDatabaseHelper.o TransactionThreadPool.o

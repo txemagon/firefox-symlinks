@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/dom/indexedDB/test/unit/test_objectStore_inline_autoincrement_key_added_on_put.js

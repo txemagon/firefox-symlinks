@@ -1,0 +1,35 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+DEPTH     = ../..
+topsrcdir = /home/txema/work/firefox-20.0+build1
+srcdir    = /home/txema/work/firefox-20.0+build1/services/metrics
+VPATH     = /home/txema/work/firefox-20.0+build1/services/metrics
+
+include $(DEPTH)/config/autoconf.mk
+
+modules := \
+  collector.jsm \
+  dataprovider.jsm \
+  storage.jsm \
+  $(NULL)
+
+testing_modules := \
+  mocks.jsm \
+  $(NULL)
+
+# We install Metrics.jsm into the "main" JSM repository and the rest in
+# services. External consumers should only go through Metrics.jsm.
+EXTRA_JS_MODULES := Metrics.jsm
+
+TEST_DIRS += tests
+
+MODULES_FILES := $(modules)
+MODULES_DEST = $(FINAL_TARGET)/modules/services/metrics
+INSTALL_TARGETS += MODULES
+
+TESTING_JS_MODULES := $(addprefix modules-testing/,$(testing_modules))
+TESTING_JS_MODULE_DIR := services/metrics
+
+include $(topsrcdir)/config/rules.mk

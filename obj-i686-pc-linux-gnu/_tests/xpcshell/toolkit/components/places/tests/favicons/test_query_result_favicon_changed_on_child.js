@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/toolkit/components/places/tests/favicons/test_query_result_favicon_changed_on_child.js

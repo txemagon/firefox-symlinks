@@ -1,0 +1,15 @@
+Index: firefox-trunk-19.0~a1~hg20121114r113217/browser/components/test/Makefile.in
+===================================================================
+--- firefox-trunk-19.0~a1~hg20121114r113217.orig/browser/components/test/Makefile.in	2012-11-14 21:07:25.000000000 +0000
++++ firefox-trunk-19.0~a1~hg20121114r113217/browser/components/test/Makefile.in	2012-11-21 22:37:47.978528706 +0000
+@@ -10,8 +10,10 @@
+ 
+ include $(DEPTH)/config/autoconf.mk
+ 
++ifdef MOZ_UPDATER
+ MOCHITEST_BROWSER_FILES = \
+   browser_bug538331.js \
+   $(NULL)
++endif
+ 
+ include $(topsrcdir)/config/rules.mk

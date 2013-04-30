@@ -1,0 +1,1 @@
+libyuv.a.desc : source/compare.o source/convert.o source/convert_argb.o source/convert_from.o source/cpu_id.o source/format_conversion.o source/mjpeg_decoder.o source/planar_functions.o source/rotate.o source/rotate_argb.o source/rotate_neon.o source/row_common.o source/row_neon.o source/row_posix.o source/row_win.o source/scale.o source/scale_argb.o source/video_common.o

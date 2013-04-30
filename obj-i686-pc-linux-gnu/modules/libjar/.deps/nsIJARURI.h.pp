@@ -1,0 +1,1 @@
+_xpidlgen/nsIJARURI.h: /home/txema/work/firefox-20.0+build1/modules/libjar/nsIJARURI.idl ../../dist/idl/nsIURL.idl ../../dist/idl/nsIURI.idl ../../dist/idl/nsISupports.idl ../../dist/idl/nsrootidl.idl

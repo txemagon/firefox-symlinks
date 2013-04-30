@@ -1,0 +1,1 @@
+_xpidlgen/nsIRDFXMLSource.xpt: /home/txema/work/firefox-20.0+build1/rdf/base/idl/nsIRDFXMLSource.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl ../../../dist/idl/nsIOutputStream.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

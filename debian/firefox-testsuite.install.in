@@ -1,0 +1,64 @@
+@MOZ_DISTDIR@/test-package-stage/bin/components @MOZ_LIBDIR@
+@MOZ_DISTDIR@/test-package-stage/bin/plugins @MOZ_TESTDIR@
+@MOZ_DISTDIR@/test-package-stage/bin/certutil @MOZ_LIBDIR@
+@MOZ_DISTDIR@/test-package-stage/bin/pk12util @MOZ_LIBDIR@
+@MOZ_DISTDIR@/test-package-stage/bin/screentopng @MOZ_LIBDIR@
+@MOZ_DISTDIR@/test-package-stage/bin/ssltunnel @MOZ_LIBDIR@
+@MOZ_DISTDIR@/test-package-stage/bin/xpcshell @MOZ_LIBDIR@
+
+@MOZ_DISTDIR@/test-package-stage/certs @MOZ_TESTDIR@
+
+@MOZ_DISTDIR@/test-package-stage/jsreftest @MOZ_TESTDIR@
+
+@MOZ_DISTDIR@/test-package-stage/mochitest/a11y @MOZ_TESTDIR@/mochitest
+@MOZ_DISTDIR@/test-package-stage/mochitest/browser @MOZ_TESTDIR@/mochitest
+@MOZ_DISTDIR@/test-package-stage/mochitest/chrome @MOZ_TESTDIR@/mochitest
+@MOZ_DISTDIR@/test-package-stage/mochitest/dynamic @MOZ_TESTDIR@/mochitest
+@MOZ_DISTDIR@/test-package-stage/mochitest/extensions/worker @MOZ_TESTDIR@/mochitest/extensions
+@MOZ_DISTDIR@/test-package-stage/mochitest/extensions/workerbootstrap @MOZ_TESTDIR@/mochitest/extensions
+@MOZ_DISTDIR@/test-package-stage/mochitest/httpd.js @MOZ_TESTDIR@/mochitest
+@MOZ_DISTDIR@/test-package-stage/mochitest/mochijar @MOZ_TESTDIR@/mochitest
+@MOZ_DISTDIR@/test-package-stage/mochitest/MochiKit @MOZ_TESTDIR@/mochitest
+@MOZ_DISTDIR@/test-package-stage/mochitest/plain-loop.html @MOZ_TESTDIR@/mochitest
+@MOZ_DISTDIR@/test-package-stage/mochitest/pywebsocket @MOZ_TESTDIR@/mochitest
+@MOZ_DISTDIR@/test-package-stage/mochitest/pywebsocket_wrapper.py @MOZ_TESTDIR@/mochitest
+@MOZ_DISTDIR@/test-package-stage/mochitest/redirect.html @MOZ_TESTDIR@/mochitest
+@MOZ_DISTDIR@/test-package-stage/mochitest/resources @MOZ_TESTDIR@/mochitest
+@MOZ_DISTDIR@/test-package-stage/mochitest/runtests.py @MOZ_TESTDIR@/mochitest
+@MOZ_DISTDIR@/test-package-stage/mochitest/server.js @MOZ_TESTDIR@/mochitest
+@MOZ_DISTDIR@/test-package-stage/mochitest/server-locations.txt @MOZ_TESTDIR@/mochitest
+@MOZ_DISTDIR@/test-package-stage/mochitest/static @MOZ_TESTDIR@/mochitest
+@MOZ_DISTDIR@/test-package-stage/mochitest/tests @MOZ_TESTDIR@/mochitest
+@MOZ_DISTDIR@/test-package-stage/mochitest/tests.jar @MOZ_TESTDIR@/mochitest
+
+@MOZ_DISTDIR@/test-package-stage/modules @MOZ_TESTDIR@
+
+@MOZ_DISTDIR@/test-package-stage/reftest/reftest @MOZ_TESTDIR@/reftest
+@MOZ_DISTDIR@/test-package-stage/reftest/runreftest.py @MOZ_TESTDIR@/reftest
+@MOZ_DISTDIR@/test-package-stage/reftest/server-locations.txt @MOZ_TESTDIR@/reftest
+@MOZ_DISTDIR@/test-package-stage/reftest/tests @MOZ_TESTDIR@/reftest
+
+@MOZ_DISTDIR@/test-package-stage/xpcshell/head.js @MOZ_TESTDIR@/xpcshell
+@MOZ_DISTDIR@/test-package-stage/xpcshell/moz-spdy @MOZ_TESTDIR@/xpcshell
+@MOZ_DISTDIR@/test-package-stage/xpcshell/node-spdy @MOZ_TESTDIR@/xpcshell
+@MOZ_DISTDIR@/test-package-stage/xpcshell/runxpcshelltests.py @MOZ_TESTDIR@/xpcshell
+@MOZ_DISTDIR@/test-package-stage/xpcshell/tests @MOZ_TESTDIR@/xpcshell
+
+@MOZ_DISTDIR@/test-package-stage/mochitest/extensions/specialpowers @MOZ_TESTDIR@/extensions
+
+@MOZ_DISTDIR@/test-package-stage/mochitest/automation.py @MOZ_TESTDIR@/python
+@MOZ_DISTDIR@/test-package-stage/mochitest/automationutils.py @MOZ_TESTDIR@/python
+@MOZ_DISTDIR@/test-package-stage/mochitest/manifestparser.py @MOZ_TESTDIR@/python
+@MOZ_DISTDIR@/test-package-stage/xpcshell/mozinfo.json @MOZ_TESTDIR@/python
+@MOZ_DISTDIR@/test-package-stage/xpcshell/mozinfo.py @MOZ_TESTDIR@/python
+
+debian/testing/run_mochitest @MOZ_TESTDIR@
+debian/testing/run_reftest @MOZ_TESTDIR@
+debian/testing/run_xpcshell_tests @MOZ_TESTDIR@
+debian/testing/testrunhelper.py @MOZ_TESTDIR@
+
+debian/testing/mochitest*.json @MOZ_TESTDIR@/mochitest
+
+debian/testing/xpcshell-package-tests/* @MOZ_TESTDIR@/xpcshell/package-tests
+debian/config/locales.shipped @MOZ_TESTDIR@/xpcshell/package-tests/data
+

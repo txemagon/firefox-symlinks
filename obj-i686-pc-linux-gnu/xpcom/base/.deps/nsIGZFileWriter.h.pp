@@ -1,0 +1,1 @@
+_xpidlgen/nsIGZFileWriter.h: /home/txema/work/firefox-20.0+build1/xpcom/base/nsIGZFileWriter.idl /home/txema/work/firefox-20.0+build1/xpcom/base/nsISupports.idl /home/txema/work/firefox-20.0+build1/xpcom/base/nsrootidl.idl

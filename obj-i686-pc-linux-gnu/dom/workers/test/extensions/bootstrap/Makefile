@@ -1,0 +1,27 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+DEPTH            = ../../../../..
+topsrcdir        = /home/txema/work/firefox-20.0+build1
+srcdir           = /home/txema/work/firefox-20.0+build1/dom/workers/test/extensions/bootstrap
+VPATH            = /home/txema/work/firefox-20.0+build1/dom/workers/test/extensions/bootstrap
+
+include $(DEPTH)/config/autoconf.mk
+
+XPI_NAME = workerbootstrap
+
+DIST_FILES = \
+  bootstrap.js \
+  install.rdf \
+  worker.js \
+  $(NULL)
+
+TEST_EXTENSIONS_DIR = $(DEPTH)/_tests/testing/mochitest/extensions
+
+GENERATED_DIRS = $(TEST_EXTENSIONS_DIR)
+
+include $(topsrcdir)/config/rules.mk
+
+libs::
+	@(cd $(DIST)/xpi-stage && tar $(TAR_CREATE_FLAGS) - $(XPI_NAME)) | (cd $(TEST_EXTENSIONS_DIR) && tar -xf -)

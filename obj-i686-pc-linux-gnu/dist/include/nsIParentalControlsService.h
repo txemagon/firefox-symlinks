@@ -1,0 +1,1 @@
+../../toolkit/components/parentalcontrols/_xpidlgen/nsIParentalControlsService.h

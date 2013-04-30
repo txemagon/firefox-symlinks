@@ -1,0 +1,20 @@
+{
+ "runtests": {},
+ "excludetests": {
+  "content/base/test/test_mixed_content_blocker_bug803225.html": "FAILS",
+  "content/canvas/test/webgl/test_webgl_conformance_test_suite.html": "UNSUPPORTED",
+  "content/media/test/test_a4_tone.html": "FAILS",
+  "docshell/test/navigation/test_bug13871.html": "FAILS",
+  "docshell/test/navigation/test_not-opener.html": "FAILS",
+  "dom/plugins/test/test_crashing.html": "FAILS",
+  "dom/plugins/test/test_hanging.html": "FAILS",
+  "dom/tests/mochitest/bugs/test_bug458091.html": "FAILS",
+  "dom/tests/mochitest/geolocation/": "FAILS",
+  "editor/libeditor/html/tests/test_bug432225.html": "FAILS",
+  "editor/libeditor/html/tests/test_bug484181.html": "FAILS",
+  "editor/libeditor/text/tests/test_bug596333.html": "FAILS",
+  "parser/htmlparser/tests/mochitest/test_bug672453.html": "FAILS",
+  "toolkit/content/tests/widgets/test_contextmenu_nested.xul": "FAILS",
+  "toolkit/content/tests/widgets/test_videocontrols.html": "FAILS"
+ }
+}

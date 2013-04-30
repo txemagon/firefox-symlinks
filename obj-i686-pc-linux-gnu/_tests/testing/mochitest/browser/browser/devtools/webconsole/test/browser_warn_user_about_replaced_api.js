@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/browser/devtools/webconsole/test/browser_warn_user_about_replaced_api.js

@@ -1,0 +1,1 @@
+../../netwerk/mime/_xpidlgen/nsIMIMEInfo.h

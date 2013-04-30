@@ -1,0 +1,1 @@
+libgkconxbl_s.a.desc : nsXBLBinding.o nsXBLPrototypeBinding.o nsXBLPrototypeResources.o nsXBLResourceLoader.o nsXBLDocumentInfo.o nsXBLContentSink.o nsXBLProtoImplProperty.o nsXBLProtoImplMethod.o nsXBLProtoImplField.o nsXBLProtoImpl.o nsXBLEventHandler.o nsXBLWindowKeyHandler.o nsXBLPrototypeHandler.o nsXBLService.o nsBindingManager.o nsXBLInsertionPoint.o nsXBLSerialize.o

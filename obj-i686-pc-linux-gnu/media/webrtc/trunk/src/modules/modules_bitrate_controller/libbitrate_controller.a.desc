@@ -1,0 +1,1 @@
+OBJS = /home/txema/work/firefox-20.0+build1/obj-i686-pc-linux-gnu/media/webrtc/trunk/src/modules/modules_bitrate_controller/bitrate_controller/bitrate_controller_impl.o /home/txema/work/firefox-20.0+build1/obj-i686-pc-linux-gnu/media/webrtc/trunk/src/modules/modules_bitrate_controller/bitrate_controller/send_side_bandwidth_estimation.o

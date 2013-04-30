@@ -1,0 +1,2 @@
+no-preparation
+extend-diff-ignore = "^\.mozconfig\."

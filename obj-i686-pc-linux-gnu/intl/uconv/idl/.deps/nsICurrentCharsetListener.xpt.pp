@@ -1,0 +1,1 @@
+_xpidlgen/nsICurrentCharsetListener.xpt: /home/txema/work/firefox-20.0+build1/intl/uconv/idl/nsICurrentCharsetListener.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

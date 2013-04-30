@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/browser/devtools/webconsole/test/browser_webconsole_bug_630733_response_redirect_headers.js

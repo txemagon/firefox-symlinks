@@ -1,0 +1,224 @@
+#!/usr/bin/make -f
+
+include $(CURDIR)/debian/build/mozvars.mk
+
+MOZ_PKG_BASENAME	:= firefox
+MOZ_APP			:= browser
+MOZ_VENDOR		:= Mozilla
+MOZ_MOZDIR		:=
+
+MOZ_BRANDING		:= $(CHANNEL)
+ifneq (,$(filter release beta, $(MOZ_BRANDING)))
+MOZ_BRANDING		:= official
+endif
+ifeq (1,$(MOZ_BUILD_UNOFFICIAL))
+ifneq (,$(filter official aurora, $(MOZ_BRANDING)))
+MOZ_BRANDING		:= unofficial
+endif
+endif
+MOZ_BRANDING_DIR 	:= $(MOZ_APP)/branding/$(MOZ_BRANDING)
+ifeq (official,$(BRANDING))
+MOZ_BRANDING_OPTION	:= --enable-official-branding
+else
+MOZ_BRANDING_OPTION	:= --with-branding=$(MOZ_BRANDING_DIR)
+endif
+
+ifneq (,$(filter oneiric, $(DISTRIB_CODENAME)))
+MOZ_SEARCHPLUGIN_DIR	= $(MOZ_ADDONDIR)/distribution/searchplugins
+else
+MOZ_SEARCHPLUGIN_DIR	= $(MOZ_LIBDIR)/distribution/searchplugins
+endif
+
+ifneq (,$(filter lucid, $(DISTRIB_CODENAME)))
+MOZ_PKG_SUPPORT_SUGGESTS	= $(MOZ_PKG_NAME)-gnome-support, kmozillahelper (>= 0.6)
+else
+ifneq (,$(filter lucid maverick natty oneiric, $(DISTRIB_CODENAME)))
+MOZ_PKG_SUPPORT_SUGGESTS	= $(MOZ_PKG_NAME)-gnome-support | firefox-kde-support
+endif
+endif
+
+MOZ_PKGNAME_SUBST_FILES = \
+	debian/usr.bin.$(MOZ_PKG_NAME) \
+	debian/README.Debian \
+	debian/$(MOZ_PKG_NAME)-locale.preinst \
+	debian/$(MOZ_PKG_BASENAME).sh \
+	debian/apport/blacklist \
+	debian/apport/native-origins \
+	debian/apport/source_$(MOZ_PKG_NAME).py \
+	debian/testing/run_mochitest \
+	debian/testing/run_reftest \
+	debian/testing/run_xpcshell_tests \
+	$(NULL)
+
+MOZ_APPNAME_SUBST_FILES = \
+	debian/$(MOZ_APP_NAME).1 \
+	debian/$(MOZ_APP_NAME)-restart-required.update-notifier \
+	$(NULL)
+
+MOZ_PKGCONFIG_FILES = \
+	debian/pkgconfig/mozilla-plugin.pc \
+	debian/pkgconfig/libxul.pc \
+	debian/pkgconfig/mozilla-nspr.pc \
+	$(NULL)
+
+include $(CURDIR)/debian/build/mozbuild.mk
+
+MOZ_EXECUTABLES_$(MOZ_PKG_NAME)-testsuite =	$(MOZ_TESTDIR)/run_mochitest \
+						$(MOZ_TESTDIR)/run_reftest \
+						$(MOZ_TESTDIR)/run_xpcshell_tests \
+						$(MOZ_LIBDIR)/xpcshell \
+						$(NULL)
+
+debian/usr.bin.firefox.in:
+	if [ '$(DISTRIB_VERSION_MAJOR)$(DISTRIB_VERSION_MINOR)' -ge '1204' ]; then \
+		cp $(CURDIR)/debian/usr.bin.firefox.apparmor.12.04 $(CURDIR)/debian/usr.bin.firefox.in ; \
+	elif [ '$(DISTRIB_VERSION_MAJOR)$(DISTRIB_VERSION_MINOR)' -ge '1104' ]; then \
+		cp $(CURDIR)/debian/usr.bin.firefox.apparmor.11.04 $(CURDIR)/debian/usr.bin.firefox.in ; \
+	elif [ '$(DISTRIB_VERSION_MAJOR)$(DISTRIB_VERSION_MINOR)' -ge '1010' ]; then \
+		cp $(CURDIR)/debian/usr.bin.firefox.apparmor.10.10 $(CURDIR)/debian/usr.bin.firefox.in ; \
+	elif [ "$(DISTRIB_VERSION_MAJOR)" -ge "10" ]; then \
+		cp $(CURDIR)/debian/usr.bin.firefox.apparmor.10.04 $(CURDIR)/debian/usr.bin.firefox.in ; \
+	else \
+		cp $(CURDIR)/debian/usr.bin.firefox.apparmor.9.10 $(CURDIR)/debian/usr.bin.firefox.in ; \
+	fi
+
+ifeq (firefox, $(MOZ_APP_NAME))
+ifneq (,$(filter lucid, $(DISTRIB_CODENAME)))
+PLUGIN_BREAKS := flashplugin-installer (<= 11.2.202.233ubuntu0.10.04.1), adobe-flashplugin (<= 11.1.102.63-0lucid1)
+PLUGIN_CONFLICTS := gcu-plugin (<= 0.10.12-2ubuntu1), gecko-mediaplayer (<= 0.9.9.2-1ubuntu0.10.04.1), \
+		    mozilla-gtk-vnc (<= 0.3.10-2ubuntu2.1), mozilla-opensc  (<= 0.11.12-1ubuntu3.2), \
+		    mozilla-plugin-pcmanx (<= 0.3.9-2ubuntu2), mozplugger (<= 1.13.3-1ubuntu1), \
+		    xine-plugin (<= 1.0.2-1ubuntu2), mozilla-virt-viewer (<= 0.0.3-6ubuntu7.xul191.1)
+else
+ifneq (,$(filter maverick, $(DISTRIB_CODENAME)))
+PLUGIN_BREAKS := flashplugin-installer (<= 11.2.202.228ubuntu0.10.10.1), adobe-flashplugin (<= 11.1.102.63-0maverick1)
+PLUGIN_CONFLICTS := gcu-plugin (<= 0.12.3-1), gecko-mediaplayer (<= 0.9.9.2-1ubuntu0.10.10.1), \
+		    mozilla-gtk-vnc (<= 0.4.1-3ubuntu2), mozilla-opensc (<= 0.11.13-1ubuntu2.1), \
+		    mozilla-plugin-pcmanx (<= 0.3.9-2ubuntu2), mozplugger (<= 1.14.1-2~exp3ubuntu1), \
+		    xine-plugin (<= 1.0.2-2ubuntu1)
+else
+ifneq (,$(filter natty, $(DISTRIB_CODENAME)))
+PLUGIN_BREAKS := flashplugin-installer (<= 11.2.202.233ubuntu0.11.04.2), adobe-flashplugin (<= 11.1.102.63-0natty1)
+PLUGIN_CONFLICTS := gcu-plugin (<=  0.12.7-1ubuntu1)
+else
+ifneq (,$(filter oneiric, $(DISTRIB_CODENAME)))
+PLUGIN_BREAKS := flashplugin-installer (<= 11.2.202.233ubuntu0.11.10.3), adobe-flashplugin (<= 11.1.102.63-0oneiric1)
+PLUGIN_CONFLICTS := gcu-plugin (<= 0.12.8-1ubuntu3)
+else
+ifneq (,$(filter precise, $(DISTRIB_CODENAME)))
+PLUGIN_BREAKS := flashplugin-installer (<= 11.1.102.63ubuntu1), adobe-flashplugin (<= 11.1.102.63-0precise1)
+PLUGIN_CONFLICTS := gcu-plugin (<= 0.12.10-1ubuntu1)
+endif
+endif
+endif
+endif
+endif
+endif
+
+WRITE_SUBSTVARS = $(shell echo "$(2)=$(3)" | sed -n 's/[ \t\n]\+/ /g p' >> debian/$(1).substvars)
+
+ifeq (firefox, $(MOZ_PKG_NAME))
+ifeq (,$(filter lucid maverick natty oneiric precise, $(DISTRIB_CODENAME)))
+install/firefox::
+	$(call WRITE_SUBSTVARS,firefox,transitional:Replaces,kubuntu-firefox-installer)
+else
+ifeq (,$(filter lucid, $(DISTRIB_CODENAME)))
+FIREFOX_REPLACES = abrowser, abrowser-branding, firefox-branding, kubuntu-firefox-installer
+FIREFOX_BREAKS = abrowser (<= 4.0~b11+build3+nobinonly-0ubuntu1), abrowser-branding (<= 4.0~b11+build3+nobinonly-0ubuntu1), \
+		 firefox-branding (<= 4.0~b11+build3+nobinonly-0ubuntu1), $(PLUGIN_BREAKS)
+install/firefox::
+	$(call WRITE_SUBSTVARS,firefox,transitional:Replaces,$(FIREFOX_REPLACES))
+	$(call WRITE_SUBSTVARS,firefox,transitional:Breaks,$(FIREFOX_BREAKS))
+	$(call WRITE_SUBSTVARS,firefox,transitional:Conflicts,$(PLUGIN_CONFLICTS))
+else
+FIREFOX_PROVIDES = firefox-3.6, firefox-3.5, firefox-3.0, firefox-2, firefox-2-dom-inspector, firefox-2-libthai
+FIREFOX_CONFLICTS = firefox-3.6 (<< 3.6~hg20100117r33523), firefox-3.5 (<< 3.6~hg20100117r33523), firefox-3.0 (<< 3.6~hg20100117r33523), \
+		    firefox-3.6-gnome-support (<< 3.6~hg20100117r33523), firefox-2 (<< 3), firefox-2-libthai (<< 3), \
+		    firefox-2-dom-inspector (<< 3), abrowser (<= 4.0~b11+build3+nobinonly-0ubuntu1), \
+		    abrowser-branding (<= 4.0~b11+build3+nobinonly-0ubuntu1), firefox-branding (<= 4.0~b11+build3+nobinonly-0ubuntu1), \
+		    $(PLUGIN_CONFLICTS)
+FIREFOX_REPLACES = firefox-3.6, firefox-3.5, firefox-3.0, firefox-3.6-gnome-support, firefox-2, firefox-2-libthai, \
+		   firefox-2-dom-inspector, abrowser, abrowser-branding, firefox-branding, kubuntu-firefox-installer
+install/firefox::
+	$(call WRITE_SUBSTVARS,firefox,transitional:Provides,$(FIREFOX_PROVIDES))
+	$(call WRITE_SUBSTVARS,firefox,transitional:Conflicts,$(FIREFOX_CONFLICTS))
+	$(call WRITE_SUBSTVARS,firefox,transitional:Replaces,$(FIREFOX_REPLACES))
+	$(call WRITE_SUBSTVARS,firefox,transitional:Breaks,$(PLUGIN_BREAKS))
+
+DEV_PROVIDES = firefox-3.6-dev, firefox-3.5-dev, firefox-3.0-dev, firefox-2-dev
+DEV_REPLACES = firefox-3.6-dev, firefox-3.5-dev, firefox-3.0-dev, firefox-2-dev
+DEV_CONFLICTS = firefox-3.6-dev (<< 3.6~hg20100117r33523+nobinonly), firefox-3.5-dev (<< 3.6~hg20100117r33523), \
+		firefox-3.0-dev (<< 3.6~hg20100117r33523), firefox-2-dev (<< 3)
+install/firefox-dev::
+	$(call WRITE_SUBSTVARS,firefox-dev,transitional:Provides,$(DEV_PROVIDES))
+	$(call WRITE_SUBSTVARS,firefox-dev,transitional:Replaces,$(DEV_REPLACES))
+	$(call WRITE_SUBSTVARS,firefox-dev,transitional:Conflicts,$(DEV_CONFLICTS))
+
+GS_PROVIDES = firefox-3.6-gnome-support, firefox-3.5-gnome-support, firefox-3.0-gnome-support, firefox-2
+GS_REPLACES = firefox-3.6-gnome-support, firefox-3.5-gnome-support, firefox-3.0-gnome-support, firefox-2-gnome-support
+GS_CONFLICTS = firefox-3.6-gnome-support (<< 3.6~hg20100117r33523+nobinonly), firefox-3.5-gnome-support (<< 3.6~hg20100117r33523), \
+	       firefox-3.0-gnome-support (<< 3.6~hg20100117r33523), firefox-2 (<< 3)
+install/firefox-gnome-support::
+	$(call WRITE_SUBSTVARS,firefox-gnome-support,transitional:Provides,$(GS_PROVIDES))
+	$(call WRITE_SUBSTVARS,firefox-gnome-support,transitional:Replaces,$(GS_REPLACES))
+	$(call WRITE_SUBSTVARS,firefox-gnome-support,transitional:Conflicts,$(GS_CONFLICTS))
+
+DBG_PROVIDES = firefox-3.6-dbg, firefox-3.5-dbg, firefox-2-dbg
+DBG_REPLACES = firefox-3.6-dbg, firefox-3.5-dbg, firefox-2-dbg
+DBG_CONFLICTS = firefox-3.6-dbg (<< 3.6~hg20100117r33523+nobinonly), firefox-3.5-dbg (<< 3.6~hg20100117r33523), firefox-2-dbg (<< 3)
+install/firefox-dbg::
+	$(call WRITE_SUBSTVARS,firefox-dbg,transitional:Provides,$(DBG_PROVIDES))
+	$(call WRITE_SUBSTVARS,firefox-dbg,transitional:Replaces,$(DBG_REPLACES))
+	$(call WRITE_SUBSTVARS,firefox-dbg,transitional:Conflicts,$(DBG_CONFLICTS))
+endif
+endif
+endif
+
+$(patsubst %,binary-post-install/$(MOZ_PKG_NAME)-locale-%,$(MOZ_LANGPACK_TARGETS)):: binary-post-install/$(MOZ_PKG_NAME)-locale-%: install-webapprt-langpack-links-%
+
+install-webapprt-langpack-links-%: XPIS = $(notdir $(wildcard debian/$(MOZ_PKG_NAME)-locale-$*/$(MOZ_ADDONDIR)/extensions/*.xpi))
+install-webapprt-langpack-links-%:
+	$(foreach xpi,$(XPIS),dh_link -p$(MOZ_PKG_NAME)-locale-$* $(MOZ_ADDONDIR)/extensions/$(xpi) $(MOZ_LIBDIR)/webapprt/extensions/$(xpi);)
+
+make-langpack-preinsts::
+	@while read line ; \
+	do \
+		line=`echo $$line | sed 's/#.*//' | sed '/^$$/d'` ; \
+		if [ ! -z "$$line" ] ; \
+		then \
+		pkgname=`echo $$line | sed 's/\([^:]*\):*\([^:]*\)/\2/'` ; \
+			cp $(CURDIR)/debian/$(MOZ_PKG_NAME)-locale.preinst $(CURDIR)/debian/$(MOZ_PKG_NAME)-locale-$${pkgname}.preinst ; \
+		fi \
+	done < $(CURDIR)/debian/config/locales.shipped
+
+pre-build:: make-langpack-preinsts
+	@cp $(DEB_SRCDIR)/toolkit/content/widgets/dialog.xml $(DEB_SRCDIR)/toolkit/content/widgets/dialog-kde.xml
+	@cp $(DEB_SRCDIR)/toolkit/content/widgets/preferences.xml $(DEB_SRCDIR)/toolkit/content/widgets/preferences-kde.xml
+	@cp $(DEB_SRCDIR)/browser/base/content/browser.xul $(DEB_SRCDIR)/browser/base/content/browser-kde.xul
+
+ifneq ($(MOZ_APP_BASENAME),$(MOZ_DEFAULT_APP_BASENAME))
+	@echo "Setting MOZ_APP_UA_NAME to $(MOZ_DEFAULT_APP_BASENAME)"
+	@cp $(DEB_SRCDIR)/$(MOZ_BRANDING_DIR)/configure.sh $(DEB_SRCDIR)/$(MOZ_BRANDING_DIR)/configure.sh.bak; \
+		echo "MOZ_APP_UA_NAME=$(MOZ_DEFAULT_APP_BASENAME)" >> $(DEB_SRCDIR)/$(MOZ_BRANDING_DIR)/configure.sh
+
+	@echo "Setting UAName to $(MOZ_DEFAULT_APP_BASENAME)"
+	@cp $(DEB_SRCDIR)/webapprt/application.ini.in $(DEB_SRCDIR)/webapprt/application.ini.in.bak; \
+		sed -ri 's/@MOZ_APP_BASENAME@/$(MOZ_DEFAULT_APP_BASENAME)/g' $(DEB_SRCDIR)/webapprt/application.ini.in
+endif
+ifneq ($(MOZ_APP_NAME),$(MOZ_DEFAULT_APP_NAME))
+	@echo "Replacing instances of \"%APP%\" with \"firefox\" in firefox-branding.js"
+	@cp $(DEB_SRCDIR)/$(MOZ_BRANDING_DIR)/pref/firefox-branding.js $(DEB_SRCDIR)/$(MOZ_BRANDING_DIR)/pref/firefox-branding.js.bak; \
+		sed -ri 's/%APP%/firefox/g' $(DEB_SRCDIR)/$(MOZ_BRANDING_DIR)/pref/firefox-branding.js
+endif
+
+clean::
+	rm -f debian/$(MOZ_PKG_NAME)-locale-*.preinst
+	rm -f debian/usr.bin.firefox.in
+	$(call RESTORE_BACKUP, $(DEB_SRCDIR)/$(MOZ_BRANDING_DIR)/configure.sh)
+	$(call RESTORE_BACKUP, $(DEB_SRCDIR)/$(MOZ_BRANDING_DIR)/pref/firefox-branding.js)
+	$(call RESTORE_BACKUP, $(DEB_SRCDIR)/webapprt/application.ini.in)
+	rm -f $(DEB_SRCDIR)/toolkit/content/widgets/dialog-kde.xml
+	rm -f $(DEB_SRCDIR)/toolkit/content/widgets/preferences-kde.xml
+	rm -f $(DEB_SRCDIR)/browser/base/content/browser-kde.xul
+
+.PHONY: make-langpack-preinsts

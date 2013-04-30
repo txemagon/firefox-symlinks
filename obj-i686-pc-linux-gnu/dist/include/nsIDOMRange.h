@@ -1,0 +1,1 @@
+../../dom/interfaces/range/_xpidlgen/nsIDOMRange.h

@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/obj-i686-pc-linux-gnu/js/src/shell/js-gdb.py

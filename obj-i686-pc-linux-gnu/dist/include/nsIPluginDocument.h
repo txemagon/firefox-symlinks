@@ -1,0 +1,1 @@
+../../dom/plugins/base/_xpidlgen/nsIPluginDocument.h

@@ -1,0 +1,1 @@
+_xpidlgen/nsIStrictTransportSecurityService.xpt: /home/txema/work/firefox-20.0+build1/netwerk/base/public/nsIStrictTransportSecurityService.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

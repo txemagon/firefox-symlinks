@@ -1,0 +1,1 @@
+../../dom/interfaces/html/_xpidlgen/nsIDOMHTMLTableCaptionElem.h

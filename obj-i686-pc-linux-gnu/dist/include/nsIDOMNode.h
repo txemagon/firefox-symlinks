@@ -1,0 +1,1 @@
+../../dom/interfaces/core/_xpidlgen/nsIDOMNode.h

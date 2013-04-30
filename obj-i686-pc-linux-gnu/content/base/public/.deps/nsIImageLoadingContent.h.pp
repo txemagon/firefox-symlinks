@@ -1,0 +1,1 @@
+_xpidlgen/nsIImageLoadingContent.h: /home/txema/work/firefox-20.0+build1/content/base/public/nsIImageLoadingContent.idl ../../../dist/idl/imgINotificationObserver.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

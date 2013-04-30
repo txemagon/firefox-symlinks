@@ -1,0 +1,112 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+DEPTH = ../..
+topsrcdir = /home/txema/work/firefox-20.0+build1
+srcdir = /home/txema/work/firefox-20.0+build1/dom/ipc
+VPATH = /home/txema/work/firefox-20.0+build1/dom/ipc
+
+include $(DEPTH)/config/autoconf.mk
+
+MODULE = dom
+LIBRARY_NAME = domipc_s
+LIBXUL_LIBRARY = 1
+FORCE_STATIC_LIB = 1
+EXPORT_LIBRARY = 1
+ifndef _MSC_VER
+FAIL_ON_WARNINGS := 1
+endif # !_MSC_VER
+
+ifneq (cocoa,$(MOZ_WIDGET_TOOLKIT))
+TEST_DIRS += tests
+endif
+
+EXPORTS = PCOMContentPermissionRequestChild.h
+
+EXPORTS_NAMESPACES = \
+  mozilla \
+  mozilla/dom \
+  mozilla/dom/ipc \
+  $(NULL)
+
+EXPORTS_mozilla = \
+  AppProcessPermissions.h \
+  $(NULL)
+
+EXPORTS_mozilla/dom = \
+  ContentChild.h \
+  ContentParent.h \
+  ContentProcess.h \
+  CrashReporterChild.h \
+  CrashReporterParent.h \
+  PermissionMessageUtils.h \
+  StructuredCloneUtils.h \
+  TabParent.h \
+  TabChild.h \
+  TabContext.h \
+  TabMessageUtils.h \
+  $(NULL)
+
+EXPORTS_mozilla/dom/ipc = \
+  Blob.h \
+  ProcessPriorityManager.h \
+  nsIRemoteBlob.h \
+  $(NULL)
+
+CPPSRCS = \
+  AppProcessPermissions.cpp \
+  Blob.cpp \
+  ContentProcess.cpp \
+  ContentParent.cpp \
+  ContentChild.cpp \
+  CrashReporterParent.cpp \
+  CrashReporterChild.cpp \
+  PermissionMessageUtils.cpp \
+  ProcessPriorityManager.cpp \
+  StructuredCloneUtils.cpp \
+  TabParent.cpp \
+  TabChild.cpp \
+  TabContext.cpp \
+  TabMessageUtils.cpp \
+  $(NULL)
+
+include $(topsrcdir)/config/config.mk
+include $(topsrcdir)/ipc/chromium/chromium-config.mk
+include $(topsrcdir)/config/rules.mk
+
+LOCAL_INCLUDES += \
+	-I$(srcdir)/../../content/base/src \
+	-I$(srcdir)/../../content/events/src \
+	-I$(srcdir)/../../docshell/base \
+	-I$(topsrcdir)/chrome/src \
+	-I$(topsrcdir)/uriloader/exthandler \
+	-I$(srcdir)/../../netwerk/base/src \
+	-I$(srcdir)/../src/base \
+	-I$(srcdir)/../src/geolocation \
+	-I$(srcdir)/../src/storage \
+	-I$(srcdir)/../../xpcom/base \
+	-I$(topsrcdir)/dom/indexedDB \
+	-I$(topsrcdir)/dom/indexedDB/ipc \
+	-I$(topsrcdir)/extensions/cookie \
+	-I$(topsrcdir)/dom/base \
+	-I$(topsrcdir)/toolkit/xre \
+	-I$(topsrcdir)/hal/sandbox \
+	-I$(topsrcdir)/dom/sms/src/ipc \
+	-I$(topsrcdir)/dom/devicestorage \
+	-I$(topsrcdir)/widget/xpwidgets \
+	-I$(topsrcdir)/dom/bluetooth \
+	-I$(topsrcdir)/dom/bluetooth/ipc \
+	$(NULL)
+
+DEFINES += -DBIN_SUFFIX='"$(BIN_SUFFIX)"'
+
+ifeq ($(MOZ_WIDGET_TOOLKIT),$(findstring $(MOZ_WIDGET_TOOLKIT),android gtk2 gonk qt))
+DEFINES += -DMOZ_ENABLE_FREETYPE
+endif
+
+ifdef MOZ_PERMISSIONS
+DEFINES += -DMOZ_PERMISSIONS
+endif
+
+CXXFLAGS += $(TK_CFLAGS)

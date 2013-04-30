@@ -1,0 +1,1 @@
+_xpidlgen/nsIWifiListener.xpt: /home/txema/work/firefox-20.0+build1/netwerk/wifi/nsIWifiListener.idl ../../dist/idl/nsISupports.idl ../../dist/idl/nsrootidl.idl ../../dist/idl/nsIArray.idl ../../dist/idl/nsISupports.idl ../../dist/idl/nsrootidl.idl /home/txema/work/firefox-20.0+build1/netwerk/wifi/nsIWifiAccessPoint.idl ../../dist/idl/nsISupports.idl ../../dist/idl/nsrootidl.idl

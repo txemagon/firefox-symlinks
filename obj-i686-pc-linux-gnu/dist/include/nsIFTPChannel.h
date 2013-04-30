@@ -1,0 +1,1 @@
+../../netwerk/protocol/ftp/_xpidlgen/nsIFTPChannel.h

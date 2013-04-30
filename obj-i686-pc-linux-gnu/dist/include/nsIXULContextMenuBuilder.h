@@ -1,0 +1,1 @@
+../../content/xul/content/public/_xpidlgen/nsIXULContextMenuBuilder.h

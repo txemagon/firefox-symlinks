@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/browser/devtools/styleinspector/test/browser_bug722691_rule_view_increment.js

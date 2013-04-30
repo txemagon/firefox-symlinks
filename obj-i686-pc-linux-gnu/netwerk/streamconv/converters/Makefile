@@ -1,0 +1,57 @@
+#
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+DEPTH		= ../../..
+topsrcdir	= /home/txema/work/firefox-20.0+build1
+srcdir		= /home/txema/work/firefox-20.0+build1/netwerk/streamconv/converters
+VPATH		= /home/txema/work/firefox-20.0+build1/netwerk/streamconv/converters
+
+include $(DEPTH)/config/autoconf.mk
+
+MODULE		= necko
+LIBRARY_NAME	= nkcnvts_s
+LIBXUL_LIBRARY = 1
+ifndef _MSC_VER
+FAIL_ON_WARNINGS := 1
+endif # !_MSC_VER
+
+
+CPPSRCS		= \
+		mozTXTToHTMLConv.cpp \
+		nsUnknownDecoder.cpp \
+		nsHTTPCompressConv.cpp \
+		nsTXTToHTMLConv.cpp \
+		nsDirIndex.cpp \
+		nsDirIndexParser.cpp \
+		nsIndexedToHTML.cpp \
+		nsMultiMixedConv.cpp \
+		$(NULL)
+
+# only include FTP directory listing support if the FTP
+# protocol is being built.
+ifneq (,$(filter ftp,$(NECKO_PROTOCOLS)))
+CPPSRCS += \
+		ParseFTPList.cpp \
+		nsFTPDirListingConv.cpp \
+        $(NULL)
+endif
+
+ifneq (cocoa,$(MOZ_WIDGET_TOOLKIT))
+CPPSRCS += \
+		nsBinHexDecoder.cpp \
+		$(NULL)
+endif
+
+# we don't want the shared lib, but we want to force the creation of a
+# static lib.
+FORCE_STATIC_LIB = 1
+
+LOCAL_INCLUDES =                        \
+        -I$(topsrcdir)/netwerk/base/src \
+        $(NULL)
+
+include $(topsrcdir)/config/rules.mk
+
+DEFINES += -DIMPL_NS_NET

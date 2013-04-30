@@ -1,0 +1,1 @@
+../../js/xpconnect/src/GeneratedEvents.h

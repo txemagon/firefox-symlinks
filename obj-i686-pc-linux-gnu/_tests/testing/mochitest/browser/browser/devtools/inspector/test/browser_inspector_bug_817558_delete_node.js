@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/browser/devtools/inspector/test/browser_inspector_bug_817558_delete_node.js

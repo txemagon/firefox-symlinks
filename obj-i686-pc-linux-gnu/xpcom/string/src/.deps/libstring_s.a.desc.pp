@@ -1,0 +1,1 @@
+libstring_s.a.desc : nsDependentString.o nsDependentSubstring.o nsPromiseFlatString.o nsReadableUtils.o nsSubstring.o nsSubstringTuple.o nsString.o nsStringComparator.o nsStringObsolete.o nsUTF8UtilsSSE2.o

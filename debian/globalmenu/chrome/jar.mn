@@ -1,0 +1,9 @@
+globalmenu.jar:
+% content globalmenu  %content/
+  content/bindings.xml (content/bindings.xml)
+  content/firefoxBrowserOverlay.js  (content/firefoxBrowserOverlay.js)
+  content/firefoxBrowserOverlay.xul  (content/firefoxBrowserOverlay.xul)
+  content/firefoxPlacesOverlay.xul (content/firefoxPlacesOverlay.xul)
+  content/ua-overrides.css (content/ua-overrides.css)
+% overlay chrome://browser/content/browser.xul  chrome://globalmenu/content/firefoxBrowserOverlay.xul application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+% overlay chrome://browser/content/places/places.xul chrome://globalmenu/content/firefoxPlacesOverlay.xul application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}

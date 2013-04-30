@@ -1,0 +1,1 @@
+libdom_sms_s.a.desc : SmsManager.o SmsService.o SmsIPCService.o SmsServicesFactory.o SmsParent.o SmsMessage.o SmsEvent.o Constants.o SmsChild.o SmsRequest.o SmsFilter.o SmsSegmentInfo.o SmsCursor.o SmsDatabaseService.o

@@ -1,0 +1,1 @@
+libmozglue.a.desc : dummy.o ../../mfbt/bignum-dtoa.o ../../mfbt/bignum.o ../../mfbt/cached-powers.o ../../mfbt/diy-fp.o ../../mfbt/double-conversion.o ../../mfbt/fast-dtoa.o ../../mfbt/fixed-dtoa.o ../../mfbt/strtod.o ../../mfbt/HashFunctions.o ../../mfbt/SHA1.o ../../mfbt/libmfbt.a.desc

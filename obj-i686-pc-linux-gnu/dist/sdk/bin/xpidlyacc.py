@@ -1,0 +1,1 @@
+../../../xpcom/typelib/xpidl/../../../xpcom/idl-parser/xpidlyacc.py

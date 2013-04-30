@@ -1,0 +1,17 @@
+Description: Don't bundle our own hyphenation patterns
+Author: Chris Coulson <chris.coulson@canonical.com>
+Forwarded: not-needed
+Bug-Ubuntu: https://launchpad.net/bugs/894166
+
+Index: mozilla/toolkit/mozapps/installer/packager.mk
+===================================================================
+--- mozilla.orig/toolkit/mozapps/installer/packager.mk	2012-02-21 02:11:17.000000000 +0000
++++ mozilla/toolkit/mozapps/installer/packager.mk	2012-02-22 16:48:40.583518663 +0000
+@@ -499,7 +499,6 @@
+   greprefs.js \
+   jsloader \
+   jssubloader \
+-  hyphenation \
+   update.locale \
+   $(NULL)
+ 

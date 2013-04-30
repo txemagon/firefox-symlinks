@@ -1,0 +1,1 @@
+libucvibm_s.a.desc : nsCP850ToUnicode.o nsCP852ToUnicode.o nsCP855ToUnicode.o nsCP857ToUnicode.o nsCP862ToUnicode.o nsCP864ToUnicode.o nsUnicodeToCP850.o nsUnicodeToCP852.o nsUnicodeToCP855.o nsUnicodeToCP857.o nsUnicodeToCP862.o nsUnicodeToCP864.o

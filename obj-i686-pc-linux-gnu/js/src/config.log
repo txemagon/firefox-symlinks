@@ -1,0 +1,338 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:871: checking host system type
+configure:892: checking target system type
+configure:910: checking build system type
+configure:971: checking for mawk
+configure:1218: checking for perl5
+configure:2492: checking for gcc
+configure:2605: checking whether the C compiler (gcc  ) works
+configure:2621: gcc -o conftest    conftest.c  1>&5
+configure:2647: checking whether the C compiler (gcc  ) is a cross-compiler
+configure:2652: checking whether we are using GNU C
+configure:2680: checking whether gcc accepts -g
+configure:2716: checking for c++
+configure:2748: checking whether the C++ compiler (c++  ) works
+configure:2764: c++ -o conftest    conftest.C  1>&5
+configure:2790: checking whether the C++ compiler (c++  ) is a cross-compiler
+configure:2795: checking whether we are using GNU C++
+configure:2823: checking whether c++ accepts -g
+configure:2857: checking for ranlib
+configure:2889: checking for as
+configure:2943: checking for ar
+configure:2978: checking for ld
+configure:3013: checking for strip
+configure:3048: checking for windres
+configure:3607: checking how to run the C preprocessor
+configure:3687: checking how to run the C++ preprocessor
+configure:3783: checking for sb-conf
+configure:3783: checking for ve
+configure:3845: checking for a BSD compatible install
+configure:3898: checking whether ln -s works
+configure:3921: checking for minimum required perl version >= 5.006
+configure:3932: checking for full perl installation
+configure:3947: checking for python2.7
+configure:4007: checking for doxygen
+configure:4056: checking for autoconf
+configure:4105: checking for xargs
+configure:4454: checking for /usr/bin/make
+configure:4521: checking for X
+configure:4838: checking for dnet_ntoa in -ldnet
+configure:4879: checking for dnet_ntoa in -ldnet_stub
+configure:4927: checking for gethostbyname
+configure:5025: checking for connect
+configure:5117: checking for remove
+configure:5209: checking for shmat
+configure:5310: checking for IceConnectionNumber in -lICE
+configure:5715: gcc -c   conftest.c 1>&5
+configure: In function 'main':
+configure:5711:15: error: '__thumb2__' undeclared (first use in this function)
+configure:5711:15: note: each undeclared identifier is reported only once for each function it appears in
+configure: failed program was:
+#line 5708 "configure"
+#include "confdefs.h"
+
+int main() {
+return sizeof(__thumb2__);
+; return 0; }
+configure:5909: checking that static assertion macros used in autoconf tests work
+configure:6142: checking for --build-id option to ld
+configure:6153: gcc -o conftest    -Wl,--build-id conftest.c  1>&5
+configure:6177: checking whether the C compiler supports -Werror=return-type
+configure:6200: gcc -c  -Werror -Werror=return-type  conftest.c 1>&5
+configure:6228: checking whether the C compiler supports -Wtype-limits
+configure:6251: gcc -c  -Werror -Wtype-limits  conftest.c 1>&5
+configure:6279: checking whether the C compiler supports -Wempty-body
+configure:6302: gcc -c  -Werror -Wempty-body  conftest.c 1>&5
+configure:6336: checking whether the C compiler supports -Wno-overlength-strings
+configure:6359: gcc -c  -Werror -Woverlength-strings  conftest.c 1>&5
+configure:6441: checking whether the C++ compiler supports -Werror=return-type
+configure:6464: c++ -c  -Werror -Werror=return-type  conftest.C 1>&5
+configure:6492: checking whether the C++ compiler supports -Wtype-limits
+configure:6515: c++ -c  -Werror -Wtype-limits  conftest.C 1>&5
+configure:6543: checking whether the C++ compiler supports -Wempty-body
+configure:6566: c++ -c  -Werror -Wempty-body  conftest.C 1>&5
+configure:6594: checking whether the C++ compiler supports -Werror=conversion-null
+configure:6617: c++ -c  -Werror -Werror=conversion-null  conftest.C 1>&5
+configure:6653: checking whether the C++ compiler supports -Wno-overlength-strings
+configure:6676: c++ -c  -Werror -Woverlength-strings  conftest.C 1>&5
+configure:6704: checking whether the C++ compiler supports -Wno-invalid-offsetof
+configure:6727: c++ -c  -Werror -Winvalid-offsetof  conftest.C 1>&5
+configure:6755: checking whether the C++ compiler supports -Wno-variadic-macros
+configure:6778: c++ -c  -Werror -Wvariadic-macros  conftest.C 1>&5
+configure:6891: checking whether ld has archive extraction flags
+configure:6950: checking for 64-bit OS
+configure:6959: gcc -c   conftest.c 1>&5
+configure: In function 'main':
+configure:6959:1: error: size of array 'static_assert_line_6959' is negative
+configure: failed program was:
+#line 6952 "configure"
+#include "confdefs.h"
+
+#define CONFIGURE_STATIC_ASSERT(condition) CONFIGURE_STATIC_ASSERT_IMPL(condition, __LINE__)
+#define CONFIGURE_STATIC_ASSERT_IMPL(condition, line) CONFIGURE_STATIC_ASSERT_IMPL2(condition, line)
+#define CONFIGURE_STATIC_ASSERT_IMPL2(condition, line) typedef int static_assert_line_##line[(condition) ? 1 : -1]
+
+int main() {
+CONFIGURE_STATIC_ASSERT(sizeof(void*) == 8)
+; return 0; }
+configure:7082: checking for Python version >= 2.6 but not 3.x
+configure:7093: checking for custom <stdint.h> implementation
+configure:8510: checking whether the linker supports Identical Code Folding
+configure:8519: gcc -o conftest  -Wl,--build-id -Wl,--icf=safe -ffunction-sections conftest.c  1>&2
+/usr/bin/ld.bfd.real: unrecognized option '--icf=safe'
+/usr/bin/ld.bfd.real: use the --help option for usage information
+collect2: ld returned 1 exit status
+configure:8559: checking whether removing dead symbols breaks debugging
+configure:8566: gcc -o conftest.o  -ffunction-sections -fdata-sections -g -c conftest.c 1>&2
+configure:8567: gcc -o conftest  -Wl,--build-id -g -Wl,--gc-sections conftest.o  1>&2
+configure:8590: checking for ANSI C header files
+configure:8697: checking for working const
+configure:8775: checking for mode_t
+configure:8811: checking for off_t
+configure:8847: checking for pid_t
+configure:8883: checking for size_t
+configure:8926: checking for __stdcall
+configure:8972: checking for ssize_t
+configure:9010: checking for st_blksize in struct stat
+configure:9047: checking for siginfo_t
+configure:9087: checking for the size of void*
+configure:9105: gcc -c  -ffunction-sections -fdata-sections  conftest.c 1>&5
+configure:9151: checking for the alignment of void*
+configure:9172: gcc -c  -ffunction-sections -fdata-sections  conftest.c 1>&5
+configure: In function 'main':
+configure:9166:26: error: size of array 'a' is negative
+configure: failed program was:
+#line 9159 "configure"
+#include "confdefs.h"
+
+                     #include <stddef.h>
+                     struct aligner { char c; void* a; };
+                   
+int main() {
+
+                     int a[offsetof(struct aligner, a) == 2 ? 1 : -1];
+                     return 0;
+                   
+; return 0; }
+configure:9172: gcc -c  -ffunction-sections -fdata-sections  conftest.c 1>&5
+configure:9198: checking for the size of double
+configure:9216: gcc -c  -ffunction-sections -fdata-sections  conftest.c 1>&5
+configure: In function 'main':
+configure:9210:26: error: size of array 'a' is negative
+configure: failed program was:
+#line 9206 "configure"
+#include "confdefs.h"
+
+int main() {
+
+                     int a[sizeof (double) == 6 ? 1 : -1];
+                     return 0;
+                   
+; return 0; }
+configure:9216: gcc -c  -ffunction-sections -fdata-sections  conftest.c 1>&5
+configure:9245: checking for endian.h
+configure:9258: gcc -c  -ffunction-sections -fdata-sections  conftest.c 1>&5
+configure:9301: checking for machine/endian.h
+configure:9314: gcc -c  -ffunction-sections -fdata-sections  conftest.c 1>&5
+configure:9308:28: fatal error: machine/endian.h: No such file or directory
+compilation terminated.
+configure: failed program was:
+#line 9306 "configure"
+#include "confdefs.h"
+#include <sys/types.h>
+#include <machine/endian.h>
+int main() {
+
+; return 0; }
+configure:9357: checking for sys/isa_defs.h
+configure:9370: gcc -c  -ffunction-sections -fdata-sections  conftest.c 1>&5
+configure:9364:26: fatal error: sys/isa_defs.h: No such file or directory
+compilation terminated.
+configure: failed program was:
+#line 9362 "configure"
+#include "confdefs.h"
+
+#include <sys/isa_defs.h>
+int main() {
+
+; return 0; }
+configure:9410: checking for uint
+configure:9448: checking for uint_t
+configure:9495: checking for uname.domainname
+configure:9535: checking for uname.__domainname
+configure:9584: checking for visibility(hidden) attribute
+configure:9612: checking for visibility(default) attribute
+configure:9640: checking for visibility pragma support
+configure:9665: checking For gcc visibility bug with class-level attributes (GCC bug 26905)
+configure:9693: checking For x86_64 gcc visibility bug with builtins (GCC bug 20297)
+configure:9745: checking for gcc PR49911
+configure:9806: c++ -o conftest -O2   -Wl,--build-id conftest.C  1>&5
+configure:9839: checking for gcc pr39608
+configure:9869: c++ -c  -fno-rtti -ffunction-sections -fdata-sections -fno-exceptions  conftest.C 1>&5
+configure:9896: checking for llvm pr8927
+configure:9936: gcc -o conftest -O2   -Wl,--build-id conftest.c  1>&5
+configure:9974: checking for dirent.h that defines DIR
+configure:10015: checking for opendir in -ldir
+configure:10109: checking for sys/byteorder.h
+configure:10109: checking for compat.h
+configure:10109: checking for getopt.h
+configure:10109: checking for sys/bitypes.h
+configure:10109: checking for memory.h
+configure:10109: checking for unistd.h
+configure:10109: checking for gnu/libc-version.h
+configure:10109: checking for nl_types.h
+configure:10109: checking for malloc.h
+configure:10109: checking for X11/XKBlib.h
+configure:10109: checking for io.h
+configure:10109: checking for cpuid.h
+configure:10157: checking for sys/statvfs.h
+configure:10157: checking for sys/statfs.h
+configure:10157: checking for sys/vfs.h
+configure:10157: checking for sys/mount.h
+configure:10204: checking for sys/quota.h
+configure:10250: checking for linux/quota.h
+configure:10303: checking for new
+configure:10415: checking for sys/cdefs.h
+configure:10480: checking for linux/perf_event.h
+configure:10508: checking for perf_event_open system call
+configure:10556: checking for gethostbyname_r in -lc_r
+configure:10616: checking for library containing dlopen
+configure:10674: checking for dlfcn.h
+configure:10724: checking for dladdr
+configure:10896: checking for socket in -lsocket
+configure:10954: checking for pthread_create in -lpthreads
+gcc -o dummy dummy.c  -ffunction-sections -fdata-sections  -lpthreads  -Wl,--build-id -ldl 
+/usr/bin/ld.bfd.real: cannot find -lpthreads
+collect2: ld returned 1 exit status
+configure:10977: checking for pthread_create in -lpthread
+gcc -o dummy dummy.c  -ffunction-sections -fdata-sections  -lpthread  -Wl,--build-id -ldl 
+configure:11082: checking whether gcc accepts -pthread
+configure:11210: checking whether gcc needs -traditional
+configure:11256: checking for 8-bit clean memcmp
+configure:11296: checking for fchmod
+configure:11296: checking for flockfile
+configure:11296: checking for getc_unlocked
+configure:11324: gcc -o conftest  -ffunction-sections -fdata-sections -pthread  -lpthread  -Wl,--build-id conftest.c -ldl  1>&5
+configure:11296: checking for _getc_nolock
+configure:11324: gcc -o conftest  -ffunction-sections -fdata-sections -pthread  -lpthread  -Wl,--build-id conftest.c -ldl  1>&5
+/tmp/ccwfzzYr.o: In function `main':
+conftest.c:(.text.main+0x7): undefined reference to `_getc_nolock'
+collect2: ld returned 1 exit status
+configure: failed program was:
+#line 11301 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char _getc_nolock(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char _getc_nolock();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub__getc_nolock) || defined (__stub____getc_nolock)
+choke me
+#else
+_getc_nolock();
+#endif
+
+; return 0; }
+configure:11296: checking for getpagesize
+configure:11296: checking for lchown
+configure:11296: checking for localtime_r
+configure:11296: checking for lstat64
+configure:11296: checking for memmove
+configure:11296: checking for random
+configure:11296: checking for rint
+configure:11296: checking for sbrk
+configure:11324: gcc -o conftest  -ffunction-sections -fdata-sections -pthread  -lpthread  -Wl,--build-id conftest.c -ldl  1>&5
+configure:11296: checking for snprintf
+configure:11296: checking for stat64
+configure:11296: checking for statvfs
+configure:11296: checking for statvfs64
+configure:11296: checking for strerror
+configure:11296: checking for strtok_r
+configure:11296: checking for truncate64
+configure:11362: checking for wcrtomb
+configure:11397: checking for mbrtowc
+configure:11441: checking for res_ninit()
+configure:11491: checking for gnu_get_libc_version()
+configure:11541: checking for an implementation of va_copy()
+configure:11582: checking for an implementation of __va_copy()
+configure:11623: checking whether va_lists can be copied by value
+configure:11760: checking for modern C++ template specialization syntax support
+configure:11793: checking whether partial template specialization works
+configure:11830: checking whether the C++ "using" keyword resolves ambiguity
+configure:11875: checking for C++ dynamic_cast to void*
+configure:11929: checking whether C++ requires implementation of unused virtual methods
+configure:11967: checking for trouble comparing to zero near std::operator!=()
+configure:12013: checking for __thread keyword for TLS variables
+configure:12063: checking for __attribute__((always_inline))
+configure:12090: checking for __attribute__((malloc))
+configure:12117: checking for __attribute__((warn_unused_result))
+configure:12153: checking for LC_MESSAGES
+configure:12191: checking for localeconv
+configure:13025: checking for valid optimization flags
+configure:13036: gcc -c  -ffunction-sections -fdata-sections -pthread -O3 -freorder-blocks   conftest.c 1>&5
+configure:13245: checking size of int *
+configure:13981: checking for __cxa_demangle
+configure:14066: checking for unwind.h
+configure:14096: checking for _Unwind_Backtrace
+configure:14216: checking for -pipe support
+configure:14230: checking whether C compiler supports -fprofile-generate
+configure:14239: gcc -c  -ffunction-sections -fdata-sections -pthread -pipe -fprofile-generate -fprofile-correction  conftest.c 1>&5
+configure:14303: checking whether C++ compiler has -pedantic long long bug
+configure:14312: c++ -c  -fno-rtti -ffunction-sections -fdata-sections -fno-exceptions -pthread -pipe -pedantic  -Wall -Wpointer-arith -Woverloaded-virtual -Werror=return-type -Wtype-limits -Wempty-body -Werror=conversion-null -Wno-ctor-dtor-privacy -Wno-overlength-strings -Wno-invalid-offsetof -Wno-variadic-macros -Wcast-align -Wno-long-long  conftest.C 1>&5
+configure:14339: checking for correct overload resolution with const and templates
+configure:14374: c++ -c  -fno-rtti -ffunction-sections -fdata-sections -fno-exceptions -pthread -pipe -pedantic  -Wall -Wpointer-arith -Woverloaded-virtual -Werror=return-type -Wtype-limits -Wempty-body -Werror=conversion-null -Wno-ctor-dtor-privacy -Wno-overlength-strings -Wno-invalid-offsetof -Wno-variadic-macros -Wcast-align -Wno-long-long  conftest.C 1>&5
+configure: In function 'int main()':
+configure:14369:37: warning: 'bar' is used uninitialized in this function [-Wuninitialized]
+configure:14400: checking for tm_zone tm_gmtoff in struct tm
+configure:14412: c++ -c  -fno-rtti -ffunction-sections -fdata-sections -fno-exceptions -pthread -pipe  conftest.C 1>&5
+configure:14454: checking what kind of list files are supported by the linker
+configure:14459: gcc -o conftest.o -c  -ffunction-sections -fdata-sections -pthread -pipe  conftest.c 1>&5
+configure:14461: gcc -o conftest -lpthread  -Wl,--build-id conftest.list -ldl  1>&5
+configure:14485: checking what kind of ordering can be done with the linker
+configure:14500: gcc -o conftest  -ffunction-sections -fdata-sections -pthread -pipe  -lpthread  -Wl,--build-id -Wl,--section-ordering-file,conftest.order conftest.c -ldl  1>&5
+/usr/bin/ld.bfd.real: unrecognized option '--section-ordering-file'
+/usr/bin/ld.bfd.real: use the --help option for usage information
+collect2: ld returned 1 exit status
+configure: failed program was:
+#line 14493 "configure"
+#include "confdefs.h"
+
+int main() {
+
+; return 0; }
+configure:14512: gcc -shared -Wl,-z,defs -Wl,--gc-sections -lpthread  -Wl,--build-id -o libconftest.so -Wl
+configure:14862: checking for posix_fallocate
+configure:14872: gcc -o conftest -pedantic -Wall -Wpointer-arith -Wdeclaration-after-statement -Werror=return-type -Wtype-limits -Wempty-body -Wno-unused -Wno-overlength-strings -Wcast-align -Wno-long-long -ffunction-sections -fdata-sections -pthread -pipe  -lpthread  -Wl,--build-id conftest.c -ldl  1>&5
+configure:15034: checking for setlocale
+configure:15062: gcc -o conftest -pedantic -Wall -Wpointer-arith -Wdeclaration-after-statement -Werror=return-type -Wtype-limits -Wempty-body -Wno-unused -Wno-overlength-strings -Wcast-align -Wno-long-long -ffunction-sections -fdata-sections -pthread -pipe  -lpthread  -Wl,--build-id conftest.c -ldl  1>&5
+configure:15092: checking for localeconv

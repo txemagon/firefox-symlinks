@@ -1,0 +1,1 @@
+_xpidlgen/nsIXULBuilderListener.xpt: /home/txema/work/firefox-20.0+build1/content/xul/templates/public/nsIXULBuilderListener.idl ../../../../dist/idl/nsISupports.idl ../../../../dist/idl/nsrootidl.idl

@@ -1,0 +1,1 @@
+libremote_bitrate_estimator.a.desc : remote_bitrate_estimator/bitrate_estimator.o remote_bitrate_estimator/overuse_detector.o remote_bitrate_estimator/remote_bitrate_estimator.o remote_bitrate_estimator/remote_rate_control.o

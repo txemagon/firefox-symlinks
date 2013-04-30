@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/dom/tests/mochitest/bugs/worker_bug743615.js

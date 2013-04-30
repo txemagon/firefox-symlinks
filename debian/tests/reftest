@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+
+TESTSUITE_DIR=/$($(dirname $0)/../rules echo-MOZ_TESTDIR 2>/dev/null)
+TESTRESULTS_DIR=${ADTRESULTSDIR:-"/tmp/testresults"}
+
+export LC_ALL=en_US.UTF-8
+
+mkdir -p $TESTRESULTS_DIR
+$TESTSUITE_DIR/run_reftest --own-display --own-session-bus --xunit-file $TESTRESULTS_DIR/reftest.xml --xunit-name "reftest" $TESTSUITE_DIR/reftest/tests/layout/reftests/reftest.list

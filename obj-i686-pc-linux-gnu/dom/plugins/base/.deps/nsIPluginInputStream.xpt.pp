@@ -1,0 +1,1 @@
+_xpidlgen/nsIPluginInputStream.xpt: /home/txema/work/firefox-20.0+build1/dom/plugins/base/nsIPluginInputStream.idl ../../../dist/idl/nsIInputStream.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl /home/txema/work/firefox-20.0+build1/dom/plugins/base/nspluginroot.idl

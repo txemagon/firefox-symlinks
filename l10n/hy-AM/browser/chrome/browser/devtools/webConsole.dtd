@@ -1,0 +1,26 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
+<!-- LOCALIZATION NOTE : FILE The correct localization of this file might be to
+  - keep it in English, or another language commonly spoken among web developers.
+  - You want to make that choice consistent across the developer tools.
+  - A good criteria is the language in which you'd find the best
+  - documentation on web development on the web. -->
+
+<!ENTITY networkPanel.requestURL                  "Պահանջվող URL">
+<!ENTITY networkPanel.requestMethod               "Հարցուման մեթոդ">
+<!ENTITY networkPanel.statusCode                  "Կարգավիճակի Կոդ">
+
+<!ENTITY networkPanel.requestHeaders              "Հարցման գլխամաս">
+<!ENTITY networkPanel.requestCookie               "Ուղարկված քուուկի">
+<!ENTITY networkPanel.requestBody                 "Հարցման մարմին">
+<!ENTITY networkPanel.requestFormData             "Ուղարկված ձևի տվյալները">
+
+<!ENTITY networkPanel.responseHeaders             "Արձագանքման գլխամաս">
+<!ENTITY networkPanel.responseBody                "Արձագանքման մարմին">
+<!ENTITY networkPanel.responseBodyCached          "Պահված տվյալներ">
+<!ENTITY networkPanel.responseBodyUnknownType     "Բովանդակության անհայտ տիպ">
+<!ENTITY networkPanel.responseNoBody              "Չկա արձագանքման մարմին">
+<!ENTITY networkPanel.responseImage               "Ստացված Նկարը">
+<!ENTITY networkPanel.responseImageCached         "Պահված Նկար">

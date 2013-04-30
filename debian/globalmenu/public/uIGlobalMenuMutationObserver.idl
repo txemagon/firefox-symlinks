@@ -1,0 +1,82 @@
+/* -*- Mode: IDL; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*-
+/* ***** BEGIN LICENSE BLOCK *****
+ *	 Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ * 
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is globalmenu-extension.
+ *
+ * The Initial Developer of the Original Code is
+ * Canonical Ltd.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ * Chris Coulson <chris.coulson@canonical.com>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ * 
+ * ***** END LICENSE BLOCK ***** */
+
+#include "nsIDOMNode.idl"
+#include "nsIDOMNodeList.idl"
+#include "nsIDOMWindow.idl"
+#include "nsIArray.idl"
+
+[scriptable, uuid(82855cc5-8fb8-4d81-95de-47e1305f5752)]
+interface uIGlobalMenuMutationObserverCallback : nsISupports
+{
+  void handleMutations(in nsIArray records);
+};
+
+[scriptable, uuid(748ce472-4dff-4238-bd46-415da09aa7cb)]
+interface uIGlobalMenuMutationObserverInit : nsISupports
+{
+  attribute boolean childList;
+  attribute boolean attributes;
+  attribute boolean characterData;
+  attribute boolean subtree;
+  attribute boolean attributeOldValue;
+  attribute boolean characterDataOldValue;
+};
+
+[scriptable, uuid(988e6f4a-0378-46e4-8efb-7e1a7bc7c453)]
+interface uIGlobalMenuMutationObserver : nsISupports
+{
+  void init(in nsIDOMWindow win, in uIGlobalMenuMutationObserverCallback callback);
+  void observe(in nsIDOMNode target, in uIGlobalMenuMutationObserverInit options);
+  void disconnect();
+};
+
+[scriptable, uuid(3a91c38f-7e39-47cb-a2ce-617dd5aaf06d)]
+interface uIGlobalMenuMutationRecord : nsISupports
+{
+  readonly attribute DOMString type;
+
+  readonly attribute nsIDOMNode target;
+
+  readonly attribute nsIDOMNodeList addedNodes;
+  readonly attribute nsIDOMNodeList removedNodes;
+
+  readonly attribute nsIDOMNode previousSibling;
+
+  readonly attribute DOMString attributeName;
+};

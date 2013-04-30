@@ -1,0 +1,1 @@
+_xpidlgen/nsIXULTemplateRuleFilter.h: /home/txema/work/firefox-20.0+build1/content/xul/templates/public/nsIXULTemplateRuleFilter.idl ../../../../dist/idl/domstubs.idl ../../../../dist/idl/nsISupports.idl ../../../../dist/idl/nsrootidl.idl

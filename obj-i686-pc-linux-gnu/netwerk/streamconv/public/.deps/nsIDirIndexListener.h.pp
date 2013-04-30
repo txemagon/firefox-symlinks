@@ -1,0 +1,1 @@
+_xpidlgen/nsIDirIndexListener.h: /home/txema/work/firefox-20.0+build1/netwerk/streamconv/public/nsIDirIndexListener.idl ../../../dist/idl/nsIStreamListener.idl ../../../dist/idl/nsIRequestObserver.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

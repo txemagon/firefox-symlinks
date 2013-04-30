@@ -1,0 +1,20 @@
+<bindings id="overrideBindings"
+   xmlns="http://www.mozilla.org/xbl"
+   xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+   xmlns:xbl="http://www.mozilla.org/xbl">
+
+  <binding id="popup"
+           extends="chrome://global/content/bindings/popup.xml#popup">
+    <implementation>
+      <property name="state" readonly="true">
+        <getter><![CDATA[
+          if (document.documentElement.getAttribute('shellshowingmenubar'))
+            return this.getAttribute("_ubuntu-state");
+          else
+            return this.popupBoxObject.popupState;
+        ]]></getter>
+      </property>
+    </implementation>
+  </binding>
+</bindings>
+

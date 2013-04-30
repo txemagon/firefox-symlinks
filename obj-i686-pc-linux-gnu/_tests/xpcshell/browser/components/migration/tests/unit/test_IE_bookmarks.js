@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/browser/components/migration/tests/unit/test_IE_bookmarks.js

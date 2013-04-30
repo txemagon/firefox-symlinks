@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/browser/devtools/webconsole/test/browser_webconsole_bug_580454_timestamp_l10n.js

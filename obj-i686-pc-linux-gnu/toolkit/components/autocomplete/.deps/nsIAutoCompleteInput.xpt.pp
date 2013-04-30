@@ -1,0 +1,1 @@
+_xpidlgen/nsIAutoCompleteInput.xpt: /home/txema/work/firefox-20.0+build1/toolkit/components/autocomplete/nsIAutoCompleteInput.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl /home/txema/work/firefox-20.0+build1/toolkit/components/autocomplete/nsIAutoCompleteController.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

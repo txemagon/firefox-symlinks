@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/tools/profiler/tests/test_shared_library.js

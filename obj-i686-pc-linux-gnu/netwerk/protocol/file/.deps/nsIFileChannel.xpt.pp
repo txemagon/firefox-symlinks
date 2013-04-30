@@ -1,0 +1,1 @@
+_xpidlgen/nsIFileChannel.xpt: /home/txema/work/firefox-20.0+build1/netwerk/protocol/file/nsIFileChannel.idl ../../../dist/idl/nsIChannel.idl ../../../dist/idl/nsIRequest.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

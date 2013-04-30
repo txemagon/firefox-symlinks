@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/browser/base/content/test/newtab/browser_newtab_bug752841.js

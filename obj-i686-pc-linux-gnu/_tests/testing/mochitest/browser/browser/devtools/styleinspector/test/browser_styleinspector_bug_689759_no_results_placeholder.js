@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/browser/devtools/styleinspector/test/browser_styleinspector_bug_689759_no_results_placeholder.js

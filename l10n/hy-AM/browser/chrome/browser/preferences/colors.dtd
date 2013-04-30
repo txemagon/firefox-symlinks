@@ -1,0 +1,26 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
+<!ENTITY  colorsDialog.title              "Գույներ">
+<!ENTITY  window.width                    "38em">
+<!ENTITY  window.macWidth                 "41em">
+
+<!ENTITY  allowPagesToUse.label           "Թույլատրել էջերին, վերը նշվածների փոխարեն, ընտրել իրենց սեփական գույները">
+<!ENTITY  allowPagesToUse.accesskey       "A">
+
+<!ENTITY  color                           "Տեքստ և Աստառ">
+<!ENTITY  textColor.label                 "Տեքստ.">
+<!ENTITY  textColor.accesskey             "t">
+<!ENTITY  backgroundColor.label           "Աստառ.">
+<!ENTITY  backgroundColor.accesskey       "B">
+<!ENTITY  useSystemColors.label           "Օգտագործել համակարգի գույները">
+<!ENTITY  useSystemColors.accesskey       "s">
+
+<!ENTITY  underlineLinks.label            "Հղաւմներն ընդգծել">
+<!ENTITY  underlineLinks.accesskey        "y">
+<!ENTITY  links                           "Հղման Գույները">
+<!ENTITY  linkColor.label                 "Չայցելված հղումներ.">
+<!ENTITY  linkColor.accesskey             "U">
+<!ENTITY  visitedLinkColor.label          "Այցելված հղումներ.">
+<!ENTITY  visitedLinkColor.accesskey      "V">

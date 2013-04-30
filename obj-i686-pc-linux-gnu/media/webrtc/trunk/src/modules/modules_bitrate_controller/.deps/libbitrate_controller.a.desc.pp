@@ -1,0 +1,1 @@
+libbitrate_controller.a.desc : bitrate_controller/bitrate_controller_impl.o bitrate_controller/send_side_bandwidth_estimation.o

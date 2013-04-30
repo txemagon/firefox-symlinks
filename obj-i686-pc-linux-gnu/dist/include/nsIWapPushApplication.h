@@ -1,0 +1,1 @@
+../../dom/mms/interfaces/_xpidlgen/nsIWapPushApplication.h

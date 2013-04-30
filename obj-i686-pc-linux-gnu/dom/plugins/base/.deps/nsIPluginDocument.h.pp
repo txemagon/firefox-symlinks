@@ -1,0 +1,1 @@
+_xpidlgen/nsIPluginDocument.h: /home/txema/work/firefox-20.0+build1/dom/plugins/base/nsIPluginDocument.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl ../../../dist/idl/nsIStreamListener.idl ../../../dist/idl/nsIRequestObserver.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

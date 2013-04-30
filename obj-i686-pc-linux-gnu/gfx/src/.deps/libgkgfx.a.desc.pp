@@ -1,0 +1,1 @@
+libgkgfx.a.desc : nsColor.o nsFont.o nsRect.o nsRegion.o nsTransform2D.o nsScriptableRegion.o gfxCrashReporterUtils.o nsDeviceContext.o nsThebesGfxFactory.o nsRenderingContext.o nsFontMetrics.o nsThebesFontEnumerator.o X11Util.o

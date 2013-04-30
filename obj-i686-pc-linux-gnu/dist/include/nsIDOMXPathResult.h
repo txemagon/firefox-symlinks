@@ -1,0 +1,1 @@
+../../dom/interfaces/xpath/_xpidlgen/nsIDOMXPathResult.h

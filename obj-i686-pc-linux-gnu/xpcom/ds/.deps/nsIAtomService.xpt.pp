@@ -1,0 +1,1 @@
+_xpidlgen/nsIAtomService.xpt: /home/txema/work/firefox-20.0+build1/xpcom/ds/nsIAtomService.idl /home/txema/work/firefox-20.0+build1/xpcom/ds/nsIAtom.idl ../../dist/idl/nsISupports.idl ../../dist/idl/nsrootidl.idl

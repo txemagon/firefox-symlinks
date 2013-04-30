@@ -1,0 +1,77 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+DEPTH            = ../..
+topsrcdir        = /home/txema/work/firefox-20.0+build1
+srcdir           = /home/txema/work/firefox-20.0+build1/dom/workers
+VPATH            = /home/txema/work/firefox-20.0+build1/dom/workers
+
+include $(DEPTH)/config/autoconf.mk
+
+MODULE           = dom
+LIBRARY_NAME     = domworkers_s
+LIBXUL_LIBRARY   = 1
+FORCE_STATIC_LIB = 1
+ifndef _MSC_VER
+FAIL_ON_WARNINGS := 1
+endif # !_MSC_VER
+
+CPPSRCS = \
+  ChromeWorkerScope.cpp \
+  DOMBindingBase.cpp \
+  Events.cpp \
+  EventListenerManager.cpp \
+  EventTarget.cpp \
+  Exceptions.cpp \
+  File.cpp \
+  FileReaderSync.cpp \
+  ImageData.cpp \
+  Location.cpp \
+  Navigator.cpp \
+  Principal.cpp \
+  RuntimeService.cpp \
+  ScriptLoader.cpp \
+  TextDecoder.cpp \
+  TextEncoder.cpp \
+  Worker.cpp \
+  WorkerPrivate.cpp \
+  WorkerScope.cpp \
+  XMLHttpRequestEventTarget.cpp \
+  XMLHttpRequestUpload.cpp \
+  XMLHttpRequest.cpp \
+  $(NULL)
+
+EXPORTS_NAMESPACES = \
+  mozilla/dom/workers \
+  mozilla/dom/workers/bindings \
+  $(NULL)
+
+# Public stuff.
+EXPORTS_mozilla/dom/workers = Workers.h
+
+# Stuff needed for the bindings, not really public though.
+EXPORTS_mozilla/dom/workers/bindings = \
+  DOMBindingBase.h \
+  EventListenerManager.h \
+  EventTarget.h \
+  FileReaderSync.h \
+  TextDecoder.h \
+  TextEncoder.h \
+  WorkerFeature.h \
+  XMLHttpRequestEventTarget.h \
+  XMLHttpRequestUpload.h \
+  XMLHttpRequest.h \
+  $(NULL)
+
+LOCAL_INCLUDES = \
+  -I$(topsrcdir)/content/base/src \
+  -I$(topsrcdir)/content/events/src \
+  -I$(topsrcdir)/dom/base \
+  -I$(topsrcdir)/dom/system \
+  -I$(topsrcdir)/xpcom/build \
+  $(NULL)
+
+TEST_DIRS += test
+
+include $(topsrcdir)/config/rules.mk

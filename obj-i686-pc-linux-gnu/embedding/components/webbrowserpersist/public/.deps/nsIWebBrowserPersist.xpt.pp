@@ -1,0 +1,1 @@
+_xpidlgen/nsIWebBrowserPersist.xpt: /home/txema/work/firefox-20.0+build1/embedding/components/webbrowserpersist/public/nsIWebBrowserPersist.idl ../../../../dist/idl/nsICancelable.idl ../../../../dist/idl/nsISupports.idl ../../../../dist/idl/nsrootidl.idl

@@ -1,0 +1,35 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
+<!ENTITY editMenu.label            "Խմբագրել">
+<!ENTITY editMenu.accesskey        "E">
+<!ENTITY undoCmd.label             "Հրաժարվել">
+<!ENTITY undoCmd.key               "Z">
+<!ENTITY undoCmd.accesskey         "u">
+<!ENTITY redoCmd.label             "Կրկնել">
+<!ENTITY redoCmd.key               "Y">
+<!ENTITY redoCmd.accesskey         "R">
+<!ENTITY cutCmd.label              "Կտրել">
+<!ENTITY cutCmd.key                "X">
+<!ENTITY cutCmd.accesskey          "t">
+<!ENTITY copyCmd.label             "Կրկնակել">
+<!ENTITY copyCmd.key               "C">
+<!ENTITY copyCmd.accesskey         "C">
+<!ENTITY pasteCmd.label            "Մեջբերել">
+<!ENTITY pasteCmd.key              "V">
+<!ENTITY pasteCmd.accesskey        "P">
+<!ENTITY deleteCmd.label           "Ջնջել">
+<!ENTITY deleteCmd.accesskey       "D">
+<!ENTITY selectAllCmd.label        "Ամբողջն ընտրել">
+<!ENTITY selectAllCmd.key          "A">
+<!ENTITY selectAllCmd.accesskey    "S">
+<!ENTITY findCmd.label             "Փնտրել">
+<!ENTITY findCmd.key               "F">
+<!ENTITY findCmd.accesskey         "F">
+<!ENTITY findAgainCmd.label        "Նորից Փնտրել">
+<!ENTITY findAgainCmd.key          "G">
+<!ENTITY findAgainCmd.key2         "VK_F3">
+<!ENTITY findAgainCmd.accesskey    "g">
+<!ENTITY findPreviousCmd.label     "Փնտրել Նախորդը">
+<!ENTITY findPreviousCmd.accesskey "v">

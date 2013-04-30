@@ -1,0 +1,1 @@
+../../xpcom/system/_xpidlgen/nsIXULRuntime.h

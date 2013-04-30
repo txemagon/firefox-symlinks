@@ -1,0 +1,1 @@
+../../dom/indexedDB/_xpidlgen/nsIIDBTransaction.h

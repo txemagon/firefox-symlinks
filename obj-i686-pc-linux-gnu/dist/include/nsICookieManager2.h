@@ -1,0 +1,1 @@
+../../netwerk/cookie/_xpidlgen/nsICookieManager2.h

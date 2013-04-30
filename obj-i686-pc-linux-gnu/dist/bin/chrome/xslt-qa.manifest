@@ -1,0 +1,2 @@
+overlay chrome://communicator/content/tasksOverlay.xul chrome://xslt-qa/content/xslt-qa-overlay.xul
+content xslt-qa xslt-qa/content/xslt-qa/

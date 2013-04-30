@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/toolkit/components/autocomplete/tests/unit/test_previousResult.js

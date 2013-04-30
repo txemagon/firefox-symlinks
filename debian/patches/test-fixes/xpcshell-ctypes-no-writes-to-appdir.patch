@@ -1,0 +1,27 @@
+Index: firefox-trunk-19.0~a1~hg20121114r113217/toolkit/components/ctypes/tests/unit/test_jsctypes.js.in
+===================================================================
+--- firefox-trunk-19.0~a1~hg20121114r113217.orig/toolkit/components/ctypes/tests/unit/test_jsctypes.js.in	2012-11-19 19:09:20.145805853 +0000
++++ firefox-trunk-19.0~a1~hg20121114r113217/toolkit/components/ctypes/tests/unit/test_jsctypes.js.in	2012-11-19 19:17:05.233797589 +0000
+@@ -13,6 +13,8 @@
+ CTYPES_TEST_LIB = ctypes.libraryName("jsctypes-test");
+ CTYPES_UNICODE_LIB = ctypes.libraryName("jsctyp\u00E8s-t\u00EB\u00DFt");
+ 
++var gProfileDir = do_get_profile();
++
+ function do_check_throws(f, type, stack)
+ {
+   if (!stack) {
+@@ -213,10 +215,11 @@
+   // Test loading a library with a unicode name (bug 589413). Note that nsIFile
+   // implementations are not available in some harnesses; if not, the harness
+   // should take care of the copy for us.
+-  let unicodefile = do_get_file(CTYPES_UNICODE_LIB, true);
+   let copy = libfile.copyTo instanceof Function;
+   if (copy)
+-    libfile.copyTo(null, unicodefile.leafName);
++    libfile.copyTo(gProfileDir, CTYPES_UNICODE_LIB);
++  let unicodefile = gProfileDir.clone();
++  unicodefile.append(CTYPES_UNICODE_LIB);
+   library = ctypes.open(unicodefile.path);
+   run_void_tests(library);
+   library.close();

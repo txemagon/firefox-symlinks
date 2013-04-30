@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/js/xpconnect/tests/unit/bogus_exports_type.jsm

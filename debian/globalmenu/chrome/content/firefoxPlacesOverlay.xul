@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<overlay id="globalmenu-extension-firefox-places-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <menubar id="placesMenu" menubarkeeplocal="true"/>
+</overlay>

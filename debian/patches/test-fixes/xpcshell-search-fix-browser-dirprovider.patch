@@ -1,0 +1,49 @@
+Index: firefox-20.0~b1+build2/toolkit/components/search/tests/xpcshell/head_search.js
+===================================================================
+--- firefox-20.0~b1+build2.orig/toolkit/components/search/tests/xpcshell/head_search.js	2013-03-08 10:28:40.792694111 +0000
++++ firefox-20.0~b1+build2/toolkit/components/search/tests/xpcshell/head_search.js	2013-03-08 10:34:53.056687497 +0000
+@@ -62,6 +62,44 @@
+ // Need to create and register a profile folder.
+ var gProfD = do_get_profile();
+ 
++var provider = {
++  getFile: function() {
++    throw Components.results.NS_ERROR_FAILURE;
++  },
++
++  getFiles: function(prop) {
++    if (prop == "XREExtDL") {
++      return {
++        getNext: function() {
++          throw Components.results.NS_ERROR_FAILURE;
++        },
++        hasMoreElements: function() {
++          return false;
++        },
++        QueryInterface: function(iid) {
++          if (iid.equals(Components.interfaces.nsISimpleEnumerator) ||
++              iid.equals(Components.interfaces.nsISupports)) {
++            return this;
++          }
++          throw Components.results.NS_ERROR_NO_INTERFACE;
++        }
++      };
++    }
++    throw Components.results.NS_ERROR_FAILURE;
++  },
++
++  QueryInterface: function(iid) {
++    if (iid.equals(Components.interfaces.nsIDirectoryServiceProvider2) ||
++        iid.equals(Components.interfaces.nsIDirectoryServiceProvider) ||
++        iid.equals(Components.interfaces.nsISupports)) {
++      return this;
++    }
++    throw Components.results.NS_ERROR_NO_INTERFACE;
++  }
++};
++
++Services.dirsvc.registerProvider(provider);
++
+ function dumpn(text)
+ {
+   dump("search test: " + text + "\n");

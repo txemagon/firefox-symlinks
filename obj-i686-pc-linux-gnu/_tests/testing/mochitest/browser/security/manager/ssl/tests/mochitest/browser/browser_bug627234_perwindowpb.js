@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/security/manager/ssl/tests/mochitest/browser/browser_bug627234_perwindowpb.js

@@ -1,0 +1,21 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
+<!ENTITY     props.name.label               "Անվանումը.">
+<!ENTITY     props.value.label              "Պարունակությունը.">
+<!ENTITY     props.domain.label             "Հանգույցը.">
+<!ENTITY     props.path.label               "Ծրագիծը.">
+<!ENTITY     props.secure.label             "Ուղղարկել ի.">
+<!ENTITY     props.expires.label            "Բոլորում է.">
+
+<!ENTITY     button.allow.label             "Թույլ տալ">
+<!ENTITY     button.allow.accesskey         "A">
+<!ENTITY     button.session.label           "Նիստի ընթացքում թույ տալ">
+<!ENTITY     button.session.accesskey       "S">
+<!ENTITY     button.deny.label              "Արգելել">
+<!ENTITY     button.deny.accesskey          "D">
+
+<!ENTITY     dialog.title                   "Հաստատել պատրաստուքի տեղադրումը">
+<!ENTITY     dialog.remember.label          "Իմ ընտրությունը կիրառել այս հանգույցի բոլոր պատրաստուքների համար">
+<!ENTITY     dialog.remember.accesskey      "U">

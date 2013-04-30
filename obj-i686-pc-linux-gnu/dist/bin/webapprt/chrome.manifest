@@ -1,0 +1,4 @@
+manifest components/components.manifest
+manifest chrome/webapprt.manifest
+resource webapprt ./
+manifest chrome/en-US.manifest

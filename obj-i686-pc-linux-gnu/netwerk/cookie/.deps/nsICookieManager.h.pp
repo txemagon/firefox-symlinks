@@ -1,0 +1,1 @@
+_xpidlgen/nsICookieManager.h: /home/txema/work/firefox-20.0+build1/netwerk/cookie/nsICookieManager.idl ../../dist/idl/nsISupports.idl ../../dist/idl/nsrootidl.idl ../../dist/idl/nsISimpleEnumerator.idl ../../dist/idl/nsISupports.idl ../../dist/idl/nsrootidl.idl

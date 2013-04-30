@@ -1,0 +1,11 @@
+prefix=/usr
+sdkdir=/@MOZ_SDKDIR@
+includedir=/@MOZ_INCDIR@
+
+Name: NSPR
+Description: The Netscape Portable Runtime
+Version: @MOZ_VERSION@
+Libs: -L${sdkdir}/lib -lplds4 -lplc4 -lnspr4 -lpthread -ldl
+Cflags: -I${includedir}/nspr
+
+

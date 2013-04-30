@@ -1,0 +1,1 @@
+_xpidlgen/nsPICommandUpdater.xpt: /home/txema/work/firefox-20.0+build1/embedding/components/commandhandler/public/nsPICommandUpdater.idl ../../../../dist/idl/nsISupports.idl ../../../../dist/idl/nsrootidl.idl ../../../../dist/idl/domstubs.idl ../../../../dist/idl/nsISupports.idl ../../../../dist/idl/nsrootidl.idl

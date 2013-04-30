@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/browser/devtools/webconsole/test/browser_webconsole_bug_597136_network_requests_from_chrome.js

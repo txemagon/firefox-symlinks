@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/toolkit/components/places/tests/bookmarks/test_477583_json-backup-in-future.js

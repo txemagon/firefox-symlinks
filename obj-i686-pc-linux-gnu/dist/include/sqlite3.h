@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/db/sqlite3/src/sqlite3.h

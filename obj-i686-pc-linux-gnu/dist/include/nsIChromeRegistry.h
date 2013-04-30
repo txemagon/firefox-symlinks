@@ -1,0 +1,1 @@
+../../chrome/public/_xpidlgen/nsIChromeRegistry.h

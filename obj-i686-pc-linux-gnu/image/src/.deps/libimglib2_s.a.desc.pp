@@ -1,0 +1,1 @@
+libimglib2_s.a.desc : Image.o ImageFactory.o Decoder.o DiscardTracker.o RasterImage.o ScriptedNotificationObserver.o SVGDocumentWrapper.o VectorImage.o imgFrame.o imgLoader.o imgRequest.o imgRequestProxy.o imgTools.o imgStatusTracker.o

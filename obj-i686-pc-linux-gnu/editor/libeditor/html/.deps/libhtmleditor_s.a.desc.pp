@@ -1,0 +1,1 @@
+libhtmleditor_s.a.desc : nsEditProperty.o nsHTMLAbsPosition.o nsHTMLAnonymousUtils.o nsHTMLDataTransfer.o nsHTMLCSSUtils.o nsHTMLEditor.o nsHTMLEditorStyle.o nsHTMLEditRules.o nsHTMLEditUtils.o nsHTMLObjectResizer.o nsHTMLEditorEventListener.o nsHTMLInlineTableEditor.o nsHTMLURIRefObject.o nsTableEditor.o nsWSRunObject.o TypeInState.o TextEditorTest.o

@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/dom/permission/tests/unit/test_bug808734.js

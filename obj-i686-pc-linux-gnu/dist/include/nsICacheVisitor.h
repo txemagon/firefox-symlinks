@@ -1,0 +1,1 @@
+../../netwerk/cache/_xpidlgen/nsICacheVisitor.h

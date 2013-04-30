@@ -1,0 +1,51 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:676: checking host system type
+configure:697: checking target system type
+configure:715: checking build system type
+configure:1316: checking for whoami
+configure:2141: checking for gcc
+configure:2254: checking whether the C compiler (gcc    -Wl,--build-id) works
+configure:2270: gcc -o conftest     -Wl,--build-id conftest.c  1>&5
+configure:2296: checking whether the C compiler (gcc    -Wl,--build-id) is a cross-compiler
+configure:2301: checking whether we are using GNU C
+configure:2329: checking whether gcc accepts -g
+configure:2510: checking how to run the C preprocessor
+configure:2592: checking for ranlib
+configure:2624: checking for as
+configure:2665: checking for ar
+configure:2706: checking for ld
+configure:2747: checking for strip
+configure:2788: checking for windres
+configure:2856: checking for gcc -pipe support
+configure:2908: checking whether C compiler supports -fprofile-generate
+configure:2917: gcc -c  -fprofile-generate -fprofile-correction  conftest.c 1>&5
+configure:2940: checking for visibility(hidden) attribute
+configure:2964: checking for visibility pragma support
+configure:3017: checking for perl5
+configure:3346: gcc -c   conftest.c 1>&5
+configure: In function 'main':
+configure:3342:15: error: '__thumb2__' undeclared (first use in this function)
+configure:3342:15: note: each undeclared identifier is reported only once for each function it appears in
+configure: failed program was:
+#line 3339 "configure"
+#include "confdefs.h"
+
+int main() {
+return sizeof(__thumb2__);
+; return 0; }
+configure:5492: checking for dlopen in -ldl
+configure:5511: gcc -o conftest  -Wall    -Wl,--build-id conftest.c -ldl   1>&5
+configure:5528: checking for dlfcn.h
+configure:5571: checking whether gcc needs -traditional
+configure:5621: checking for lchown
+configure:5621: checking for strerror
+configure:5621: checking for dladdr
+configure:5802: checking for pthread_create in -lpthreads
+gcc -o dummy dummy.c  -Wall  -lpthreads   -Wl,--build-id 
+/usr/bin/ld.bfd.real: cannot find -lpthreads
+collect2: ld returned 1 exit status
+configure:5824: checking for pthread_create in -lpthread
+gcc -o dummy dummy.c  -Wall  -lpthread   -Wl,--build-id 
+configure:5986: checking whether gcc accepts -pthread

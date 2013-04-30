@@ -1,0 +1,1 @@
+_xpidlgen/nsIProcess.h: /home/txema/work/firefox-20.0+build1/xpcom/threads/nsIProcess.idl ../../dist/idl/nsIFile.idl ../../dist/idl/nsISupports.idl ../../dist/idl/nsrootidl.idl ../../dist/idl/nsISupports.idl ../../dist/idl/nsrootidl.idl

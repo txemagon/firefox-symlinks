@@ -1,0 +1,1 @@
+_xpidlgen/nsIDebug2.xpt: /home/txema/work/firefox-20.0+build1/xpcom/base/nsIDebug2.idl /home/txema/work/firefox-20.0+build1/xpcom/base/nsIDebug.idl /home/txema/work/firefox-20.0+build1/xpcom/base/nsISupports.idl /home/txema/work/firefox-20.0+build1/xpcom/base/nsrootidl.idl

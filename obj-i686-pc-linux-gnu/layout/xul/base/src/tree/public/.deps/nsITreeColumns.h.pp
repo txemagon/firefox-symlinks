@@ -1,0 +1,1 @@
+_xpidlgen/nsITreeColumns.h: /home/txema/work/firefox-20.0+build1/layout/xul/base/src/tree/public/nsITreeColumns.idl ../../../../../../dist/idl/nsISupports.idl ../../../../../../dist/idl/nsrootidl.idl

@@ -1,0 +1,1 @@
+../../dom/interfaces/traversal/_xpidlgen/nsIDOMNodeFilter.h

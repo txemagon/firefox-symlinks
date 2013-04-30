@@ -1,0 +1,76 @@
+Description: Add "Ubuntu" to the platform part of the UA string
+Author: Chris Coulson <chris.coulson@canonical.com>
+Forwarded: not-needed
+
+Index: firefox-trunk-17.0~a1~hg20120826r103484/netwerk/protocol/http/nsHttpHandler.cpp
+===================================================================
+--- firefox-trunk-17.0~a1~hg20120826r103484.orig/netwerk/protocol/http/nsHttpHandler.cpp	2012-08-27 03:10:15.000000000 +0100
++++ firefox-trunk-17.0~a1~hg20120826r103484/netwerk/protocol/http/nsHttpHandler.cpp	2012-08-27 20:47:29.416210541 +0100
+@@ -159,6 +159,9 @@
+     , mLegacyAppName("Mozilla")
+     , mLegacyAppVersion("5.0")
+     , mProduct("Gecko")
++#ifdef MOZ_UA_VENDOR
++    , mVendor(MOZ_UA_VENDOR)
++#endif
+     , mUserAgentIsDirty(true)
+     , mUseCache(true)
+     , mPromptTempRedirect(true)
+@@ -282,6 +285,9 @@
+     LOG(("> misc = %s\n", mMisc.get()));
+     LOG(("> product = %s\n", mProduct.get()));
+     LOG(("> product-sub = %s\n", mProductSub.get()));
++#ifdef MOZ_UA_VENDOR
++    LOG(("> vendor = %s\n", mVendor.get()));
++#endif
+     LOG(("> app-name = %s\n", mAppName.get()));
+     LOG(("> app-version = %s\n", mAppVersion.get()));
+     LOG(("> compat-firefox = %s\n", mCompatFirefox.get()));
+@@ -534,7 +540,10 @@
+                            mAppVersion.Length() +
+                            mCompatFirefox.Length() +
+                            mCompatDevice.Length() +
+-                           13);
++#ifdef MOZ_UA_VENDOR
++                           mVendor.Length() + 
++#endif
++                           15);
+ 
+     // Application portion
+     mUserAgent.Assign(mLegacyAppName);
+@@ -550,6 +559,10 @@
+       mUserAgent.AppendLiteral("; ");
+     }
+ #endif
++#ifdef MOZ_UA_VENDOR
++    mUserAgent += mVendor;
++    mUserAgent.AppendLiteral("; ");
++#endif
+     if (!mCompatDevice.IsEmpty()) {
+         mUserAgent += mCompatDevice;
+         mUserAgent.AppendLiteral("; ");
+Index: firefox-trunk-17.0~a1~hg20120826r103484/netwerk/protocol/http/nsHttpHandler.h
+===================================================================
+--- firefox-trunk-17.0~a1~hg20120826r103484.orig/netwerk/protocol/http/nsHttpHandler.h	2012-08-27 03:10:15.000000000 +0100
++++ firefox-trunk-17.0~a1~hg20120826r103484/netwerk/protocol/http/nsHttpHandler.h	2012-08-27 20:47:29.420210540 +0100
+@@ -323,6 +323,7 @@
+     // useragent components
+     nsCString      mLegacyAppName;
+     nsCString      mLegacyAppVersion;
++    nsCString      mVendor;
+     nsCString      mPlatform;
+     nsCString      mOscpu;
+     nsCString      mMisc;
+Index: firefox-trunk-17.0~a1~hg20120826r103484/netwerk/protocol/http/Makefile.in
+===================================================================
+--- firefox-trunk-17.0~a1~hg20120826r103484.orig/netwerk/protocol/http/Makefile.in	2012-08-27 03:10:15.000000000 +0100
++++ firefox-trunk-17.0~a1~hg20120826r103484/netwerk/protocol/http/Makefile.in	2012-08-27 20:48:46.336213700 +0100
+@@ -99,4 +99,8 @@
+ 
+ DEFINES += -DIMPL_NS_NET
+ 
++ifdef MOZ_UA_VENDOR
++DEFINES += -DMOZ_UA_VENDOR=\""$(MOZ_UA_VENDOR)"\"
++endif
++
+ XPIDL_FLAGS += -I$(topsrcdir)/netwerk/base/public

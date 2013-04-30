@@ -1,0 +1,84 @@
+Index: firefox-20.0~a2~hg20130206r123896/testing/mochitest/browser-harness.xul
+===================================================================
+--- firefox-20.0~a2~hg20130206r123896.orig/testing/mochitest/browser-harness.xul	2013-02-06 13:57:19.750072042 +0000
++++ firefox-20.0~a2~hg20130206r123896/testing/mochitest/browser-harness.xul	2013-02-06 13:59:07.530070127 +0000
+@@ -11,6 +11,9 @@
+         width="1024">
+   <script src="chrome://mochikit/content/tests/SimpleTest/MozillaLogger.js"/>
+   <script src="chrome://mochikit/content/tests/SimpleTest/LogController.js"/>
++  <!-- We need this to make setup.js happy. Perhaps filterTests() should also exist in chrome-harness.js? -->
++  <script src="chrome://mochikit/content/tests/SimpleTest/TestRunner.js"/>
++  <script src="chrome://mochikit/content/tests/SimpleTest/setup.js"/>
+   <script src="chrome://mochikit/content/chrome-harness.js"/>
+   <style xmlns="http://www.w3.org/1999/xhtml"><![CDATA[
+     #results {
+@@ -186,10 +189,11 @@
+       scriptLoader.loadSubScript('chrome://mochikit/content/server.js',
+                                  srvScope);
+ 
+-      var fileNames = [];
+       var fileNameRegexp = /browser_.+\.js$/;
+-      srvScope.arrayOfTestFiles(links, fileNames, fileNameRegexp);
+-      return fileNames.map(function (f) new browserTest(f));
++      srvScope.arrayOfTestFiles(links, gTestList, fileNameRegexp);
++      gTestBase = "chrome://mochitests/content";
++      gTestList = filterTests(gConfig.testManifest, gConfig.runOnly);
++      return gTestList.map(function (f) new browserTest(f));
+     }
+ 
+     function setStatus(aStatusString) {
+Index: firefox-20.0~a2~hg20130206r123896/testing/mochitest/tests/SimpleTest/setup.js
+===================================================================
+--- firefox-20.0~a2~hg20130206r123896.orig/testing/mochitest/tests/SimpleTest/setup.js	2013-02-06 13:57:19.750072042 +0000
++++ firefox-20.0~a2~hg20130206r123896/testing/mochitest/tests/SimpleTest/setup.js	2013-02-06 13:57:19.746072042 +0000
+@@ -248,10 +248,10 @@
+       for (var f in runtests) {
+         // Remove leading /tests/ if exists
+         file = f.replace(/^\//, '')
+-        file = file.replace(/^tests\//, '')
++        file = file.replace(RegExp("^" + gTestBase + "/"), '')
+ 
+         // Match directory or filename, gTestList has tests/<path>
+-        if (tmp_path.match("^tests/" + file) != null) {
++        if (tmp_path.match("^" + gTestBase + "/" + file) != null) {
+           filteredTests.push(test_path);
+           break;
+         }
+@@ -273,10 +273,10 @@
+       for (var f in excludetests) {
+         // Remove leading /tests/ if exists
+         file = f.replace(/^\//, '')
+-        file = file.replace(/^tests\//, '')
++        file = file.replace(RegExp("^" + gTestBase + "/"), '');
+ 
+         // Match directory or filename, gTestList has tests/<path>
+-        if (tmp_path.match("^tests/" + file) != null) {
++        if (tmp_path.match("^" + gTestBase + "/" + file) != null) {
+           found = true;
+           break;
+         }
+Index: firefox-20.0~a2~hg20130206r123896/testing/mochitest/harness-overlay.xul
+===================================================================
+--- firefox-20.0~a2~hg20130206r123896.orig/testing/mochitest/harness-overlay.xul	2013-02-06 13:57:19.750072042 +0000
++++ firefox-20.0~a2~hg20130206r123896/testing/mochitest/harness-overlay.xul	2013-02-06 13:57:19.746072042 +0000
+@@ -52,6 +52,7 @@
+     document.getElementById("test-table").innerHTML += tableContent;
+   }
+   gTestList = eval(srvScope.jsonArrayOfTestFiles(links));
++  gTestBase = "chrome://mochitests/content";
+   populate();
+ 
+   hookup();
+Index: firefox-20.0~a2~hg20130206r123896/testing/mochitest/server.js
+===================================================================
+--- firefox-20.0~a2~hg20130206r123896.orig/testing/mochitest/server.js	2013-02-06 14:02:18.658066731 +0000
++++ firefox-20.0~a2~hg20130206r123896/testing/mochitest/server.js	2013-02-06 14:02:28.526066556 +0000
+@@ -601,7 +601,7 @@
+         SCRIPT({type: "text/javascript",
+                  src: "/tests/SimpleTest/setup.js"}),
+         SCRIPT({type: "text/javascript"},
+-               "window.onload =  hookup; gTestList=" + tests + ";"
++               "window.onload =  hookup; gTestList=" + tests + "; gTestBase=\"tests\";"
+         )
+       ),
+       BODY(

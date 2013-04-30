@@ -1,0 +1,28 @@
+#
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+DEPTH		= ../../../../..
+topsrcdir	= /home/txema/work/firefox-20.0+build1
+srcdir		= /home/txema/work/firefox-20.0+build1/browser/components/safebrowsing/content/test
+VPATH		= /home/txema/work/firefox-20.0+build1/browser/components/safebrowsing/content/test
+relativesrcdir  = browser/components/safebrowsing/content/test
+
+include $(DEPTH)/config/autoconf.mk
+include $(topsrcdir)/config/rules.mk
+
+# The browser chrome test for bug 415846 doesn't run on Mac because of its
+# bizarre special-and-unique snowflake of a help menu.
+ifneq (cocoa,$(MOZ_WIDGET_TOOLKIT))
+_NON_MAC_BROWSER_TESTS = browser_bug415846.js
+endif
+
+_BROWSER_FILES = head.js \
+                 browser_bug400731.js \
+                 $(_NON_MAC_BROWSER_TESTS) \
+    $(NULL)
+
+libs::	$(_BROWSER_FILES)
+	$(INSTALL) $(foreach f,$^,"$f") $(DEPTH)/_tests/testing/mochitest/browser/$(relativesrcdir)
+

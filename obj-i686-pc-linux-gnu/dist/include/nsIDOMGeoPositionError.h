@@ -1,0 +1,1 @@
+../../dom/interfaces/geolocation/_xpidlgen/nsIDOMGeoPositionError.h

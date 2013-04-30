@@ -1,0 +1,2 @@
+Tests: xpcshell-tests xpcshell-package-tests jstestbrowser reftest crashtest mochitest-browser mochitest mochitest-chrome mochitest-a11y mochitest-ipcplugins
+Depends: @, libc-bin, make, notify-osd, metacity, language-pack-en-base, language-pack-es-base, language-pack-fr-base, language-pack-pt-base, fonts-arabeyes, fonts-kacst, fonts-takao-mincho, fonts-takao-gothic, ttf-wqy-zenhei, fonts-arphic-uming, ttf-arphic-ukai, fonts-nanum, fonts-nanum-coding, fonts-unfonts-core

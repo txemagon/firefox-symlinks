@@ -1,0 +1,1 @@
+libdom_browserelement_s.a.desc : nsOpenWindowEventDetail.o nsAsyncScrollEventDetail.o BrowserElementParent.o

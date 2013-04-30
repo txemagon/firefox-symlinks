@@ -1,0 +1,1 @@
+_xpidlgen/inIDeepTreeWalker.h: /home/txema/work/firefox-20.0+build1/layout/inspector/public/inIDeepTreeWalker.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl ../../../dist/idl/nsIDOMTreeWalker.idl ../../../dist/idl/domstubs.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

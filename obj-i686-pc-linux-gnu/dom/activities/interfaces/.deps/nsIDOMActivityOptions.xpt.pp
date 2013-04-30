@@ -1,0 +1,1 @@
+_xpidlgen/nsIDOMActivityOptions.xpt: /home/txema/work/firefox-20.0+build1/dom/activities/interfaces/nsIDOMActivityOptions.idl ../../../dist/idl/domstubs.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

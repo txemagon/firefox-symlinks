@@ -1,0 +1,80 @@
+#! gmake
+#
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+DEPTH       = ../..
+topsrcdir   = /home/txema/work/firefox-20.0+build1
+srcdir      = /home/txema/work/firefox-20.0+build1/tools/profiler
+VPATH       = $(srcdir)
+relativesrcdir = tools/profiler
+
+XPCSHELL_TESTS = tests
+
+include $(DEPTH)/config/autoconf.mk
+
+EXPORTS = sampler.h
+
+ifdef MOZ_ENABLE_PROFILER_SPS
+EXPORTS += \
+  sps_sampler.h \
+  shared-libraries.h \
+  $(NULL)
+
+LOCAL_INCLUDES += \
+  -I$(topsrcdir)/mozglue/linker \
+  -I$(topsrcdir)/ipc/chromium/src \
+  $(NULL)
+
+ifneq (,$(filter armeabi,$(ANDROID_CPU_ARCH)))
+DEFINES += -DARCH_ARMV6
+endif
+
+MODULE          = profiler
+MODULE_NAME     = nsProfilerModule
+LIBRARY_NAME    = profiler
+EXPORT_LIBRARY  = 1
+LIBXUL_LIBRARY  = 1
+IS_COMPONENT    = 1
+
+CPPSRCS		= \
+  nsProfilerFactory.cpp \
+  nsProfiler.cpp \
+  TableTicker.cpp \
+  JSObjectBuilder.cpp \
+  JSCustomObjectBuilder.cpp \
+  $(NULL)
+
+XPIDLSRCS = \
+  nsIProfiler.idl \
+  $(NULL)
+
+EXTRA_JS_MODULES = \
+  Profiler.jsm \
+  $(NULL)
+
+ifneq (,$(filter Android Linux,$(OS_TARGET)))
+CPPSRCS += \
+  shared-libraries-linux.cc \
+  platform-linux.cc \
+  $(NULL)
+endif
+
+ifeq ($(OS_TARGET),Darwin)
+CPPSRCS += \
+  shared-libraries-macos.cc \
+  platform-macos.cc \
+  $(NULL)
+endif
+
+ifeq ($(OS_TARGET),WINNT)
+CPPSRCS += \
+  shared-libraries-win32.cc \
+  platform-win32.cc \
+  $(NULL)
+endif
+
+endif
+
+include $(topsrcdir)/config/rules.mk

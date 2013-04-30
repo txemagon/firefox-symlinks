@@ -1,0 +1,1 @@
+_xpidlgen/nsIWebProgressListener2.xpt: /home/txema/work/firefox-20.0+build1/uriloader/base/nsIWebProgressListener2.idl /home/txema/work/firefox-20.0+build1/uriloader/base/nsIWebProgressListener.idl ../../dist/idl/nsISupports.idl ../../dist/idl/nsrootidl.idl

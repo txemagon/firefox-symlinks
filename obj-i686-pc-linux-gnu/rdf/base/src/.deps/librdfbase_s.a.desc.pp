@@ -1,0 +1,1 @@
+librdfbase_s.a.desc : rdfTriplesSerializer.o nsCompositeDataSource.o nsContainerEnumerator.o nsDefaultResourceFactory.o nsInMemoryDataSource.o nsNameSpaceMap.o nsRDFContentSink.o nsRDFContainer.o nsRDFContainerUtils.o nsRDFService.o nsRDFXMLDataSource.o nsRDFXMLParser.o nsRDFXMLSerializer.o rdfutil.o

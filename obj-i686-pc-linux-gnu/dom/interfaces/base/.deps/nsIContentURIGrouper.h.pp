@@ -1,0 +1,1 @@
+_xpidlgen/nsIContentURIGrouper.h: /home/txema/work/firefox-20.0+build1/dom/interfaces/base/nsIContentURIGrouper.idl ../../../dist/idl/nsIURI.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

@@ -1,0 +1,1 @@
+_xpidlgen/nsIDOMClientInformation.xpt: /home/txema/work/firefox-20.0+build1/dom/interfaces/base/nsIDOMClientInformation.idl /home/txema/work/firefox-20.0+build1/dom/interfaces/base/domstubs.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

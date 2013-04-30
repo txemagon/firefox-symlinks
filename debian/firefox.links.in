@@ -1,0 +1,21 @@
+@MOZ_ADDONDIR@/extensions @MOZ_LIBDIR@/extensions
+@MOZ_ADDONDIR@/plugins @MOZ_LIBDIR@/plugins
+@MOZ_ADDONDIR@/searchplugins @MOZ_LIBDIR@/searchplugins
+%%if DISTRIB_VERSION == 1110
+@MOZ_ADDONDIR@/distribution @MOZ_LIBDIR@/distribution
+%%else
+@MOZ_ADDONDIR@/distribution/extensions @MOZ_LIBDIR@/distribution/extensions
+%%endif
+%%if DISTRIB_VERSION <= 1004
+usr/share/myspell/dicts @MOZ_LIBDIR@/dictionaries
+%%else
+usr/share/hunspell @MOZ_LIBDIR@/dictionaries
+%%endif
+usr/share/hyphen @MOZ_LIBDIR@/hyphenation
+@MOZ_LIBDIR@/firefox.sh usr/bin/@MOZ_APP_NAME@
+@MOZ_LIBDIR@/icons/mozicon128.png usr/share/pixmaps/@MOZ_APP_NAME@.png
+%%if DISTRIB_VERSION >= 1104
+etc/@MOZ_PKG_NAME@/syspref.js @MOZ_LIBDIR@/defaults/preferences/syspref.js
+%%else
+etc/@MOZ_PKG_NAME@/pref @MOZ_LIBDIR@/defaults/syspref
+%%endif

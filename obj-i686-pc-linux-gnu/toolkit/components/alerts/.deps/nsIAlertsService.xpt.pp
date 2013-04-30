@@ -1,0 +1,1 @@
+_xpidlgen/nsIAlertsService.xpt: /home/txema/work/firefox-20.0+build1/toolkit/components/alerts/nsIAlertsService.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl ../../../dist/idl/nsIObserver.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

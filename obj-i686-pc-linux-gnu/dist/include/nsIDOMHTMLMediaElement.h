@@ -1,0 +1,1 @@
+../../dom/interfaces/html/_xpidlgen/nsIDOMHTMLMediaElement.h

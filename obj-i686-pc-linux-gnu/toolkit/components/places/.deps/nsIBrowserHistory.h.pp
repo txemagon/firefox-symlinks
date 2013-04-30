@@ -1,0 +1,1 @@
+_xpidlgen/nsIBrowserHistory.h: /home/txema/work/firefox-20.0+build1/toolkit/components/places/nsIBrowserHistory.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl ../../../dist/idl/nsIGlobalHistory2.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

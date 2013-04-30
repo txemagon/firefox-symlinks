@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/browser/components/sessionstore/test/browser_595601-restore_hidden.js

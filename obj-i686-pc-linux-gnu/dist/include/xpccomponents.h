@@ -1,0 +1,1 @@
+../../js/xpconnect/idl/_xpidlgen/xpccomponents.h

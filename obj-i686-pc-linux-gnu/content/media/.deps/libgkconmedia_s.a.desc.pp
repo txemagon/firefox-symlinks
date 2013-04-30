@@ -1,0 +1,1 @@
+libgkconmedia_s.a.desc : AudioSegment.o DecoderTraits.o FileBlockCache.o MediaResource.o MediaStreamGraph.o AudioAvailableEventManager.o MediaDecoder.o MediaDecoderStateMachine.o MediaDecoderReader.o nsDOMMediaStream.o MediaCache.o StreamBuffer.o VideoFrameContainer.o VideoSegment.o VideoUtils.o AudioStream.o

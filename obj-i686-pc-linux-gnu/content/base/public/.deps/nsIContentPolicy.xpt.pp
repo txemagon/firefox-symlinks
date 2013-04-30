@@ -1,0 +1,1 @@
+_xpidlgen/nsIContentPolicy.xpt: /home/txema/work/firefox-20.0+build1/content/base/public/nsIContentPolicy.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl ../../../dist/idl/nsIPrincipal.idl ../../../dist/idl/nsISerializable.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

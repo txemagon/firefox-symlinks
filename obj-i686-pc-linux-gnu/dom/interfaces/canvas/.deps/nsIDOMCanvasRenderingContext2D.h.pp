@@ -1,0 +1,1 @@
+_xpidlgen/nsIDOMCanvasRenderingContext2D.h: /home/txema/work/firefox-20.0+build1/dom/interfaces/canvas/nsIDOMCanvasRenderingContext2D.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

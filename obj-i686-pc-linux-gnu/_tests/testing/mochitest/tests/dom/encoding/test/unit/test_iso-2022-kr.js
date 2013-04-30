@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/dom/encoding/test/unit/test_iso-2022-kr.js

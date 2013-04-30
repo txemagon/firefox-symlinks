@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/extensions/cookie/test/unit_ipc/test_parent.js

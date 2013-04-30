@@ -1,0 +1,26 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+<!-- LOCALIZATION NOTE : FILE The correct localization of this file might be to
+  - keep it in English, or another language commonly spoken among web developers.
+  - You want to make that choice consistent across the developer tools.
+  - A good criteria is the language in which you'd find the best
+  - documentation on web development on the web. -->
+
+
+<!ENTITY networkPanel.requestURL                  "URL क लेल निवेदन  करू ">
+<!ENTITY networkPanel.requestMethod               "निवेदन विधि">
+<!ENTITY networkPanel.statusCode                  "प्रस्थिति कोड">
+
+<!ENTITY networkPanel.requestHeaders              "शीर्षिका क लेल निवेदन  करू ">
+<!ENTITY networkPanel.requestCookie               "प्रेषित कुकी">
+<!ENTITY networkPanel.requestBody                 "प्रधान अंश क लेल निवेदन  करू ">
+<!ENTITY networkPanel.requestFormData             "आँकड़ा सँ प्रेषित">
+
+<!ENTITY networkPanel.responseHeaders             "अनुक्रिया शीर्षिका">
+<!ENTITY networkPanel.responseBody                "अनुक्रिया प्रधान अंश">
+<!ENTITY networkPanel.responseBodyCached          "कैश कएल आँकड़ा">
+<!ENTITY networkPanel.responseBodyUnknownType     "अज्ञात अंतर्वस्तु प्रकार">
+<!ENTITY networkPanel.responseNoBody              "कोनो प्रतिक्रिया प्रधान अंश नहि">
+<!ENTITY networkPanel.responseImage               "प्राप्त छवि">
+<!ENTITY networkPanel.responseImageCached         "कैश छवि">

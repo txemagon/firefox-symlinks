@@ -1,0 +1,1 @@
+_xpidlgen/nsIDOMXULDescriptionElement.h: /home/txema/work/firefox-20.0+build1/dom/interfaces/xul/nsIDOMXULDescriptionElement.idl /home/txema/work/firefox-20.0+build1/dom/interfaces/xul/nsIDOMXULElement.idl ../../../dist/idl/nsIDOMElement.idl ../../../dist/idl/nsIDOMNode.idl ../../../dist/idl/domstubs.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

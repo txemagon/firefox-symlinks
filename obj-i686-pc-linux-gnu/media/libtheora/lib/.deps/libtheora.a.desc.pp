@@ -1,0 +1,1 @@
+libtheora.a.desc : apiwrapper.o bitpack.o decapiwrapper.o decinfo.o decode.o dequant.o fragment.o huffdec.o idct.o info.o internal.o quant.o state.o mmxidct.o mmxfrag.o mmxstate.o sse2idct.o x86state.o x86cpu.o

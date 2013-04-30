@@ -1,0 +1,1 @@
+../../netwerk/protocol/http/_xpidlgen/nsIHttpHeaderVisitor.h

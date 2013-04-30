@@ -1,0 +1,1 @@
+../../toolkit/components/passwordmgr/_xpidlgen/nsILoginManager.h

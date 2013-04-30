@@ -1,0 +1,2 @@
+binary-component libxpctest.so
+interfaces xpctest.xpt

@@ -1,0 +1,127 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+DEPTH		= ../..
+topsrcdir	= /home/txema/work/firefox-20.0+build1
+srcdir		= /home/txema/work/firefox-20.0+build1/gfx/gl
+VPATH		= /home/txema/work/firefox-20.0+build1/gfx/gl
+
+include $(DEPTH)/config/autoconf.mk
+
+MODULE		= gl
+LIBRARY_NAME	= gl
+LIBXUL_LIBRARY	= 1
+EXPORT_LIBRARY	= 1
+ifndef _MSC_VER
+FAIL_ON_WARNINGS = 1
+endif # !_MSC_VER
+
+EXPORTS	= \
+	GLDefs.h \
+	GLContext.h \
+	GLContextTypes.h \
+	GLContextSymbols.h \
+	GLContextProvider.h \
+	GLContextProviderImpl.h \
+	GLLibraryLoader.h \
+	ForceDiscreteGPUHelperCGL.h \
+	GLTextureImage.h \
+	$(NULL)
+
+ifdef MOZ_X11
+EXPORTS += \
+	GLXLibrary.h \
+	$(NULL)
+endif
+
+
+ifeq ($(MOZ_WIDGET_TOOLKIT),windows)
+EXPORTS	+= \
+	WGLLibrary.h \
+	$(NULL)
+ifdef MOZ_WEBGL
+DEFINES += -DMOZ_WEBGL
+DEFINES += -DMOZ_D3DX9_DLL=$(MOZ_D3DX9_DLL)
+DEFINES += -DMOZ_D3DCOMPILER_DLL=$(MOZ_D3DCOMPILER_DLL)
+endif
+endif
+
+CPPSRCS	= \
+	GLContext.cpp \
+	GLContextUtils.cpp \
+	GLLibraryLoader.cpp \
+	GLTextureImage.cpp \
+	$(NULL)
+
+GL_PROVIDER = Null
+
+ifeq ($(MOZ_WIDGET_TOOLKIT),windows)
+GL_PROVIDER = WGL
+endif
+
+ifeq ($(MOZ_WIDGET_TOOLKIT),cocoa)
+GL_PROVIDER = CGL
+endif
+
+ifeq ($(MOZ_WIDGET_TOOLKIT),gtk2)
+ifdef MOZ_PLATFORM_MAEMO
+GL_PROVIDER = EGL
+else
+ifdef MOZ_EGL_XRENDER_COMPOSITE
+GL_PROVIDER = EGL
+else
+GL_PROVIDER = GLX
+endif
+endif
+endif
+
+ifeq ($(MOZ_WIDGET_TOOLKIT),qt)
+ifdef MOZ_PLATFORM_MAEMO
+GL_PROVIDER = EGL
+else
+GL_PROVIDER = GLX
+endif
+endif
+
+ifeq ($(MOZ_WIDGET_TOOLKIT),android)
+GL_PROVIDER = EGL
+endif
+
+ifeq ($(MOZ_WIDGET_TOOLKIT),gonk)
+GL_PROVIDER = EGL
+LOCAL_INCLUDES = -I$(topsrcdir)/widget/gonk
+endif
+
+ifdef MOZ_GL_PROVIDER
+GL_PROVIDER = $(MOZ_GL_PROVIDER)
+endif
+
+# Mac is a special snowflake
+ifeq ($(GL_PROVIDER),CGL)
+CMMSRCS += GLContextProvider$(GL_PROVIDER).mm
+else
+CPPSRCS += GLContextProvider$(GL_PROVIDER).cpp
+endif
+
+ifeq ($(GL_PROVIDER),EGL)
+CPPSRCS += GLLibraryEGL.cpp
+endif
+
+# Win32 is a special snowflake, for ANGLE
+ifeq ($(MOZ_WIDGET_TOOLKIT),windows)
+CPPSRCS += \
+	GLContextProviderEGL.cpp \
+	GLLibraryEGL.cpp
+endif
+
+ifdef MOZ_ANDROID_OMTC
+DEFINES += -DMOZ_ANDROID_OMTC
+endif
+
+include $(topsrcdir)/config/rules.mk
+
+DEFINES := $(filter-out -DUNICODE,$(DEFINES))
+
+CXXFLAGS += $(MOZ_CAIRO_CFLAGS) $(MOZ_PIXMAN_CFLAGS) $(TK_CFLAGS)
+CFLAGS += $(MOZ_CAIRO_CFLAGS) $(MOZ_PIXMAN_CFLAGS) $(TK_CFLAGS)

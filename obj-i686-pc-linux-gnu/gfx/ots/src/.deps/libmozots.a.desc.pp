@@ -1,0 +1,1 @@
+libmozots.a.desc : cff.o cff_type2_charstring.o cmap.o cvt.o fpgm.o gasp.o glyf.o hdmx.o head.o hhea.o hmtx.o kern.o layout.o loca.o ltsh.o maxp.o metrics.o name.o os2.o ots.o post.o prep.o vdmx.o vhea.o vmtx.o vorg.o gdef.o gpos.o gsub.o graphite.o svg.o

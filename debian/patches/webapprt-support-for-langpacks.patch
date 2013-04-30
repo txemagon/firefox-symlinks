@@ -1,0 +1,18 @@
+Index: firefox-trunk-16.0~a1~hg20120702r98108/browser/locales/generic/install.rdf
+===================================================================
+--- firefox-trunk-16.0~a1~hg20120702r98108.orig/browser/locales/generic/install.rdf	2012-07-02 11:00:54.000000000 +0100
++++ firefox-trunk-16.0~a1~hg20120702r98108/browser/locales/generic/install.rdf	2012-07-02 18:39:31.579194413 +0100
+@@ -26,5 +26,13 @@
+         <em:maxVersion>@MOZ_APP_MAXVERSION@</em:maxVersion>
+       </Description>
+     </em:targetApplication>
++
++    <em:targetApplication>
++      <Description>
++        <em:id>webapprt@mozilla.org</em:id>
++        <em:minVersion>@MOZ_APP_VERSION@</em:minVersion>
++        <em:maxVersion>@MOZ_APP_MAXVERSION@</em:maxVersion>
++      </Description>
++    </em:targetApplication>
+   </Description>
+ </RDF>

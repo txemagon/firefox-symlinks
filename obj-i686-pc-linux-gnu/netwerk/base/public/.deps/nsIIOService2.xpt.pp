@@ -1,0 +1,1 @@
+_xpidlgen/nsIIOService2.xpt: /home/txema/work/firefox-20.0+build1/netwerk/base/public/nsIIOService2.idl /home/txema/work/firefox-20.0+build1/netwerk/base/public/nsIIOService.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

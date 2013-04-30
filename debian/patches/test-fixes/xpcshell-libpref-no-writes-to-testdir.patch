@@ -1,0 +1,67 @@
+Index: firefox-trunk-19.0~a1~hg20121114r113217/modules/libpref/test/unit/head_libPrefs.js
+===================================================================
+--- firefox-trunk-19.0~a1~hg20121114r113217.orig/modules/libpref/test/unit/head_libPrefs.js	2012-11-14 21:08:21.000000000 +0000
++++ firefox-trunk-19.0~a1~hg20121114r113217/modules/libpref/test/unit/head_libPrefs.js	2012-11-19 23:48:51.149507855 +0000
+@@ -23,22 +23,4 @@
+   do_throw("expected result " + result + ", none thrown", stack);
+ }
+ 
+-var dirSvc = Cc["@mozilla.org/file/directory_service;1"].getService(Ci.nsIProperties);
+-
+-// Register current test directory as provider for the profile directory.
+-var provider = {
+-  getFile: function(prop, persistent) {
+-    persistent.value = true;
+-    if (prop == NS_APP_USER_PROFILE_50_DIR)
+-      return dirSvc.get("CurProcD", Ci.nsIFile);
+-    throw Cr.NS_ERROR_FAILURE;
+-  },
+-  QueryInterface: function(iid) {
+-    if (iid.equals(Ci.nsIDirectoryServiceProvider) ||
+-        iid.equals(Ci.nsISupports)) {
+-      return this;
+-    }
+-    throw Cr.NS_ERROR_NO_INTERFACE;
+-  }
+-};
+-dirSvc.QueryInterface(Ci.nsIDirectoryService).registerProvider(provider);
++var gProfileDir = do_get_profile();
+Index: firefox-trunk-19.0~a1~hg20121114r113217/modules/libpref/test/unit/test_extprefs.js
+===================================================================
+--- firefox-trunk-19.0~a1~hg20121114r113217.orig/modules/libpref/test/unit/test_extprefs.js	2012-11-14 21:08:21.000000000 +0000
++++ firefox-trunk-19.0~a1~hg20121114r113217/modules/libpref/test/unit/test_extprefs.js	2012-11-19 23:49:02.009507661 +0000
+@@ -56,7 +56,7 @@
+   ps.setBoolPref("testPref.bool1", false);
+   do_check_false(ps.getBoolPref("testPref.bool1"));
+   
+-  dirSvc.registerProvider(extProvider);
++  Services.dirsvc.registerProvider(extProvider);
+   Services.obs.notifyObservers(null, "load-extension-defaults", null);
+ 
+   // The extension default should be available.
+Index: firefox-trunk-19.0~a1~hg20121114r113217/modules/libpref/test/unit/test_libPrefs.js
+===================================================================
+--- firefox-trunk-19.0~a1~hg20121114r113217.orig/modules/libpref/test/unit/test_libPrefs.js	2012-11-14 21:08:21.000000000 +0000
++++ firefox-trunk-19.0~a1~hg20121114r113217/modules/libpref/test/unit/test_libPrefs.js	2012-11-19 23:48:56.865507750 +0000
+@@ -295,11 +295,8 @@
+   ps.setCharPref("ReadPref.char", "hello");
+ 
+   // save those prefs in a file
+-  let savePrefFile = do_get_cwd();
+-  savePrefFile.append("data");
++  let savePrefFile = gProfileDir.clone();
+   savePrefFile.append("savePref.js");
+-  if (savePrefFile.exists())
+-    savePrefFile.remove(false);
+   savePrefFile.create(Ci.nsIFile.NORMAL_FILE_TYPE, 0666);
+   ps.savePrefFile(savePrefFile);
+   ps.resetPrefs();
+@@ -327,8 +324,6 @@
+ 
+   // loading our former savePrefFile should allow us to read former prefs
+   ps.readUserPrefs(savePrefFile);
+-  // cleanup the file now we don't need it
+-  savePrefFile.remove(false);
+   do_check_eq(ps.getBoolPref("ReadPref.bool"), true);
+   do_check_eq(ps.getIntPref("ReadPref.int"), 230);
+   do_check_eq(ps.getCharPref("ReadPref.char"), "hello");

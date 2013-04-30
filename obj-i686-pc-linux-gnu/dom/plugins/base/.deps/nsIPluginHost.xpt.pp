@@ -1,0 +1,1 @@
+_xpidlgen/nsIPluginHost.xpt: /home/txema/work/firefox-20.0+build1/dom/plugins/base/nsIPluginHost.idl /home/txema/work/firefox-20.0+build1/dom/plugins/base/nspluginroot.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl /home/txema/work/firefox-20.0+build1/dom/plugins/base/nsIPluginTag.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

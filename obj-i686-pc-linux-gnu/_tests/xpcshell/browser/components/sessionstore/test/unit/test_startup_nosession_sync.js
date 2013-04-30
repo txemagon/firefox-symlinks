@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/browser/components/sessionstore/test/unit/test_startup_nosession_sync.js

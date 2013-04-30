@@ -1,0 +1,1 @@
+_xpidlgen/nsPIWindowWatcher.xpt: /home/txema/work/firefox-20.0+build1/embedding/components/windowwatcher/public/nsPIWindowWatcher.idl ../../../../dist/idl/nsISupports.idl ../../../../dist/idl/nsrootidl.idl

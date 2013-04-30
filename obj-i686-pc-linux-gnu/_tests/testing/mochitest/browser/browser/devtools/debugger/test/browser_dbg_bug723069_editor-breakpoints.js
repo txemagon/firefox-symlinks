@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/browser/devtools/debugger/test/browser_dbg_bug723069_editor-breakpoints.js

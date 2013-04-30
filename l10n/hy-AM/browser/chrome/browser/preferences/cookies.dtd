@@ -1,0 +1,32 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
+<!ENTITY window.width                       "36em">
+
+<!ENTITY     cookiesonsystem.label          "Հետեվյալ պատրաստուքները պահպանված են ձեր համակարգչի վրա.">
+<!ENTITY     cookiename.label               "Պատրաստուքի անունը">
+<!ENTITY     cookiedomain.label             "Հանգույցը"> 
+<!ENTITY     button.removecookies.label     "Ջնջել Քուուկիները">
+<!ENTITY     button.removecookie.label      "Հեռացնել Պատրաստուքը">
+<!ENTITY     button.removecookie.accesskey  "R">
+<!ENTITY     button.removeallcookies.label  "Ջնջել Բոլոր Պատրաստուքները">
+<!ENTITY     button.removeallcookies.accesskey "A">
+
+<!ENTITY     props.name.label               "Անունը.">
+<!ENTITY     props.value.label              "Պարունակությունը.">
+<!ENTITY     props.domain.label             "Հանգույցը.">
+<!ENTITY     props.path.label               "Ծրագիծ.">
+<!ENTITY     props.secure.label             "Ուղղարկել ի.">
+<!ENTITY     props.expires.label            "Բոլորում է.">
+
+<!ENTITY     window.title                   "Պատրաստուքներ">
+<!ENTITY     windowClose.key                "w">
+<!ENTITY     focusSearch1.key               "f">
+<!ENTITY     focusSearch2.key               "k">
+
+<!ENTITY     filter.label                   "Փնտրել.">
+<!ENTITY     filter.accesskey               "S">
+
+<!ENTITY     button.close.label             "Փակել">
+<!ENTITY     button.close.accesskey         "C">

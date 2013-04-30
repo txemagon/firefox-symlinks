@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/dom/plugins/test/mochitest/307-xo-redirect.sjs

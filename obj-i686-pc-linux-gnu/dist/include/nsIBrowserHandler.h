@@ -1,0 +1,1 @@
+../../browser/components/_xpidlgen/nsIBrowserHandler.h

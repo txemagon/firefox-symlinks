@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/toolkit/mozapps/update/test/unit/test_0201_app_launch_apply_update.js

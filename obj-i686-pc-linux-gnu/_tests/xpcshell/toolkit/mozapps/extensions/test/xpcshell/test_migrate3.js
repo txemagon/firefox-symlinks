@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/toolkit/mozapps/extensions/test/xpcshell/test_migrate3.js

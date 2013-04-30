@@ -1,0 +1,1 @@
+../../netwerk/protocol/viewsource/_xpidlgen/nsIViewSourceChannel.h

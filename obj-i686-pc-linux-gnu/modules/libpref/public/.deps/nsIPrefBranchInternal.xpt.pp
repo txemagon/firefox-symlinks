@@ -1,0 +1,1 @@
+_xpidlgen/nsIPrefBranchInternal.xpt: /home/txema/work/firefox-20.0+build1/modules/libpref/public/nsIPrefBranchInternal.idl /home/txema/work/firefox-20.0+build1/modules/libpref/public/nsIPrefBranch2.idl /home/txema/work/firefox-20.0+build1/modules/libpref/public/nsIPrefBranch.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

@@ -1,0 +1,1 @@
+_xpidlgen/nsIWindowDataSource.xpt: /home/txema/work/firefox-20.0+build1/xpfe/components/windowds/nsIWindowDataSource.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl ../../../dist/idl/nsIDOMWindow.idl ../../../dist/idl/domstubs.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

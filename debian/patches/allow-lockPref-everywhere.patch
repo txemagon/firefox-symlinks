@@ -1,0 +1,114 @@
+Description: Allow use of lockPref in all preference files
+Author: Alexander Sack <asac@ubuntu.com>
+Bug: https://bugzilla.mozilla.org/show_bug.cgi?id=467738
+Forwarded: https://bugzilla.mozilla.org/attachment.cgi?id=351145
+
+---
+ modules/libpref/src/prefapi.cpp  |    5 ++++-
+ modules/libpref/src/prefapi.h    |    3 ++-
+ modules/libpref/src/prefread.cpp |   11 ++++++++---
+ modules/libpref/src/prefread.h   |    4 +++-
+ 4 files changed, 17 insertions(+), 6 deletions(-)
+
+Index: firefox-trunk-19.0~a1~hg20121015r110235/modules/libpref/src/prefread.cpp
+===================================================================
+--- firefox-trunk-19.0~a1~hg20121015r110235.orig/modules/libpref/src/prefread.cpp	2012-10-16 10:29:14.155805817 +0100
++++ firefox-trunk-19.0~a1~hg20121015r110235/modules/libpref/src/prefread.cpp	2012-10-16 10:29:17.479805702 +0100
+@@ -43,6 +43,7 @@
+ #define BITS_PER_HEX_DIGIT      4
+ 
+ static const char kUserPref[] = "user_pref";
++static const char kLockPref[] = "lockPref";
+ static const char kPref[] = "pref";
+ static const char kTrue[] = "true";
+ static const char kFalse[] = "false";
+@@ -129,7 +130,7 @@
+     default:
+         break;
+     }
+-    (*ps->reader)(ps->closure, ps->lb, value, ps->vtype, ps->fdefault);
++    (*ps->reader)(ps->closure, ps->lb, value, ps->vtype, ps->fdefault, ps->flock);
+     return true;
+ }
+ 
+@@ -188,6 +189,7 @@
+                 ps->vb    = NULL;
+                 ps->vtype = PREF_INVALID;
+                 ps->fdefault = false;
++                ps->flock = false;
+             }
+             switch (c) {
+             case '/':       /* begin comment block or line? */
+@@ -198,7 +200,9 @@
+                 break;
+             case 'u':       /* indicating user_pref */
+             case 'p':       /* indicating pref */
+-                ps->smatch = (c == 'u' ? kUserPref : kPref);
++            case 'l':       /* indicating lockPref */
++                ps->smatch = (c == 'u' ? kUserPref :
++                                         (c == 'p' ? kPref : kLockPref));
+                 ps->sindex = 1;
+                 ps->nextstate = PREF_PARSE_UNTIL_OPEN_PAREN;
+                 state = PREF_PARSE_MATCH_STRING;
+@@ -242,7 +246,8 @@
+         /* name parsing */
+         case PREF_PARSE_UNTIL_NAME:
+             if (c == '\"' || c == '\'') {
+-                ps->fdefault = (ps->smatch == kPref);
++                ps->fdefault = (ps->smatch != kUserPref);
++                ps->flock = (ps->smatch == kLockPref);
+                 ps->quotechar = c;
+                 ps->nextstate = PREF_PARSE_UNTIL_COMMA; /* return here when done */
+                 state = PREF_PARSE_QUOTED_STRING;
+Index: firefox-trunk-19.0~a1~hg20121015r110235/modules/libpref/src/prefread.h
+===================================================================
+--- firefox-trunk-19.0~a1~hg20121015r110235.orig/modules/libpref/src/prefread.h	2012-10-16 10:29:14.155805817 +0100
++++ firefox-trunk-19.0~a1~hg20121015r110235/modules/libpref/src/prefread.h	2012-10-16 10:29:17.479805702 +0100
+@@ -32,7 +32,8 @@
+                            const char *pref,
+                            PrefValue   val,
+                            PrefType    type,
+-                           bool        defPref);
++                           bool        defPref,
++                           bool        lockPref);
+ 
+ /* structure fields are private */
+ typedef struct PrefParseState {
+@@ -53,6 +54,7 @@
+     char       *vb;         /* value buffer (ptr into lb)    */
+     PrefType    vtype;      /* PREF_STRING,INT,BOOL          */
+     bool        fdefault;   /* true if (default) pref     */
++    bool        flock;      /* PR_TRUE if pref to be locked  */
+ } PrefParseState;
+ 
+ /**
+Index: firefox-trunk-19.0~a1~hg20121015r110235/modules/libpref/src/prefapi.h
+===================================================================
+--- firefox-trunk-19.0~a1~hg20121015r110235.orig/modules/libpref/src/prefapi.h	2012-10-16 10:29:14.155805817 +0100
++++ firefox-trunk-19.0~a1~hg20121015r110235/modules/libpref/src/prefapi.h	2012-10-16 10:29:17.479805702 +0100
+@@ -178,7 +178,8 @@
+                           const char *pref,
+                           PrefValue   value,
+                           PrefType    type,
+-                          bool        isDefault);
++                          bool        isDefault,
++                          bool        isLocked);
+ 
+ #ifdef __cplusplus
+ }
+Index: firefox-trunk-19.0~a1~hg20121015r110235/modules/libpref/src/prefapi.cpp
+===================================================================
+--- firefox-trunk-19.0~a1~hg20121015r110235.orig/modules/libpref/src/prefapi.cpp	2012-10-16 10:29:14.155805817 +0100
++++ firefox-trunk-19.0~a1~hg20121015r110235/modules/libpref/src/prefapi.cpp	2012-10-16 10:29:17.479805702 +0100
+@@ -977,7 +977,10 @@
+                          const char *pref,
+                          PrefValue   value,
+                          PrefType    type,
+-                         bool        isDefault)
++                         bool        isDefault,
++                         bool        isLocked)
+ {
+     pref_HashPref(pref, value, type, isDefault ? kPrefSetDefault : kPrefForceSet);
++    if (isLocked)
++       PREF_LockPref(pref, true);
+ }

@@ -1,0 +1,1 @@
+_xpidlgen/nsPIPromptService.xpt: /home/txema/work/firefox-20.0+build1/embedding/components/windowwatcher/public/nsPIPromptService.idl ../../../../dist/idl/nsISupports.idl ../../../../dist/idl/nsrootidl.idl

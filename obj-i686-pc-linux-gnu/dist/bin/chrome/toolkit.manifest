@@ -1,0 +1,14 @@
+content mozapps toolkit/content/mozapps/
+resource gre-resources toolkit/res/
+skin global classic/1.0 toolkit/skin/classic/global/ os=WINNT osversion<6
+skin mozapps classic/1.0 toolkit/skin/classic/mozapps/ os=WINNT osversion<6
+content satchel toolkit/content/satchel/
+content global toolkit/content/global/ contentaccessible=yes
+content global-platform toolkit/content/global-platform/ platform
+skin mozapps classic/1.0 toolkit/skin/classic/mozapps/ os!=WINNT
+content passwordmgr toolkit/content/passwordmgr/
+override chrome://global/content/nsTransferable.js chrome://global/content/nsDragAndDrop.js
+content xbl-marquee toolkit/content/xbl-marquee/
+content global-region toolkit/content/global-region/
+content cookie toolkit/content/cookie/
+skin global classic/1.0 toolkit/skin/classic/global/ os!=WINNT

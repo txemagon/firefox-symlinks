@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/tools/rb/fix_stack_using_bpsyms.py

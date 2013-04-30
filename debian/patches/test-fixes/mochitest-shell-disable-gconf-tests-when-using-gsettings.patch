@@ -1,0 +1,20 @@
+Index: firefox-trunk-19.0~a1~hg20121114r113217/browser/components/shell/test/browser_420786.js
+===================================================================
+--- firefox-trunk-19.0~a1~hg20121114r113217.orig/browser/components/shell/test/browser_420786.js	2012-11-14 21:07:25.000000000 +0000
++++ firefox-trunk-19.0~a1~hg20121114r113217/browser/components/shell/test/browser_420786.js	2012-11-21 22:21:26.242493988 +0000
+@@ -77,6 +77,15 @@
+     return;
+   }
+ 
++  try {
++    // If GSettings is available, then the GConf tests
++    // will fail
++    var gsettings = Cc["@mozilla.org/gsettings-service;1"].
++                    getService(Ci.nsIGSettingsService);
++    todo(false, "This test doesn't work when GSettings is available");
++    return;
++  } catch(e) { }
++
+   gBrowser.selectedTab = gBrowser.addTab();
+   gBrowser.selectedBrowser.addEventListener("load", onPageLoad, true);
+   content.location = "about:logo";

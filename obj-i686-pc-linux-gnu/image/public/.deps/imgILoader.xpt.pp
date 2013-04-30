@@ -1,0 +1,1 @@
+_xpidlgen/imgILoader.xpt: /home/txema/work/firefox-20.0+build1/image/public/imgILoader.idl ../../dist/idl/nsISupports.idl ../../dist/idl/nsrootidl.idl ../../dist/idl/nsIRequest.idl ../../dist/idl/nsISupports.idl ../../dist/idl/nsrootidl.idl

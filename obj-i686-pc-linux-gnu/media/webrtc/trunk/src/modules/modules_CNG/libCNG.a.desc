@@ -1,0 +1,1 @@
+OBJS = /home/txema/work/firefox-20.0+build1/obj-i686-pc-linux-gnu/media/webrtc/trunk/src/modules/modules_CNG/audio_coding/codecs/cng/webrtc_cng.o /home/txema/work/firefox-20.0+build1/obj-i686-pc-linux-gnu/media/webrtc/trunk/src/modules/modules_CNG/audio_coding/codecs/cng/cng_helpfuns.o

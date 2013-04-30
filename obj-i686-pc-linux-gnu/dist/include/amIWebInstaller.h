@@ -1,0 +1,1 @@
+../../toolkit/mozapps/extensions/_xpidlgen/amIWebInstaller.h

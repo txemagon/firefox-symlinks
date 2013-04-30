@@ -1,0 +1,1 @@
+_xpidlgen/nsIResProtocolHandler.xpt: /home/txema/work/firefox-20.0+build1/netwerk/protocol/res/nsIResProtocolHandler.idl ../../../dist/idl/nsIProtocolHandler.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

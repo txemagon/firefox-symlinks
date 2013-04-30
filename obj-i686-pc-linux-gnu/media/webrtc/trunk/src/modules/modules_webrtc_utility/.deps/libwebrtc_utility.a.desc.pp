@@ -1,0 +1,1 @@
+libwebrtc_utility.a.desc : utility/source/audio_frame_operations.o utility/source/coder.o utility/source/file_player_impl.o utility/source/file_recorder_impl.o utility/source/process_thread_impl.o utility/source/rtp_dump_impl.o utility/source/frame_scaler.o utility/source/video_coder.o utility/source/video_frames_queue.o

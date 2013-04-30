@@ -1,0 +1,1 @@
+../../toolkit/components/commandlines/_xpidlgen/nsICommandLineHandler.h

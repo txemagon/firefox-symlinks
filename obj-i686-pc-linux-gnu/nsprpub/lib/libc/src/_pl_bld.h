@@ -1,0 +1,3 @@
+#define _BUILD_STRING "2013-04-30 15:26:42"
+#define _BUILD_TIME 1367328402081415LL
+#define _PRODUCTION "libplc4.so"

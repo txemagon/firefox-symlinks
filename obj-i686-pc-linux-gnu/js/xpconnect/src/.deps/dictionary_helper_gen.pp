@@ -1,0 +1,32 @@
+DictionaryHelpers.cpp: \
+		../../../dist/idl/nsIDOMEvent.idl \
+		../../../dist/idl/nsIDOMUIEvent.idl \
+		../../../dist/idl/nsIDOMMouseEvent.idl \
+		../../../dist/idl/nsIDOMWheelEvent.idl \
+		../../../dist/idl/nsIIDBDatabase.idl \
+		../../../dist/idl/nsIIDBObjectStore.idl \
+		../../../dist/idl/nsIDOMGeoGeolocation.idl \
+		../../../dist/idl/nsIDOMLockedFile.idl \
+		../../../dist/idl/nsIXMLHttpRequest.idl \
+		../../../dist/idl/nsIDOMDeviceStorage.idl \
+		../../../dist/idl/nsIDOMCameraManager.idl \
+		../../../dist/idl/nsIDOMArchiveReader.idl \
+		../../../dist/idl/nsISmsRequest.idl \
+		../../../dist/idl/nsIDOMProgressEvent.idl \
+		../../../dist/idl/nsIDOMStorageEvent.idl \
+		../../../dist/idl/nsIDOMDeviceProximityEvent.idl \
+		../../../dist/idl/nsIDOMMozSettingsEvent.idl \
+		../../../dist/idl/nsIDOMUserProximityEvent.idl \
+		../../../dist/idl/nsIDOMCustomEvent.idl \
+		../../../dist/idl/nsIDOMPageTransitionEvent.idl \
+		../../../dist/idl/nsIDOMDOMTransactionEvent.idl \
+		../../../dist/idl/nsIDOMPopStateEvent.idl \
+		../../../dist/idl/nsIDOMHashChangeEvent.idl \
+		../../../dist/idl/nsIDOMCloseEvent.idl \
+		../../../dist/idl/nsIDOMMozContactChangeEvent.idl \
+		../../../dist/idl/nsIDOMDeviceOrientationEvent.idl \
+		../../../dist/idl/nsIDOMDeviceLightEvent.idl \
+		../../../dist/idl/nsIDOMMozApplicationEvent.idl \
+		../../../dist/idl/nsIDOMDeviceStorageChangeEvent.idl \
+		../../../dist/idl/nsIDOMPopupBlockedEvent.idl
+

@@ -1,0 +1,1 @@
+../../dom/browser-element/_xpidlgen/nsIAsyncScrollEventDetail.h

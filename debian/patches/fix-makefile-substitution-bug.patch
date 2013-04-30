@@ -1,0 +1,28 @@
+# HG changeset patch
+# Parent 65fb8b9ea0b702518cf63bae97fb703222ffa7b1
+# User Chris Coulson <chris.coulson@canonical.com>
+
+diff --git a/toolkit/crashreporter/google-breakpad/src/common/dwarf/Makefile.in b/toolkit/crashreporter/google-breakpad/src/common/dwarf/Makefile.in
+--- a/toolkit/crashreporter/google-breakpad/src/common/dwarf/Makefile.in
++++ b/toolkit/crashreporter/google-breakpad/src/common/dwarf/Makefile.in
+@@ -49,16 +49,16 @@ LOCAL_INCLUDES 	= -I$(srcdir)/../..
+ 
+ HOST_CPPSRCS = \
+   bytereader.cc \
+   dwarf2diehandler.cc \
+   dwarf2reader.cc \
+   functioninfo.cc \
+   $(NULL)
+ 
+-# This code is only compiled for build-time tools,
+-# so enabling RTTI should be fine.
+-HOST_CXXFLAGS := -funsigned-char $(filter-out -fno-rtti,$(HOST_CXXFLAGS))
+-
+ # need static lib
+ FORCE_STATIC_LIB = 1
+ 
+ include $(topsrcdir)/config/rules.mk
++
++# This code is only compiled for build-time tools,
++# so enabling RTTI should be fine.
++HOST_CXXFLAGS := -funsigned-char $(filter-out -fno-rtti,$(HOST_CXXFLAGS))

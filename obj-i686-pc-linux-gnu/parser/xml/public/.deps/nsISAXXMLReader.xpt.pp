@@ -1,0 +1,1 @@
+_xpidlgen/nsISAXXMLReader.xpt: /home/txema/work/firefox-20.0+build1/parser/xml/public/nsISAXXMLReader.idl ../../../dist/idl/nsIStreamListener.idl ../../../dist/idl/nsIRequestObserver.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

@@ -1,0 +1,1 @@
+_xpidlgen/nsIDOMXMLDocument.h: /home/txema/work/firefox-20.0+build1/dom/interfaces/core/nsIDOMXMLDocument.idl /home/txema/work/firefox-20.0+build1/dom/interfaces/core/nsIDOMDocument.idl /home/txema/work/firefox-20.0+build1/dom/interfaces/core/nsIDOMNode.idl ../../../dist/idl/domstubs.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

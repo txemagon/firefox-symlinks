@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/browser/components/sessionstore/test/browser_586068-browser_state_interrupted.js

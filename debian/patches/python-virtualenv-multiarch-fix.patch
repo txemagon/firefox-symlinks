@@ -1,0 +1,71 @@
+Index: firefox-trunk-20.0~a1~hg20121212r115619/python/virtualenv/virtualenv_embedded/site.py
+===================================================================
+--- firefox-trunk-20.0~a1~hg20121212r115619.orig/python/virtualenv/virtualenv_embedded/site.py	2012-12-13 16:32:34.467045788 +0000
++++ firefox-trunk-20.0~a1~hg20121212r115619/python/virtualenv/virtualenv_embedded/site.py	2012-12-13 16:33:06.187045225 +0000
+@@ -586,7 +586,8 @@
+                 paths.append(lib64_path)
+         # This is hardcoded in the Python executable, but relative to sys.prefix:
+         plat_path = os.path.join(sys.real_prefix, 'lib', 'python'+sys.version[:3],
+-                                 'plat-%s' % sys.platform)
++                                 [os.path.basename(d) for d in sys.path if os.path.basename(d).startswith('plat-') and
++                                  os.path.dirname(d) == os.path.join(sys.prefix, 'lib', 'python'+sys.version[:3])][0])
+         if os.path.exists(plat_path):
+             paths.append(plat_path)
+     # This is hardcoded in the Python executable, but
+Index: firefox-trunk-20.0~a1~hg20121212r115619/python/virtualenv/virtualenv.py
+===================================================================
+--- firefox-trunk-20.0~a1~hg20121212r115619.orig/python/virtualenv/virtualenv.py	2012-12-12 02:12:10.000000000 +0000
++++ firefox-trunk-20.0~a1~hg20121212r115619/python/virtualenv/virtualenv.py	2012-12-13 16:41:27.107036324 +0000
+@@ -1945,29 +1945,29 @@
+ O4tEzg+eKcSOcf5SqBpKM6/tnEIzxur0PZv1pAuzm3IVqkqbgle/bhSKo1qM/2kHMRXfWg9wcSwK
+ LVsgW9BvEk9ayX/20jVMDNTo+SuLnsuk73AKv+HFKfBeE9R1dLYeWuoMewu2Z0+uyyj5CKpp2HD8
+ gx7Vk0SpnSPeaYXHk43Euaz/BB4O6ZIZYpqvWsfC/07m4aT9bYeLHSy/+XoXnq6C6a2Y6FnQx1Yx
+-8KK3SxeahTef/qCXxzJ9Xf940dkqGE9d/kdkBTwsZY+XsF3S9WQq6V79tMING6ZLL2N+g4a3Lo5t
+-QMMoHjxwGrpJdPipbnsrf1jpoAaubsNd0+f+u+auWwR25uYMuTN3v8LPpYHuu51f+mjAm0lNiEdl
+-pjdqoV/juMpirFMX+gOj+oPkdzvhTLfonofAmEQJDLMSm2rsjW1YxTP3O+bhHPAltm5BZ69Fak27
+-o1jaHP8Yc8I5B/jc1nhTIslccyB7p3Qr2YRTEyfy5kZNYrwRb0JbGkqj6fiqxkl+RxeayVhtjG+L
+-18YACMNNOuHRzWkGxoBtE9/My1kozv0ggoamXE0n+VMlc45TaUcawEUcn6L+Jv7J2ZuDVGJYUdVl
+-UcLeY6Dvb+X0iL6M0gaoCZesYnVrUDc9xvo6TxyCc3JMEShHxXg/41EHCME63rmcitOhJxP7Dvjl
+-eVPsnowtQ8isXskyrpqLXvzD2ATsSzMClf7iAjsBkUYyW5ziIpZY/nCQwpCE/f6VduW9rcyOCveR
+-1XqPZyvqoQNtTymed2yP4ebk3l705l4wNKdrgV1XwjZruM9ebgNLYW4tI12pIxT8Vt+kxPdzcvwU
+-nRGHj0Du3cI3PwnYqjV2hSwazjNXMXSvzsHabbLFfTfidbige/ddaztjx/f1hmWWjhOypbGlonbg
+-ehVPM9qo2bdjvt4D+3Y/J/uJ+3YP/iP37fr+QjA4Gh+tD3qztB/Y4LOacC8DbBgB+kyASHh+2LpK
+-zpjMoZvzDJvr5H5gL+NlnekUUhkzgRzZvSWKQPClf8pNEPUu5dq1b/elix5/f/Hh9ekF0WJyefrm
+-P0+/p5wYDFK3bNajAxtZfsDUPvCyb90gh85j6Bu8wbbndk0uIdEQOu87R8A9EPrLhfoWtK3I3Nfb
+-OnTKLrqdAPHd025B3aayeyF3/DOd4u9mL7TSZAP9lHMazS/nYNg8MucjLA7N+Yd534SstYx2Inrb
+-Fs7JLuyqE+236vsYt0QbRzbHlVYAI9XIXzZQbQoWbDiUHZX2/yKBEnOx2MvcZQJSOJPOnXp0nR6D
+-qvz/F0MJyi7G0zZ2GMf2XmNqx0F5ZS/sxhO3mYwMQbxqq0F3fq6wz2W6hQpBwApP3xjHiBj9p4+x
+-7KHvMyWuDqiu8wCVzbX9hWumndy/J3i0W9mblxTnh/DhFjRe1Kl7XGv7dDqQ80dnAPnCKSQAzXcI
+-dG7EUwF7o8/ECnG6ESFsJPWxJOYmEh31tWkO8mg3HewNrZ6Lg21Vf27VmxAvtjectwrrdI8j7qEe
+-6KFqU1vlWGBMkttWzie+I8h8iCToqiXP+cCTS33DL3y9u3pxbEO6yO/42lEklMwzcAz7lZMMt/N6
+-P6c7MUs5pmwp3LM5xaC6xbUDlX2CbXucTkXAln2QOV1mSAPvfX9UxfTwri0ftDG1rHcMUxLDZ2pE
+-03JqKDTu9smoO91GbXWBcD3II4B0VCDAQjAd3ejk5204yXb4XO8KpzVdjOrG9UNHKihXx+cI7mF8
+-vwa/dneq43xUd0bR9OcGbQ7USw7Czb4Dtxp5IZHtJqE99YYPtrgAXBLb3//FI/p3s8hs96NdfrVt
+-9bK3DIt9WUw8xHyMFonM4wiMDOjNIWlrzFY3go63gDR0dBmqmRvyBTp+lMyI1x7TBoOc2Yn2AKxR
+-CP4PNIke9w==
++8KK3SxeahTef/qCXxzJ9Xf940dkqGE9d/kdkBVj+wnQSsnlz3t/N3YsE3GVxGnr7ARJXTjp8eNhO
++aABGPdlxRv0gn4Nl3MVE25TCLoXw5IXVvfqXF/eYmOG9jPkN+gp1cWxjMEZX4hnZ0M37w09121us
++xHoSjUZ1G+6aPvffNXfdIrAzN8fenbn7RYkuDXTf7SzeRwPe/2pCPCqZvtFk/UrS1W9jnW3RH8vV
++HyS/2wlnukVdPgTG5HZgZJgEQmNvzNkqnrnfMXXogO/ddWtQe41oa9odXdjm+MdYQE6TwOe2LJ1y
++X+aaA9mhpovUJpxNOZE3N2oS4yV+E9qFUeZPx702fv07uoNNxmpj3HG86QZAGG7SOZpuGjYwBuz0
+++DJhViWuJqKhKb3UyVdVyZxDa9r3B3ARh9SovwnZcsLpIJUYCVV1WZSwXRroK2c5o6MvCbYBaiI8
++q1jdGtRNj7G+gRSH4DQiU7fKgTzegnnUAUKwWXLu0+IM7snEvgN+ed7U5ydjyxAyq1eyjKvmbhr/
++/DgBk9iMQNXKuMCOzm4ks8UpLmKJ5Q8HKYyi2O9f6d2Ht/vaUZQ/slrv8WxFPXRs8Cn1/o65NNyc
++3Nu76dw7keZ0k7Hr/dhmDffZ+3hgKcxFa6QrdVCF3+rLn/hKUQ75ov/k8BHIvVur5+ctW7XG3ptF
++w3nmKobubT9Ybk7uQ98lfh0u6F7X19qB2fF9vWGZpeM3bWlsqah9zl7F04w2akINmGL4QKjBTyN/
++YqjBg//IUIO+chEMjsZH64PexPIHYhKsJtz7CxtGgD4TIBIeebZuvzMmc+imaRe5Su4H9v5g1pmO
++S9Zx47yLrQgE31Oo3JxW7x6xXaEGX7ro8fcXH16fXhAtJpenb/7z9HtK48G4estmPToWk+UHTO0D
++L2HYjcvo1Iu+wRtsey4E5aoXDaHzvnNq3QOhv8Kpb0Hbisx9va1Dp1Kk2wkQ3z3tFtRtKrsXcsc/
++01UJbsJFK7M30E85DdP8cs6yzSNzpMPi0BzZmPdNlF3LaCcIuW3hnITIrjrRfqu+QnJLgHRk03Jp
++BTC4jvxlY+umxsJGcNlRaf9fHSiXGOvTzPUrIIUz6VwDSDcAMqjK/99HlKDsYjwgZIdxbK9ipnZ8
++jqDsHeN4SDiTkSGIVyA26M7PFfa5TLdQIQhY4elL7hgRo//0yZs9p36mxNUBlaIeoLK5tr9wzbST
+++/cET6Mre1mU4pQWPo+Dxos6dU+YbZ9OB3L+6NgiXzi1D6D5DoHOjXgqYG/0mVghTjcifKZCfZKK
++6ZRER33Tm4M82k0He0Or5+JgW6GiW6gnxIvtDeetWkDd44h7qAd6qNqUgzkWGPP6tlUgiu8IMp97
++CbodynM+8LBVX0oMX++uXhzbKDTyO752FAnlHw0cw37l5O/tvJHQ6U7MUo4pwQv3bE79qm5x7UBl
++n2DbHqdTxLBlH2QOxBnSwHvfHwgyPbyb1gdtTC3rHcOUxPCZGtG0nLIPjbt9MupOt1FbXSBcwvII
++IB0VCLAQTEc3OimFG84LHj7Xu8JpTXe5ukcRoSMVlF7kcwT3ML5fg1+7O5WePqo7o2j6c4M2B+ol
++B+Fm34FbjbyQyHaT0J56wwdbXACu4u3v/+IR/buJb7b70S6/2rZ62Vs5xr4s5kpiCkmLROZxBEYG
++9OaQtDUm2BtBx4tLGjq6DNXMDfkCHT/Kv8SbmmmDQc7sRHsA1igE/wehqlVV
+ """)
+ 
+ ##file ez_setup.py

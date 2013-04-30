@@ -1,0 +1,1 @@
+_xpidlgen/mozIStorageFunction.xpt: /home/txema/work/firefox-20.0+build1/storage/public/mozIStorageFunction.idl ../../dist/idl/nsISupports.idl ../../dist/idl/nsrootidl.idl /home/txema/work/firefox-20.0+build1/storage/public/mozIStorageValueArray.idl ../../dist/idl/nsISupports.idl ../../dist/idl/nsrootidl.idl

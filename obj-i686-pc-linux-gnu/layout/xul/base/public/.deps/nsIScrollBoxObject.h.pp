@@ -1,0 +1,1 @@
+_xpidlgen/nsIScrollBoxObject.h: /home/txema/work/firefox-20.0+build1/layout/xul/base/public/nsIScrollBoxObject.idl /home/txema/work/firefox-20.0+build1/layout/xul/base/public/nsIBoxObject.idl ../../../../dist/idl/nsISupports.idl ../../../../dist/idl/nsrootidl.idl

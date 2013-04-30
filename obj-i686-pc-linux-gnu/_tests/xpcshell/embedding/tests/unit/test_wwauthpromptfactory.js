@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/embedding/tests/unit/test_wwauthpromptfactory.js

@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/toolkit/components/places/tests/migration/test_database_from_v6_no_frecency.js

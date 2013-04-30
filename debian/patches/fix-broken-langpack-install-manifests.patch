@@ -1,0 +1,24 @@
+Index: firefox-20.0~b1+build2/l10n/nso/browser/defines.inc
+===================================================================
+--- firefox-20.0~b1+build2.orig/l10n/nso/browser/defines.inc	2013-02-21 10:07:56.000000000 +0000
++++ firefox-20.0~b1+build2/l10n/nso/browser/defines.inc	2013-02-21 13:57:49.246913493 +0000
+@@ -1,8 +1,9 @@
+-# This Source Code Form is subject to the terms of the Mozilla Public# License, v. 2.0. If a copy of the MPL was not distributed with this# file, You can obtain one at http://mozilla.org/MPL/2.0/.#filter emptyLines
++#filter emptyLines
++
+ #define MOZ_LANGPACK_CREATOR Translate.org.za
+ 
+ # If non-English locales wish to credit multiple contributors, uncomment this
+ # variable definition and use the format specified.
+ #define MOZ_LANGPACK_CONTRIBUTORS <em:contributor>Translate.org.za</em:contributor> <em:contributor>Dwayne Bailey</em:contributor> <em:contributor>Pheledi Mathibela</em:contributor>
+ 
+-#unfilter emptyLines
+\ No newline at end of file
++#unfilter emptyLines
+Index: firefox-20.0~b7+build1/l10n/csb/toolkit/defines.inc
+===================================================================
+--- firefox-20.0~b7+build1.orig/l10n/csb/toolkit/defines.inc	2013-03-27 09:59:53.000000000 +0000
++++ firefox-20.0~b7+build1/l10n/csb/toolkit/defines.inc	2013-03-27 11:39:50.009186107 +0000
+@@ -1,2 +1 @@
+ #define MOZ_LANG_TITLE Kashubian (CSB)
+-

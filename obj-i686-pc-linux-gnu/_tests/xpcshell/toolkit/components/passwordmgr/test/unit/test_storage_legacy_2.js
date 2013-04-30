@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/toolkit/components/passwordmgr/test/unit/test_storage_legacy_2.js

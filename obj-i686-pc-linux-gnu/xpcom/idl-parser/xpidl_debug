@@ -1,0 +1,1862 @@
+Created by PLY version 3.3 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> idlfile
+Rule 1     idlfile -> productions
+Rule 2     productions -> <empty>
+Rule 3     productions -> CDATA productions
+Rule 4     productions -> INCLUDE productions
+Rule 5     productions -> interface productions
+Rule 6     productions -> dictionary productions
+Rule 7     productions -> typedef productions
+Rule 8     productions -> native productions
+Rule 9     typedef -> TYPEDEF IDENTIFIER IDENTIFIER ;
+Rule 10    native -> attributes NATIVE IDENTIFIER afternativeid ( NATIVEID ) ;
+Rule 11    afternativeid -> <empty>
+Rule 12    anyident -> IDENTIFIER
+Rule 13    anyident -> CONST
+Rule 14    attributes -> [ attlist ]
+Rule 15    attributes -> <empty>
+Rule 16    attlist -> attribute
+Rule 17    attlist -> attribute , attlist
+Rule 18    attribute -> anyident attributeval
+Rule 19    attributeval -> ( IDENTIFIER )
+Rule 20    attributeval -> ( IID )
+Rule 21    attributeval -> <empty>
+Rule 22    interface -> attributes INTERFACE IDENTIFIER ifacebase ifacebody ;
+Rule 23    ifacebody -> { members }
+Rule 24    ifacebody -> <empty>
+Rule 25    ifacebase -> : IDENTIFIER
+Rule 26    ifacebase -> <empty>
+Rule 27    members -> <empty>
+Rule 28    members -> member members
+Rule 29    member -> CDATA
+Rule 30    member -> CONST IDENTIFIER IDENTIFIER = number ;
+Rule 31    number -> NUMBER
+Rule 32    number -> HEXNUM
+Rule 33    number -> IDENTIFIER
+Rule 34    number -> ( number )
+Rule 35    number -> - number
+Rule 36    number -> number + number
+Rule 37    number -> number - number
+Rule 38    number -> number * number
+Rule 39    number -> number LSHIFT number
+Rule 40    number -> number RSHIFT number
+Rule 41    number -> number | number
+Rule 42    member -> attributes optreadonly ATTRIBUTE IDENTIFIER identifier ;
+Rule 43    member -> attributes IDENTIFIER IDENTIFIER ( paramlist ) raises ;
+Rule 44    paramlist -> param moreparams
+Rule 45    paramlist -> <empty>
+Rule 46    moreparams -> <empty>
+Rule 47    moreparams -> , param moreparams
+Rule 48    param -> attributes paramtype IDENTIFIER identifier
+Rule 49    paramtype -> IN
+Rule 50    paramtype -> INOUT
+Rule 51    paramtype -> OUT
+Rule 52    optreadonly -> READONLY
+Rule 53    optreadonly -> <empty>
+Rule 54    dictionary -> attributes DICTIONARY IDENTIFIER ifacebase dictbody ;
+Rule 55    dictbody -> { dictmembers }
+Rule 56    dictbody -> <empty>
+Rule 57    dictmembers -> <empty>
+Rule 58    dictmembers -> dictmember dictmembers
+Rule 59    dictmember -> attributes IDENTIFIER optnullable IDENTIFIER optdefvalue ;
+Rule 60    optnullable -> ?
+Rule 61    optnullable -> <empty>
+Rule 62    optdefvalue -> = STRING
+Rule 63    optdefvalue -> <empty>
+Rule 64    identifier -> DICTIONARY
+Rule 65    identifier -> IDENTIFIER
+Rule 66    raises -> RAISES ( idlist )
+Rule 67    raises -> <empty>
+Rule 68    idlist -> IDENTIFIER
+Rule 69    idlist -> IDENTIFIER , idlist
+
+Terminals, with rules where they appear
+
+(                    : 10 19 20 34 43 66
+)                    : 10 19 20 34 43 66
+*                    : 38
++                    : 36
+,                    : 17 47 69
+-                    : 35 37
+:                    : 25
+;                    : 9 10 22 30 42 43 54 59
+=                    : 30 62
+?                    : 60
+ATTRIBUTE            : 42
+CDATA                : 3 29
+CONST                : 13 30
+DICTIONARY           : 54 64
+HEXNUM               : 32
+IDENTIFIER           : 9 9 10 12 19 22 25 30 30 33 42 43 43 48 54 59 59 65 68 69
+IID                  : 20
+IN                   : 49
+INCLUDE              : 4
+INOUT                : 50
+INTERFACE            : 22
+LSHIFT               : 39
+NATIVE               : 10
+NATIVEID             : 10
+NUMBER               : 31
+OUT                  : 51
+RAISES               : 66
+READONLY             : 52
+RSHIFT               : 40
+STRING               : 62
+TYPEDEF              : 9
+[                    : 14
+]                    : 14
+error                : 
+{                    : 23 55
+|                    : 41
+}                    : 23 55
+
+Nonterminals, with rules where they appear
+
+afternativeid        : 10
+anyident             : 18
+attlist              : 14 17
+attribute            : 16 17
+attributes           : 10 22 42 43 48 54 59
+attributeval         : 18
+dictbody             : 54
+dictionary           : 6
+dictmember           : 58
+dictmembers          : 55 58
+identifier           : 42 48
+idlfile              : 0
+idlist               : 66 69
+ifacebase            : 22 54
+ifacebody            : 22
+interface            : 5
+member               : 28
+members              : 23 28
+moreparams           : 44 47
+native               : 8
+number               : 30 34 35 36 36 37 37 38 38 39 39 40 40 41 41
+optdefvalue          : 59
+optnullable          : 59
+optreadonly          : 42
+param                : 44 47
+paramlist            : 43
+paramtype            : 48
+productions          : 1 3 4 5 6 7 8
+raises               : 43
+typedef              : 7
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . idlfile
+    (1) idlfile -> . productions
+    (2) productions -> .
+    (3) productions -> . CDATA productions
+    (4) productions -> . INCLUDE productions
+    (5) productions -> . interface productions
+    (6) productions -> . dictionary productions
+    (7) productions -> . typedef productions
+    (8) productions -> . native productions
+    (22) interface -> . attributes INTERFACE IDENTIFIER ifacebase ifacebody ;
+    (54) dictionary -> . attributes DICTIONARY IDENTIFIER ifacebase dictbody ;
+    (9) typedef -> . TYPEDEF IDENTIFIER IDENTIFIER ;
+    (10) native -> . attributes NATIVE IDENTIFIER afternativeid ( NATIVEID ) ;
+    (14) attributes -> . [ attlist ]
+    (15) attributes -> .
+
+    $end            reduce using rule 2 (productions -> .)
+    CDATA           shift and go to state 10
+    INCLUDE         shift and go to state 8
+    TYPEDEF         shift and go to state 4
+    [               shift and go to state 7
+    INTERFACE       reduce using rule 15 (attributes -> .)
+    DICTIONARY      reduce using rule 15 (attributes -> .)
+    NATIVE          reduce using rule 15 (attributes -> .)
+
+    typedef                        shift and go to state 2
+    dictionary                     shift and go to state 3
+    idlfile                        shift and go to state 5
+    productions                    shift and go to state 1
+    interface                      shift and go to state 6
+    attributes                     shift and go to state 11
+    native                         shift and go to state 9
+
+state 1
+
+    (1) idlfile -> productions .
+
+    $end            reduce using rule 1 (idlfile -> productions .)
+
+
+state 2
+
+    (7) productions -> typedef . productions
+    (2) productions -> .
+    (3) productions -> . CDATA productions
+    (4) productions -> . INCLUDE productions
+    (5) productions -> . interface productions
+    (6) productions -> . dictionary productions
+    (7) productions -> . typedef productions
+    (8) productions -> . native productions
+    (22) interface -> . attributes INTERFACE IDENTIFIER ifacebase ifacebody ;
+    (54) dictionary -> . attributes DICTIONARY IDENTIFIER ifacebase dictbody ;
+    (9) typedef -> . TYPEDEF IDENTIFIER IDENTIFIER ;
+    (10) native -> . attributes NATIVE IDENTIFIER afternativeid ( NATIVEID ) ;
+    (14) attributes -> . [ attlist ]
+    (15) attributes -> .
+
+    $end            reduce using rule 2 (productions -> .)
+    CDATA           shift and go to state 10
+    INCLUDE         shift and go to state 8
+    TYPEDEF         shift and go to state 4
+    [               shift and go to state 7
+    INTERFACE       reduce using rule 15 (attributes -> .)
+    DICTIONARY      reduce using rule 15 (attributes -> .)
+    NATIVE          reduce using rule 15 (attributes -> .)
+
+    typedef                        shift and go to state 2
+    dictionary                     shift and go to state 3
+    productions                    shift and go to state 12
+    interface                      shift and go to state 6
+    attributes                     shift and go to state 11
+    native                         shift and go to state 9
+
+state 3
+
+    (6) productions -> dictionary . productions
+    (2) productions -> .
+    (3) productions -> . CDATA productions
+    (4) productions -> . INCLUDE productions
+    (5) productions -> . interface productions
+    (6) productions -> . dictionary productions
+    (7) productions -> . typedef productions
+    (8) productions -> . native productions
+    (22) interface -> . attributes INTERFACE IDENTIFIER ifacebase ifacebody ;
+    (54) dictionary -> . attributes DICTIONARY IDENTIFIER ifacebase dictbody ;
+    (9) typedef -> . TYPEDEF IDENTIFIER IDENTIFIER ;
+    (10) native -> . attributes NATIVE IDENTIFIER afternativeid ( NATIVEID ) ;
+    (14) attributes -> . [ attlist ]
+    (15) attributes -> .
+
+    $end            reduce using rule 2 (productions -> .)
+    CDATA           shift and go to state 10
+    INCLUDE         shift and go to state 8
+    TYPEDEF         shift and go to state 4
+    [               shift and go to state 7
+    INTERFACE       reduce using rule 15 (attributes -> .)
+    DICTIONARY      reduce using rule 15 (attributes -> .)
+    NATIVE          reduce using rule 15 (attributes -> .)
+
+    typedef                        shift and go to state 2
+    dictionary                     shift and go to state 3
+    productions                    shift and go to state 13
+    interface                      shift and go to state 6
+    attributes                     shift and go to state 11
+    native                         shift and go to state 9
+
+state 4
+
+    (9) typedef -> TYPEDEF . IDENTIFIER IDENTIFIER ;
+
+    IDENTIFIER      shift and go to state 14
+
+
+state 5
+
+    (0) S' -> idlfile .
+
+
+
+state 6
+
+    (5) productions -> interface . productions
+    (2) productions -> .
+    (3) productions -> . CDATA productions
+    (4) productions -> . INCLUDE productions
+    (5) productions -> . interface productions
+    (6) productions -> . dictionary productions
+    (7) productions -> . typedef productions
+    (8) productions -> . native productions
+    (22) interface -> . attributes INTERFACE IDENTIFIER ifacebase ifacebody ;
+    (54) dictionary -> . attributes DICTIONARY IDENTIFIER ifacebase dictbody ;
+    (9) typedef -> . TYPEDEF IDENTIFIER IDENTIFIER ;
+    (10) native -> . attributes NATIVE IDENTIFIER afternativeid ( NATIVEID ) ;
+    (14) attributes -> . [ attlist ]
+    (15) attributes -> .
+
+    $end            reduce using rule 2 (productions -> .)
+    CDATA           shift and go to state 10
+    INCLUDE         shift and go to state 8
+    TYPEDEF         shift and go to state 4
+    [               shift and go to state 7
+    INTERFACE       reduce using rule 15 (attributes -> .)
+    DICTIONARY      reduce using rule 15 (attributes -> .)
+    NATIVE          reduce using rule 15 (attributes -> .)
+
+    typedef                        shift and go to state 2
+    dictionary                     shift and go to state 3
+    productions                    shift and go to state 15
+    interface                      shift and go to state 6
+    attributes                     shift and go to state 11
+    native                         shift and go to state 9
+
+state 7
+
+    (14) attributes -> [ . attlist ]
+    (16) attlist -> . attribute
+    (17) attlist -> . attribute , attlist
+    (18) attribute -> . anyident attributeval
+    (12) anyident -> . IDENTIFIER
+    (13) anyident -> . CONST
+
+    IDENTIFIER      shift and go to state 19
+    CONST           shift and go to state 16
+
+    attribute                      shift and go to state 17
+    anyident                       shift and go to state 18
+    attlist                        shift and go to state 20
+
+state 8
+
+    (4) productions -> INCLUDE . productions
+    (2) productions -> .
+    (3) productions -> . CDATA productions
+    (4) productions -> . INCLUDE productions
+    (5) productions -> . interface productions
+    (6) productions -> . dictionary productions
+    (7) productions -> . typedef productions
+    (8) productions -> . native productions
+    (22) interface -> . attributes INTERFACE IDENTIFIER ifacebase ifacebody ;
+    (54) dictionary -> . attributes DICTIONARY IDENTIFIER ifacebase dictbody ;
+    (9) typedef -> . TYPEDEF IDENTIFIER IDENTIFIER ;
+    (10) native -> . attributes NATIVE IDENTIFIER afternativeid ( NATIVEID ) ;
+    (14) attributes -> . [ attlist ]
+    (15) attributes -> .
+
+    $end            reduce using rule 2 (productions -> .)
+    CDATA           shift and go to state 10
+    INCLUDE         shift and go to state 8
+    TYPEDEF         shift and go to state 4
+    [               shift and go to state 7
+    INTERFACE       reduce using rule 15 (attributes -> .)
+    DICTIONARY      reduce using rule 15 (attributes -> .)
+    NATIVE          reduce using rule 15 (attributes -> .)
+
+    typedef                        shift and go to state 2
+    dictionary                     shift and go to state 3
+    productions                    shift and go to state 21
+    interface                      shift and go to state 6
+    attributes                     shift and go to state 11
+    native                         shift and go to state 9
+
+state 9
+
+    (8) productions -> native . productions
+    (2) productions -> .
+    (3) productions -> . CDATA productions
+    (4) productions -> . INCLUDE productions
+    (5) productions -> . interface productions
+    (6) productions -> . dictionary productions
+    (7) productions -> . typedef productions
+    (8) productions -> . native productions
+    (22) interface -> . attributes INTERFACE IDENTIFIER ifacebase ifacebody ;
+    (54) dictionary -> . attributes DICTIONARY IDENTIFIER ifacebase dictbody ;
+    (9) typedef -> . TYPEDEF IDENTIFIER IDENTIFIER ;
+    (10) native -> . attributes NATIVE IDENTIFIER afternativeid ( NATIVEID ) ;
+    (14) attributes -> . [ attlist ]
+    (15) attributes -> .
+
+    $end            reduce using rule 2 (productions -> .)
+    CDATA           shift and go to state 10
+    INCLUDE         shift and go to state 8
+    TYPEDEF         shift and go to state 4
+    [               shift and go to state 7
+    INTERFACE       reduce using rule 15 (attributes -> .)
+    DICTIONARY      reduce using rule 15 (attributes -> .)
+    NATIVE          reduce using rule 15 (attributes -> .)
+
+    typedef                        shift and go to state 2
+    dictionary                     shift and go to state 3
+    productions                    shift and go to state 22
+    interface                      shift and go to state 6
+    attributes                     shift and go to state 11
+    native                         shift and go to state 9
+
+state 10
+
+    (3) productions -> CDATA . productions
+    (2) productions -> .
+    (3) productions -> . CDATA productions
+    (4) productions -> . INCLUDE productions
+    (5) productions -> . interface productions
+    (6) productions -> . dictionary productions
+    (7) productions -> . typedef productions
+    (8) productions -> . native productions
+    (22) interface -> . attributes INTERFACE IDENTIFIER ifacebase ifacebody ;
+    (54) dictionary -> . attributes DICTIONARY IDENTIFIER ifacebase dictbody ;
+    (9) typedef -> . TYPEDEF IDENTIFIER IDENTIFIER ;
+    (10) native -> . attributes NATIVE IDENTIFIER afternativeid ( NATIVEID ) ;
+    (14) attributes -> . [ attlist ]
+    (15) attributes -> .
+
+    $end            reduce using rule 2 (productions -> .)
+    CDATA           shift and go to state 10
+    INCLUDE         shift and go to state 8
+    TYPEDEF         shift and go to state 4
+    [               shift and go to state 7
+    INTERFACE       reduce using rule 15 (attributes -> .)
+    DICTIONARY      reduce using rule 15 (attributes -> .)
+    NATIVE          reduce using rule 15 (attributes -> .)
+
+    typedef                        shift and go to state 2
+    dictionary                     shift and go to state 3
+    productions                    shift and go to state 23
+    interface                      shift and go to state 6
+    attributes                     shift and go to state 11
+    native                         shift and go to state 9
+
+state 11
+
+    (22) interface -> attributes . INTERFACE IDENTIFIER ifacebase ifacebody ;
+    (54) dictionary -> attributes . DICTIONARY IDENTIFIER ifacebase dictbody ;
+    (10) native -> attributes . NATIVE IDENTIFIER afternativeid ( NATIVEID ) ;
+
+    INTERFACE       shift and go to state 25
+    DICTIONARY      shift and go to state 24
+    NATIVE          shift and go to state 26
+
+
+state 12
+
+    (7) productions -> typedef productions .
+
+    $end            reduce using rule 7 (productions -> typedef productions .)
+
+
+state 13
+
+    (6) productions -> dictionary productions .
+
+    $end            reduce using rule 6 (productions -> dictionary productions .)
+
+
+state 14
+
+    (9) typedef -> TYPEDEF IDENTIFIER . IDENTIFIER ;
+
+    IDENTIFIER      shift and go to state 27
+
+
+state 15
+
+    (5) productions -> interface productions .
+
+    $end            reduce using rule 5 (productions -> interface productions .)
+
+
+state 16
+
+    (13) anyident -> CONST .
+
+    (               reduce using rule 13 (anyident -> CONST .)
+    ,               reduce using rule 13 (anyident -> CONST .)
+    ]               reduce using rule 13 (anyident -> CONST .)
+
+
+state 17
+
+    (16) attlist -> attribute .
+    (17) attlist -> attribute . , attlist
+
+    ]               reduce using rule 16 (attlist -> attribute .)
+    ,               shift and go to state 28
+
+
+state 18
+
+    (18) attribute -> anyident . attributeval
+    (19) attributeval -> . ( IDENTIFIER )
+    (20) attributeval -> . ( IID )
+    (21) attributeval -> .
+
+    (               shift and go to state 30
+    ,               reduce using rule 21 (attributeval -> .)
+    ]               reduce using rule 21 (attributeval -> .)
+
+    attributeval                   shift and go to state 29
+
+state 19
+
+    (12) anyident -> IDENTIFIER .
+
+    (               reduce using rule 12 (anyident -> IDENTIFIER .)
+    ,               reduce using rule 12 (anyident -> IDENTIFIER .)
+    ]               reduce using rule 12 (anyident -> IDENTIFIER .)
+
+
+state 20
+
+    (14) attributes -> [ attlist . ]
+
+    ]               shift and go to state 31
+
+
+state 21
+
+    (4) productions -> INCLUDE productions .
+
+    $end            reduce using rule 4 (productions -> INCLUDE productions .)
+
+
+state 22
+
+    (8) productions -> native productions .
+
+    $end            reduce using rule 8 (productions -> native productions .)
+
+
+state 23
+
+    (3) productions -> CDATA productions .
+
+    $end            reduce using rule 3 (productions -> CDATA productions .)
+
+
+state 24
+
+    (54) dictionary -> attributes DICTIONARY . IDENTIFIER ifacebase dictbody ;
+
+    IDENTIFIER      shift and go to state 32
+
+
+state 25
+
+    (22) interface -> attributes INTERFACE . IDENTIFIER ifacebase ifacebody ;
+
+    IDENTIFIER      shift and go to state 33
+
+
+state 26
+
+    (10) native -> attributes NATIVE . IDENTIFIER afternativeid ( NATIVEID ) ;
+
+    IDENTIFIER      shift and go to state 34
+
+
+state 27
+
+    (9) typedef -> TYPEDEF IDENTIFIER IDENTIFIER . ;
+
+    ;               shift and go to state 35
+
+
+state 28
+
+    (17) attlist -> attribute , . attlist
+    (16) attlist -> . attribute
+    (17) attlist -> . attribute , attlist
+    (18) attribute -> . anyident attributeval
+    (12) anyident -> . IDENTIFIER
+    (13) anyident -> . CONST
+
+    IDENTIFIER      shift and go to state 19
+    CONST           shift and go to state 16
+
+    attribute                      shift and go to state 17
+    anyident                       shift and go to state 18
+    attlist                        shift and go to state 36
+
+state 29
+
+    (18) attribute -> anyident attributeval .
+
+    ,               reduce using rule 18 (attribute -> anyident attributeval .)
+    ]               reduce using rule 18 (attribute -> anyident attributeval .)
+
+
+state 30
+
+    (19) attributeval -> ( . IDENTIFIER )
+    (20) attributeval -> ( . IID )
+
+    IDENTIFIER      shift and go to state 37
+    IID             shift and go to state 38
+
+
+state 31
+
+    (14) attributes -> [ attlist ] .
+
+    INTERFACE       reduce using rule 14 (attributes -> [ attlist ] .)
+    DICTIONARY      reduce using rule 14 (attributes -> [ attlist ] .)
+    NATIVE          reduce using rule 14 (attributes -> [ attlist ] .)
+    IDENTIFIER      reduce using rule 14 (attributes -> [ attlist ] .)
+    READONLY        reduce using rule 14 (attributes -> [ attlist ] .)
+    ATTRIBUTE       reduce using rule 14 (attributes -> [ attlist ] .)
+    IN              reduce using rule 14 (attributes -> [ attlist ] .)
+    INOUT           reduce using rule 14 (attributes -> [ attlist ] .)
+    OUT             reduce using rule 14 (attributes -> [ attlist ] .)
+
+
+state 32
+
+    (54) dictionary -> attributes DICTIONARY IDENTIFIER . ifacebase dictbody ;
+    (25) ifacebase -> . : IDENTIFIER
+    (26) ifacebase -> .
+
+    :               shift and go to state 39
+    {               reduce using rule 26 (ifacebase -> .)
+    ;               reduce using rule 26 (ifacebase -> .)
+
+    ifacebase                      shift and go to state 40
+
+state 33
+
+    (22) interface -> attributes INTERFACE IDENTIFIER . ifacebase ifacebody ;
+    (25) ifacebase -> . : IDENTIFIER
+    (26) ifacebase -> .
+
+    :               shift and go to state 39
+    {               reduce using rule 26 (ifacebase -> .)
+    ;               reduce using rule 26 (ifacebase -> .)
+
+    ifacebase                      shift and go to state 41
+
+state 34
+
+    (10) native -> attributes NATIVE IDENTIFIER . afternativeid ( NATIVEID ) ;
+    (11) afternativeid -> .
+
+    (               reduce using rule 11 (afternativeid -> .)
+
+    afternativeid                  shift and go to state 42
+
+state 35
+
+    (9) typedef -> TYPEDEF IDENTIFIER IDENTIFIER ; .
+
+    CDATA           reduce using rule 9 (typedef -> TYPEDEF IDENTIFIER IDENTIFIER ; .)
+    INCLUDE         reduce using rule 9 (typedef -> TYPEDEF IDENTIFIER IDENTIFIER ; .)
+    TYPEDEF         reduce using rule 9 (typedef -> TYPEDEF IDENTIFIER IDENTIFIER ; .)
+    [               reduce using rule 9 (typedef -> TYPEDEF IDENTIFIER IDENTIFIER ; .)
+    INTERFACE       reduce using rule 9 (typedef -> TYPEDEF IDENTIFIER IDENTIFIER ; .)
+    DICTIONARY      reduce using rule 9 (typedef -> TYPEDEF IDENTIFIER IDENTIFIER ; .)
+    NATIVE          reduce using rule 9 (typedef -> TYPEDEF IDENTIFIER IDENTIFIER ; .)
+    $end            reduce using rule 9 (typedef -> TYPEDEF IDENTIFIER IDENTIFIER ; .)
+
+
+state 36
+
+    (17) attlist -> attribute , attlist .
+
+    ]               reduce using rule 17 (attlist -> attribute , attlist .)
+
+
+state 37
+
+    (19) attributeval -> ( IDENTIFIER . )
+
+    )               shift and go to state 43
+
+
+state 38
+
+    (20) attributeval -> ( IID . )
+
+    )               shift and go to state 44
+
+
+state 39
+
+    (25) ifacebase -> : . IDENTIFIER
+
+    IDENTIFIER      shift and go to state 45
+
+
+state 40
+
+    (54) dictionary -> attributes DICTIONARY IDENTIFIER ifacebase . dictbody ;
+    (55) dictbody -> . { dictmembers }
+    (56) dictbody -> .
+
+    {               shift and go to state 47
+    ;               reduce using rule 56 (dictbody -> .)
+
+    dictbody                       shift and go to state 46
+
+state 41
+
+    (22) interface -> attributes INTERFACE IDENTIFIER ifacebase . ifacebody ;
+    (23) ifacebody -> . { members }
+    (24) ifacebody -> .
+
+    {               shift and go to state 49
+    ;               reduce using rule 24 (ifacebody -> .)
+
+    ifacebody                      shift and go to state 48
+
+state 42
+
+    (10) native -> attributes NATIVE IDENTIFIER afternativeid . ( NATIVEID ) ;
+
+    (               shift and go to state 50
+
+
+state 43
+
+    (19) attributeval -> ( IDENTIFIER ) .
+
+    ,               reduce using rule 19 (attributeval -> ( IDENTIFIER ) .)
+    ]               reduce using rule 19 (attributeval -> ( IDENTIFIER ) .)
+
+
+state 44
+
+    (20) attributeval -> ( IID ) .
+
+    ,               reduce using rule 20 (attributeval -> ( IID ) .)
+    ]               reduce using rule 20 (attributeval -> ( IID ) .)
+
+
+state 45
+
+    (25) ifacebase -> : IDENTIFIER .
+
+    {               reduce using rule 25 (ifacebase -> : IDENTIFIER .)
+    ;               reduce using rule 25 (ifacebase -> : IDENTIFIER .)
+
+
+state 46
+
+    (54) dictionary -> attributes DICTIONARY IDENTIFIER ifacebase dictbody . ;
+
+    ;               shift and go to state 51
+
+
+state 47
+
+    (55) dictbody -> { . dictmembers }
+    (57) dictmembers -> .
+    (58) dictmembers -> . dictmember dictmembers
+    (59) dictmember -> . attributes IDENTIFIER optnullable IDENTIFIER optdefvalue ;
+    (14) attributes -> . [ attlist ]
+    (15) attributes -> .
+
+    }               reduce using rule 57 (dictmembers -> .)
+    [               shift and go to state 7
+    IDENTIFIER      reduce using rule 15 (attributes -> .)
+
+    dictmembers                    shift and go to state 52
+    dictmember                     shift and go to state 53
+    attributes                     shift and go to state 54
+
+state 48
+
+    (22) interface -> attributes INTERFACE IDENTIFIER ifacebase ifacebody . ;
+
+    ;               shift and go to state 55
+
+
+state 49
+
+    (23) ifacebody -> { . members }
+    (27) members -> .
+    (28) members -> . member members
+    (29) member -> . CDATA
+    (30) member -> . CONST IDENTIFIER IDENTIFIER = number ;
+    (42) member -> . attributes optreadonly ATTRIBUTE IDENTIFIER identifier ;
+    (43) member -> . attributes IDENTIFIER IDENTIFIER ( paramlist ) raises ;
+    (14) attributes -> . [ attlist ]
+    (15) attributes -> .
+
+    }               reduce using rule 27 (members -> .)
+    CDATA           shift and go to state 59
+    CONST           shift and go to state 56
+    [               shift and go to state 7
+    IDENTIFIER      reduce using rule 15 (attributes -> .)
+    READONLY        reduce using rule 15 (attributes -> .)
+    ATTRIBUTE       reduce using rule 15 (attributes -> .)
+
+    member                         shift and go to state 58
+    members                        shift and go to state 57
+    attributes                     shift and go to state 60
+
+state 50
+
+    (10) native -> attributes NATIVE IDENTIFIER afternativeid ( . NATIVEID ) ;
+
+    NATIVEID        shift and go to state 61
+
+
+state 51
+
+    (54) dictionary -> attributes DICTIONARY IDENTIFIER ifacebase dictbody ; .
+
+    CDATA           reduce using rule 54 (dictionary -> attributes DICTIONARY IDENTIFIER ifacebase dictbody ; .)
+    INCLUDE         reduce using rule 54 (dictionary -> attributes DICTIONARY IDENTIFIER ifacebase dictbody ; .)
+    TYPEDEF         reduce using rule 54 (dictionary -> attributes DICTIONARY IDENTIFIER ifacebase dictbody ; .)
+    [               reduce using rule 54 (dictionary -> attributes DICTIONARY IDENTIFIER ifacebase dictbody ; .)
+    INTERFACE       reduce using rule 54 (dictionary -> attributes DICTIONARY IDENTIFIER ifacebase dictbody ; .)
+    DICTIONARY      reduce using rule 54 (dictionary -> attributes DICTIONARY IDENTIFIER ifacebase dictbody ; .)
+    NATIVE          reduce using rule 54 (dictionary -> attributes DICTIONARY IDENTIFIER ifacebase dictbody ; .)
+    $end            reduce using rule 54 (dictionary -> attributes DICTIONARY IDENTIFIER ifacebase dictbody ; .)
+
+
+state 52
+
+    (55) dictbody -> { dictmembers . }
+
+    }               shift and go to state 62
+
+
+state 53
+
+    (58) dictmembers -> dictmember . dictmembers
+    (57) dictmembers -> .
+    (58) dictmembers -> . dictmember dictmembers
+    (59) dictmember -> . attributes IDENTIFIER optnullable IDENTIFIER optdefvalue ;
+    (14) attributes -> . [ attlist ]
+    (15) attributes -> .
+
+    }               reduce using rule 57 (dictmembers -> .)
+    [               shift and go to state 7
+    IDENTIFIER      reduce using rule 15 (attributes -> .)
+
+    dictmembers                    shift and go to state 63
+    dictmember                     shift and go to state 53
+    attributes                     shift and go to state 54
+
+state 54
+
+    (59) dictmember -> attributes . IDENTIFIER optnullable IDENTIFIER optdefvalue ;
+
+    IDENTIFIER      shift and go to state 64
+
+
+state 55
+
+    (22) interface -> attributes INTERFACE IDENTIFIER ifacebase ifacebody ; .
+
+    CDATA           reduce using rule 22 (interface -> attributes INTERFACE IDENTIFIER ifacebase ifacebody ; .)
+    INCLUDE         reduce using rule 22 (interface -> attributes INTERFACE IDENTIFIER ifacebase ifacebody ; .)
+    TYPEDEF         reduce using rule 22 (interface -> attributes INTERFACE IDENTIFIER ifacebase ifacebody ; .)
+    [               reduce using rule 22 (interface -> attributes INTERFACE IDENTIFIER ifacebase ifacebody ; .)
+    INTERFACE       reduce using rule 22 (interface -> attributes INTERFACE IDENTIFIER ifacebase ifacebody ; .)
+    DICTIONARY      reduce using rule 22 (interface -> attributes INTERFACE IDENTIFIER ifacebase ifacebody ; .)
+    NATIVE          reduce using rule 22 (interface -> attributes INTERFACE IDENTIFIER ifacebase ifacebody ; .)
+    $end            reduce using rule 22 (interface -> attributes INTERFACE IDENTIFIER ifacebase ifacebody ; .)
+
+
+state 56
+
+    (30) member -> CONST . IDENTIFIER IDENTIFIER = number ;
+
+    IDENTIFIER      shift and go to state 65
+
+
+state 57
+
+    (23) ifacebody -> { members . }
+
+    }               shift and go to state 66
+
+
+state 58
+
+    (28) members -> member . members
+    (27) members -> .
+    (28) members -> . member members
+    (29) member -> . CDATA
+    (30) member -> . CONST IDENTIFIER IDENTIFIER = number ;
+    (42) member -> . attributes optreadonly ATTRIBUTE IDENTIFIER identifier ;
+    (43) member -> . attributes IDENTIFIER IDENTIFIER ( paramlist ) raises ;
+    (14) attributes -> . [ attlist ]
+    (15) attributes -> .
+
+    }               reduce using rule 27 (members -> .)
+    CDATA           shift and go to state 59
+    CONST           shift and go to state 56
+    [               shift and go to state 7
+    IDENTIFIER      reduce using rule 15 (attributes -> .)
+    READONLY        reduce using rule 15 (attributes -> .)
+    ATTRIBUTE       reduce using rule 15 (attributes -> .)
+
+    member                         shift and go to state 58
+    members                        shift and go to state 67
+    attributes                     shift and go to state 60
+
+state 59
+
+    (29) member -> CDATA .
+
+    CDATA           reduce using rule 29 (member -> CDATA .)
+    CONST           reduce using rule 29 (member -> CDATA .)
+    [               reduce using rule 29 (member -> CDATA .)
+    IDENTIFIER      reduce using rule 29 (member -> CDATA .)
+    READONLY        reduce using rule 29 (member -> CDATA .)
+    ATTRIBUTE       reduce using rule 29 (member -> CDATA .)
+    }               reduce using rule 29 (member -> CDATA .)
+
+
+state 60
+
+    (42) member -> attributes . optreadonly ATTRIBUTE IDENTIFIER identifier ;
+    (43) member -> attributes . IDENTIFIER IDENTIFIER ( paramlist ) raises ;
+    (52) optreadonly -> . READONLY
+    (53) optreadonly -> .
+
+    IDENTIFIER      shift and go to state 70
+    READONLY        shift and go to state 69
+    ATTRIBUTE       reduce using rule 53 (optreadonly -> .)
+
+    optreadonly                    shift and go to state 68
+
+state 61
+
+    (10) native -> attributes NATIVE IDENTIFIER afternativeid ( NATIVEID . ) ;
+
+    )               shift and go to state 71
+
+
+state 62
+
+    (55) dictbody -> { dictmembers } .
+
+    ;               reduce using rule 55 (dictbody -> { dictmembers } .)
+
+
+state 63
+
+    (58) dictmembers -> dictmember dictmembers .
+
+    }               reduce using rule 58 (dictmembers -> dictmember dictmembers .)
+
+
+state 64
+
+    (59) dictmember -> attributes IDENTIFIER . optnullable IDENTIFIER optdefvalue ;
+    (60) optnullable -> . ?
+    (61) optnullable -> .
+
+    ?               shift and go to state 73
+    IDENTIFIER      reduce using rule 61 (optnullable -> .)
+
+    optnullable                    shift and go to state 72
+
+state 65
+
+    (30) member -> CONST IDENTIFIER . IDENTIFIER = number ;
+
+    IDENTIFIER      shift and go to state 74
+
+
+state 66
+
+    (23) ifacebody -> { members } .
+
+    ;               reduce using rule 23 (ifacebody -> { members } .)
+
+
+state 67
+
+    (28) members -> member members .
+
+    }               reduce using rule 28 (members -> member members .)
+
+
+state 68
+
+    (42) member -> attributes optreadonly . ATTRIBUTE IDENTIFIER identifier ;
+
+    ATTRIBUTE       shift and go to state 75
+
+
+state 69
+
+    (52) optreadonly -> READONLY .
+
+    ATTRIBUTE       reduce using rule 52 (optreadonly -> READONLY .)
+
+
+state 70
+
+    (43) member -> attributes IDENTIFIER . IDENTIFIER ( paramlist ) raises ;
+
+    IDENTIFIER      shift and go to state 76
+
+
+state 71
+
+    (10) native -> attributes NATIVE IDENTIFIER afternativeid ( NATIVEID ) . ;
+
+    ;               shift and go to state 77
+
+
+state 72
+
+    (59) dictmember -> attributes IDENTIFIER optnullable . IDENTIFIER optdefvalue ;
+
+    IDENTIFIER      shift and go to state 78
+
+
+state 73
+
+    (60) optnullable -> ? .
+
+    IDENTIFIER      reduce using rule 60 (optnullable -> ? .)
+
+
+state 74
+
+    (30) member -> CONST IDENTIFIER IDENTIFIER . = number ;
+
+    =               shift and go to state 79
+
+
+state 75
+
+    (42) member -> attributes optreadonly ATTRIBUTE . IDENTIFIER identifier ;
+
+    IDENTIFIER      shift and go to state 80
+
+
+state 76
+
+    (43) member -> attributes IDENTIFIER IDENTIFIER . ( paramlist ) raises ;
+
+    (               shift and go to state 81
+
+
+state 77
+
+    (10) native -> attributes NATIVE IDENTIFIER afternativeid ( NATIVEID ) ; .
+
+    CDATA           reduce using rule 10 (native -> attributes NATIVE IDENTIFIER afternativeid ( NATIVEID ) ; .)
+    INCLUDE         reduce using rule 10 (native -> attributes NATIVE IDENTIFIER afternativeid ( NATIVEID ) ; .)
+    TYPEDEF         reduce using rule 10 (native -> attributes NATIVE IDENTIFIER afternativeid ( NATIVEID ) ; .)
+    [               reduce using rule 10 (native -> attributes NATIVE IDENTIFIER afternativeid ( NATIVEID ) ; .)
+    INTERFACE       reduce using rule 10 (native -> attributes NATIVE IDENTIFIER afternativeid ( NATIVEID ) ; .)
+    DICTIONARY      reduce using rule 10 (native -> attributes NATIVE IDENTIFIER afternativeid ( NATIVEID ) ; .)
+    NATIVE          reduce using rule 10 (native -> attributes NATIVE IDENTIFIER afternativeid ( NATIVEID ) ; .)
+    $end            reduce using rule 10 (native -> attributes NATIVE IDENTIFIER afternativeid ( NATIVEID ) ; .)
+
+
+state 78
+
+    (59) dictmember -> attributes IDENTIFIER optnullable IDENTIFIER . optdefvalue ;
+    (62) optdefvalue -> . = STRING
+    (63) optdefvalue -> .
+
+    =               shift and go to state 83
+    ;               reduce using rule 63 (optdefvalue -> .)
+
+    optdefvalue                    shift and go to state 82
+
+state 79
+
+    (30) member -> CONST IDENTIFIER IDENTIFIER = . number ;
+    (31) number -> . NUMBER
+    (32) number -> . HEXNUM
+    (33) number -> . IDENTIFIER
+    (34) number -> . ( number )
+    (35) number -> . - number
+    (36) number -> . number + number
+    (37) number -> . number - number
+    (38) number -> . number * number
+    (39) number -> . number LSHIFT number
+    (40) number -> . number RSHIFT number
+    (41) number -> . number | number
+
+    NUMBER          shift and go to state 87
+    HEXNUM          shift and go to state 89
+    IDENTIFIER      shift and go to state 88
+    (               shift and go to state 84
+    -               shift and go to state 85
+
+    number                         shift and go to state 86
+
+state 80
+
+    (42) member -> attributes optreadonly ATTRIBUTE IDENTIFIER . identifier ;
+    (64) identifier -> . DICTIONARY
+    (65) identifier -> . IDENTIFIER
+
+    DICTIONARY      shift and go to state 91
+    IDENTIFIER      shift and go to state 92
+
+    identifier                     shift and go to state 90
+
+state 81
+
+    (43) member -> attributes IDENTIFIER IDENTIFIER ( . paramlist ) raises ;
+    (44) paramlist -> . param moreparams
+    (45) paramlist -> .
+    (48) param -> . attributes paramtype IDENTIFIER identifier
+    (14) attributes -> . [ attlist ]
+    (15) attributes -> .
+
+    )               reduce using rule 45 (paramlist -> .)
+    [               shift and go to state 7
+    IN              reduce using rule 15 (attributes -> .)
+    INOUT           reduce using rule 15 (attributes -> .)
+    OUT             reduce using rule 15 (attributes -> .)
+
+    param                          shift and go to state 93
+    paramlist                      shift and go to state 94
+    attributes                     shift and go to state 95
+
+state 82
+
+    (59) dictmember -> attributes IDENTIFIER optnullable IDENTIFIER optdefvalue . ;
+
+    ;               shift and go to state 96
+
+
+state 83
+
+    (62) optdefvalue -> = . STRING
+
+    STRING          shift and go to state 97
+
+
+state 84
+
+    (34) number -> ( . number )
+    (31) number -> . NUMBER
+    (32) number -> . HEXNUM
+    (33) number -> . IDENTIFIER
+    (34) number -> . ( number )
+    (35) number -> . - number
+    (36) number -> . number + number
+    (37) number -> . number - number
+    (38) number -> . number * number
+    (39) number -> . number LSHIFT number
+    (40) number -> . number RSHIFT number
+    (41) number -> . number | number
+
+    NUMBER          shift and go to state 87
+    HEXNUM          shift and go to state 89
+    IDENTIFIER      shift and go to state 88
+    (               shift and go to state 84
+    -               shift and go to state 85
+
+    number                         shift and go to state 98
+
+state 85
+
+    (35) number -> - . number
+    (31) number -> . NUMBER
+    (32) number -> . HEXNUM
+    (33) number -> . IDENTIFIER
+    (34) number -> . ( number )
+    (35) number -> . - number
+    (36) number -> . number + number
+    (37) number -> . number - number
+    (38) number -> . number * number
+    (39) number -> . number LSHIFT number
+    (40) number -> . number RSHIFT number
+    (41) number -> . number | number
+
+    NUMBER          shift and go to state 87
+    HEXNUM          shift and go to state 89
+    IDENTIFIER      shift and go to state 88
+    (               shift and go to state 84
+    -               shift and go to state 85
+
+    number                         shift and go to state 99
+
+state 86
+
+    (30) member -> CONST IDENTIFIER IDENTIFIER = number . ;
+    (36) number -> number . + number
+    (37) number -> number . - number
+    (38) number -> number . * number
+    (39) number -> number . LSHIFT number
+    (40) number -> number . RSHIFT number
+    (41) number -> number . | number
+
+    ;               shift and go to state 105
+    +               shift and go to state 100
+    -               shift and go to state 102
+    *               shift and go to state 101
+    LSHIFT          shift and go to state 103
+    RSHIFT          shift and go to state 104
+    |               shift and go to state 106
+
+
+state 87
+
+    (31) number -> NUMBER .
+
+    +               reduce using rule 31 (number -> NUMBER .)
+    -               reduce using rule 31 (number -> NUMBER .)
+    *               reduce using rule 31 (number -> NUMBER .)
+    LSHIFT          reduce using rule 31 (number -> NUMBER .)
+    RSHIFT          reduce using rule 31 (number -> NUMBER .)
+    |               reduce using rule 31 (number -> NUMBER .)
+    ;               reduce using rule 31 (number -> NUMBER .)
+    )               reduce using rule 31 (number -> NUMBER .)
+
+
+state 88
+
+    (33) number -> IDENTIFIER .
+
+    +               reduce using rule 33 (number -> IDENTIFIER .)
+    -               reduce using rule 33 (number -> IDENTIFIER .)
+    *               reduce using rule 33 (number -> IDENTIFIER .)
+    LSHIFT          reduce using rule 33 (number -> IDENTIFIER .)
+    RSHIFT          reduce using rule 33 (number -> IDENTIFIER .)
+    |               reduce using rule 33 (number -> IDENTIFIER .)
+    ;               reduce using rule 33 (number -> IDENTIFIER .)
+    )               reduce using rule 33 (number -> IDENTIFIER .)
+
+
+state 89
+
+    (32) number -> HEXNUM .
+
+    +               reduce using rule 32 (number -> HEXNUM .)
+    -               reduce using rule 32 (number -> HEXNUM .)
+    *               reduce using rule 32 (number -> HEXNUM .)
+    LSHIFT          reduce using rule 32 (number -> HEXNUM .)
+    RSHIFT          reduce using rule 32 (number -> HEXNUM .)
+    |               reduce using rule 32 (number -> HEXNUM .)
+    ;               reduce using rule 32 (number -> HEXNUM .)
+    )               reduce using rule 32 (number -> HEXNUM .)
+
+
+state 90
+
+    (42) member -> attributes optreadonly ATTRIBUTE IDENTIFIER identifier . ;
+
+    ;               shift and go to state 107
+
+
+state 91
+
+    (64) identifier -> DICTIONARY .
+
+    ;               reduce using rule 64 (identifier -> DICTIONARY .)
+    ,               reduce using rule 64 (identifier -> DICTIONARY .)
+    )               reduce using rule 64 (identifier -> DICTIONARY .)
+
+
+state 92
+
+    (65) identifier -> IDENTIFIER .
+
+    ;               reduce using rule 65 (identifier -> IDENTIFIER .)
+    ,               reduce using rule 65 (identifier -> IDENTIFIER .)
+    )               reduce using rule 65 (identifier -> IDENTIFIER .)
+
+
+state 93
+
+    (44) paramlist -> param . moreparams
+    (46) moreparams -> .
+    (47) moreparams -> . , param moreparams
+
+    )               reduce using rule 46 (moreparams -> .)
+    ,               shift and go to state 108
+
+    moreparams                     shift and go to state 109
+
+state 94
+
+    (43) member -> attributes IDENTIFIER IDENTIFIER ( paramlist . ) raises ;
+
+    )               shift and go to state 110
+
+
+state 95
+
+    (48) param -> attributes . paramtype IDENTIFIER identifier
+    (49) paramtype -> . IN
+    (50) paramtype -> . INOUT
+    (51) paramtype -> . OUT
+
+    IN              shift and go to state 112
+    INOUT           shift and go to state 113
+    OUT             shift and go to state 114
+
+    paramtype                      shift and go to state 111
+
+state 96
+
+    (59) dictmember -> attributes IDENTIFIER optnullable IDENTIFIER optdefvalue ; .
+
+    [               reduce using rule 59 (dictmember -> attributes IDENTIFIER optnullable IDENTIFIER optdefvalue ; .)
+    IDENTIFIER      reduce using rule 59 (dictmember -> attributes IDENTIFIER optnullable IDENTIFIER optdefvalue ; .)
+    }               reduce using rule 59 (dictmember -> attributes IDENTIFIER optnullable IDENTIFIER optdefvalue ; .)
+
+
+state 97
+
+    (62) optdefvalue -> = STRING .
+
+    ;               reduce using rule 62 (optdefvalue -> = STRING .)
+
+
+state 98
+
+    (34) number -> ( number . )
+    (36) number -> number . + number
+    (37) number -> number . - number
+    (38) number -> number . * number
+    (39) number -> number . LSHIFT number
+    (40) number -> number . RSHIFT number
+    (41) number -> number . | number
+
+    )               shift and go to state 115
+    +               shift and go to state 100
+    -               shift and go to state 102
+    *               shift and go to state 101
+    LSHIFT          shift and go to state 103
+    RSHIFT          shift and go to state 104
+    |               shift and go to state 106
+
+
+state 99
+
+    (35) number -> - number .
+    (36) number -> number . + number
+    (37) number -> number . - number
+    (38) number -> number . * number
+    (39) number -> number . LSHIFT number
+    (40) number -> number . RSHIFT number
+    (41) number -> number . | number
+
+    +               reduce using rule 35 (number -> - number .)
+    -               reduce using rule 35 (number -> - number .)
+    *               reduce using rule 35 (number -> - number .)
+    LSHIFT          reduce using rule 35 (number -> - number .)
+    RSHIFT          reduce using rule 35 (number -> - number .)
+    |               reduce using rule 35 (number -> - number .)
+    ;               reduce using rule 35 (number -> - number .)
+    )               reduce using rule 35 (number -> - number .)
+
+  ! +               [ shift and go to state 100 ]
+  ! -               [ shift and go to state 102 ]
+  ! *               [ shift and go to state 101 ]
+  ! LSHIFT          [ shift and go to state 103 ]
+  ! RSHIFT          [ shift and go to state 104 ]
+  ! |               [ shift and go to state 106 ]
+
+
+state 100
+
+    (36) number -> number + . number
+    (31) number -> . NUMBER
+    (32) number -> . HEXNUM
+    (33) number -> . IDENTIFIER
+    (34) number -> . ( number )
+    (35) number -> . - number
+    (36) number -> . number + number
+    (37) number -> . number - number
+    (38) number -> . number * number
+    (39) number -> . number LSHIFT number
+    (40) number -> . number RSHIFT number
+    (41) number -> . number | number
+
+    NUMBER          shift and go to state 87
+    HEXNUM          shift and go to state 89
+    IDENTIFIER      shift and go to state 88
+    (               shift and go to state 84
+    -               shift and go to state 85
+
+    number                         shift and go to state 116
+
+state 101
+
+    (38) number -> number * . number
+    (31) number -> . NUMBER
+    (32) number -> . HEXNUM
+    (33) number -> . IDENTIFIER
+    (34) number -> . ( number )
+    (35) number -> . - number
+    (36) number -> . number + number
+    (37) number -> . number - number
+    (38) number -> . number * number
+    (39) number -> . number LSHIFT number
+    (40) number -> . number RSHIFT number
+    (41) number -> . number | number
+
+    NUMBER          shift and go to state 87
+    HEXNUM          shift and go to state 89
+    IDENTIFIER      shift and go to state 88
+    (               shift and go to state 84
+    -               shift and go to state 85
+
+    number                         shift and go to state 117
+
+state 102
+
+    (37) number -> number - . number
+    (31) number -> . NUMBER
+    (32) number -> . HEXNUM
+    (33) number -> . IDENTIFIER
+    (34) number -> . ( number )
+    (35) number -> . - number
+    (36) number -> . number + number
+    (37) number -> . number - number
+    (38) number -> . number * number
+    (39) number -> . number LSHIFT number
+    (40) number -> . number RSHIFT number
+    (41) number -> . number | number
+
+    NUMBER          shift and go to state 87
+    HEXNUM          shift and go to state 89
+    IDENTIFIER      shift and go to state 88
+    (               shift and go to state 84
+    -               shift and go to state 85
+
+    number                         shift and go to state 118
+
+state 103
+
+    (39) number -> number LSHIFT . number
+    (31) number -> . NUMBER
+    (32) number -> . HEXNUM
+    (33) number -> . IDENTIFIER
+    (34) number -> . ( number )
+    (35) number -> . - number
+    (36) number -> . number + number
+    (37) number -> . number - number
+    (38) number -> . number * number
+    (39) number -> . number LSHIFT number
+    (40) number -> . number RSHIFT number
+    (41) number -> . number | number
+
+    NUMBER          shift and go to state 87
+    HEXNUM          shift and go to state 89
+    IDENTIFIER      shift and go to state 88
+    (               shift and go to state 84
+    -               shift and go to state 85
+
+    number                         shift and go to state 119
+
+state 104
+
+    (40) number -> number RSHIFT . number
+    (31) number -> . NUMBER
+    (32) number -> . HEXNUM
+    (33) number -> . IDENTIFIER
+    (34) number -> . ( number )
+    (35) number -> . - number
+    (36) number -> . number + number
+    (37) number -> . number - number
+    (38) number -> . number * number
+    (39) number -> . number LSHIFT number
+    (40) number -> . number RSHIFT number
+    (41) number -> . number | number
+
+    NUMBER          shift and go to state 87
+    HEXNUM          shift and go to state 89
+    IDENTIFIER      shift and go to state 88
+    (               shift and go to state 84
+    -               shift and go to state 85
+
+    number                         shift and go to state 120
+
+state 105
+
+    (30) member -> CONST IDENTIFIER IDENTIFIER = number ; .
+
+    CDATA           reduce using rule 30 (member -> CONST IDENTIFIER IDENTIFIER = number ; .)
+    CONST           reduce using rule 30 (member -> CONST IDENTIFIER IDENTIFIER = number ; .)
+    [               reduce using rule 30 (member -> CONST IDENTIFIER IDENTIFIER = number ; .)
+    IDENTIFIER      reduce using rule 30 (member -> CONST IDENTIFIER IDENTIFIER = number ; .)
+    READONLY        reduce using rule 30 (member -> CONST IDENTIFIER IDENTIFIER = number ; .)
+    ATTRIBUTE       reduce using rule 30 (member -> CONST IDENTIFIER IDENTIFIER = number ; .)
+    }               reduce using rule 30 (member -> CONST IDENTIFIER IDENTIFIER = number ; .)
+
+
+state 106
+
+    (41) number -> number | . number
+    (31) number -> . NUMBER
+    (32) number -> . HEXNUM
+    (33) number -> . IDENTIFIER
+    (34) number -> . ( number )
+    (35) number -> . - number
+    (36) number -> . number + number
+    (37) number -> . number - number
+    (38) number -> . number * number
+    (39) number -> . number LSHIFT number
+    (40) number -> . number RSHIFT number
+    (41) number -> . number | number
+
+    NUMBER          shift and go to state 87
+    HEXNUM          shift and go to state 89
+    IDENTIFIER      shift and go to state 88
+    (               shift and go to state 84
+    -               shift and go to state 85
+
+    number                         shift and go to state 121
+
+state 107
+
+    (42) member -> attributes optreadonly ATTRIBUTE IDENTIFIER identifier ; .
+
+    CDATA           reduce using rule 42 (member -> attributes optreadonly ATTRIBUTE IDENTIFIER identifier ; .)
+    CONST           reduce using rule 42 (member -> attributes optreadonly ATTRIBUTE IDENTIFIER identifier ; .)
+    [               reduce using rule 42 (member -> attributes optreadonly ATTRIBUTE IDENTIFIER identifier ; .)
+    IDENTIFIER      reduce using rule 42 (member -> attributes optreadonly ATTRIBUTE IDENTIFIER identifier ; .)
+    READONLY        reduce using rule 42 (member -> attributes optreadonly ATTRIBUTE IDENTIFIER identifier ; .)
+    ATTRIBUTE       reduce using rule 42 (member -> attributes optreadonly ATTRIBUTE IDENTIFIER identifier ; .)
+    }               reduce using rule 42 (member -> attributes optreadonly ATTRIBUTE IDENTIFIER identifier ; .)
+
+
+state 108
+
+    (47) moreparams -> , . param moreparams
+    (48) param -> . attributes paramtype IDENTIFIER identifier
+    (14) attributes -> . [ attlist ]
+    (15) attributes -> .
+
+    [               shift and go to state 7
+    IN              reduce using rule 15 (attributes -> .)
+    INOUT           reduce using rule 15 (attributes -> .)
+    OUT             reduce using rule 15 (attributes -> .)
+
+    param                          shift and go to state 122
+    attributes                     shift and go to state 95
+
+state 109
+
+    (44) paramlist -> param moreparams .
+
+    )               reduce using rule 44 (paramlist -> param moreparams .)
+
+
+state 110
+
+    (43) member -> attributes IDENTIFIER IDENTIFIER ( paramlist ) . raises ;
+    (66) raises -> . RAISES ( idlist )
+    (67) raises -> .
+
+    RAISES          shift and go to state 124
+    ;               reduce using rule 67 (raises -> .)
+
+    raises                         shift and go to state 123
+
+state 111
+
+    (48) param -> attributes paramtype . IDENTIFIER identifier
+
+    IDENTIFIER      shift and go to state 125
+
+
+state 112
+
+    (49) paramtype -> IN .
+
+    IDENTIFIER      reduce using rule 49 (paramtype -> IN .)
+
+
+state 113
+
+    (50) paramtype -> INOUT .
+
+    IDENTIFIER      reduce using rule 50 (paramtype -> INOUT .)
+
+
+state 114
+
+    (51) paramtype -> OUT .
+
+    IDENTIFIER      reduce using rule 51 (paramtype -> OUT .)
+
+
+state 115
+
+    (34) number -> ( number ) .
+
+    +               reduce using rule 34 (number -> ( number ) .)
+    -               reduce using rule 34 (number -> ( number ) .)
+    *               reduce using rule 34 (number -> ( number ) .)
+    LSHIFT          reduce using rule 34 (number -> ( number ) .)
+    RSHIFT          reduce using rule 34 (number -> ( number ) .)
+    |               reduce using rule 34 (number -> ( number ) .)
+    ;               reduce using rule 34 (number -> ( number ) .)
+    )               reduce using rule 34 (number -> ( number ) .)
+
+
+state 116
+
+    (36) number -> number + number .
+    (36) number -> number . + number
+    (37) number -> number . - number
+    (38) number -> number . * number
+    (39) number -> number . LSHIFT number
+    (40) number -> number . RSHIFT number
+    (41) number -> number . | number
+
+    +               reduce using rule 36 (number -> number + number .)
+    -               reduce using rule 36 (number -> number + number .)
+    LSHIFT          reduce using rule 36 (number -> number + number .)
+    RSHIFT          reduce using rule 36 (number -> number + number .)
+    |               reduce using rule 36 (number -> number + number .)
+    ;               reduce using rule 36 (number -> number + number .)
+    )               reduce using rule 36 (number -> number + number .)
+    *               shift and go to state 101
+
+  ! *               [ reduce using rule 36 (number -> number + number .) ]
+  ! +               [ shift and go to state 100 ]
+  ! -               [ shift and go to state 102 ]
+  ! LSHIFT          [ shift and go to state 103 ]
+  ! RSHIFT          [ shift and go to state 104 ]
+  ! |               [ shift and go to state 106 ]
+
+
+state 117
+
+    (38) number -> number * number .
+    (36) number -> number . + number
+    (37) number -> number . - number
+    (38) number -> number . * number
+    (39) number -> number . LSHIFT number
+    (40) number -> number . RSHIFT number
+    (41) number -> number . | number
+
+    +               reduce using rule 38 (number -> number * number .)
+    -               reduce using rule 38 (number -> number * number .)
+    *               reduce using rule 38 (number -> number * number .)
+    LSHIFT          reduce using rule 38 (number -> number * number .)
+    RSHIFT          reduce using rule 38 (number -> number * number .)
+    |               reduce using rule 38 (number -> number * number .)
+    ;               reduce using rule 38 (number -> number * number .)
+    )               reduce using rule 38 (number -> number * number .)
+
+  ! +               [ shift and go to state 100 ]
+  ! -               [ shift and go to state 102 ]
+  ! *               [ shift and go to state 101 ]
+  ! LSHIFT          [ shift and go to state 103 ]
+  ! RSHIFT          [ shift and go to state 104 ]
+  ! |               [ shift and go to state 106 ]
+
+
+state 118
+
+    (37) number -> number - number .
+    (36) number -> number . + number
+    (37) number -> number . - number
+    (38) number -> number . * number
+    (39) number -> number . LSHIFT number
+    (40) number -> number . RSHIFT number
+    (41) number -> number . | number
+
+    +               reduce using rule 37 (number -> number - number .)
+    -               reduce using rule 37 (number -> number - number .)
+    LSHIFT          reduce using rule 37 (number -> number - number .)
+    RSHIFT          reduce using rule 37 (number -> number - number .)
+    |               reduce using rule 37 (number -> number - number .)
+    ;               reduce using rule 37 (number -> number - number .)
+    )               reduce using rule 37 (number -> number - number .)
+    *               shift and go to state 101
+
+  ! *               [ reduce using rule 37 (number -> number - number .) ]
+  ! +               [ shift and go to state 100 ]
+  ! -               [ shift and go to state 102 ]
+  ! LSHIFT          [ shift and go to state 103 ]
+  ! RSHIFT          [ shift and go to state 104 ]
+  ! |               [ shift and go to state 106 ]
+
+
+state 119
+
+    (39) number -> number LSHIFT number .
+    (36) number -> number . + number
+    (37) number -> number . - number
+    (38) number -> number . * number
+    (39) number -> number . LSHIFT number
+    (40) number -> number . RSHIFT number
+    (41) number -> number . | number
+
+    LSHIFT          reduce using rule 39 (number -> number LSHIFT number .)
+    RSHIFT          reduce using rule 39 (number -> number LSHIFT number .)
+    |               reduce using rule 39 (number -> number LSHIFT number .)
+    ;               reduce using rule 39 (number -> number LSHIFT number .)
+    )               reduce using rule 39 (number -> number LSHIFT number .)
+    +               shift and go to state 100
+    -               shift and go to state 102
+    *               shift and go to state 101
+
+  ! +               [ reduce using rule 39 (number -> number LSHIFT number .) ]
+  ! -               [ reduce using rule 39 (number -> number LSHIFT number .) ]
+  ! *               [ reduce using rule 39 (number -> number LSHIFT number .) ]
+  ! LSHIFT          [ shift and go to state 103 ]
+  ! RSHIFT          [ shift and go to state 104 ]
+  ! |               [ shift and go to state 106 ]
+
+
+state 120
+
+    (40) number -> number RSHIFT number .
+    (36) number -> number . + number
+    (37) number -> number . - number
+    (38) number -> number . * number
+    (39) number -> number . LSHIFT number
+    (40) number -> number . RSHIFT number
+    (41) number -> number . | number
+
+    LSHIFT          reduce using rule 40 (number -> number RSHIFT number .)
+    RSHIFT          reduce using rule 40 (number -> number RSHIFT number .)
+    |               reduce using rule 40 (number -> number RSHIFT number .)
+    ;               reduce using rule 40 (number -> number RSHIFT number .)
+    )               reduce using rule 40 (number -> number RSHIFT number .)
+    +               shift and go to state 100
+    -               shift and go to state 102
+    *               shift and go to state 101
+
+  ! +               [ reduce using rule 40 (number -> number RSHIFT number .) ]
+  ! -               [ reduce using rule 40 (number -> number RSHIFT number .) ]
+  ! *               [ reduce using rule 40 (number -> number RSHIFT number .) ]
+  ! LSHIFT          [ shift and go to state 103 ]
+  ! RSHIFT          [ shift and go to state 104 ]
+  ! |               [ shift and go to state 106 ]
+
+
+state 121
+
+    (41) number -> number | number .
+    (36) number -> number . + number
+    (37) number -> number . - number
+    (38) number -> number . * number
+    (39) number -> number . LSHIFT number
+    (40) number -> number . RSHIFT number
+    (41) number -> number . | number
+
+    |               reduce using rule 41 (number -> number | number .)
+    ;               reduce using rule 41 (number -> number | number .)
+    )               reduce using rule 41 (number -> number | number .)
+    +               shift and go to state 100
+    -               shift and go to state 102
+    *               shift and go to state 101
+    LSHIFT          shift and go to state 103
+    RSHIFT          shift and go to state 104
+
+  ! +               [ reduce using rule 41 (number -> number | number .) ]
+  ! -               [ reduce using rule 41 (number -> number | number .) ]
+  ! *               [ reduce using rule 41 (number -> number | number .) ]
+  ! LSHIFT          [ reduce using rule 41 (number -> number | number .) ]
+  ! RSHIFT          [ reduce using rule 41 (number -> number | number .) ]
+  ! |               [ shift and go to state 106 ]
+
+
+state 122
+
+    (47) moreparams -> , param . moreparams
+    (46) moreparams -> .
+    (47) moreparams -> . , param moreparams
+
+    )               reduce using rule 46 (moreparams -> .)
+    ,               shift and go to state 108
+
+    moreparams                     shift and go to state 126
+
+state 123
+
+    (43) member -> attributes IDENTIFIER IDENTIFIER ( paramlist ) raises . ;
+
+    ;               shift and go to state 127
+
+
+state 124
+
+    (66) raises -> RAISES . ( idlist )
+
+    (               shift and go to state 128
+
+
+state 125
+
+    (48) param -> attributes paramtype IDENTIFIER . identifier
+    (64) identifier -> . DICTIONARY
+    (65) identifier -> . IDENTIFIER
+
+    DICTIONARY      shift and go to state 91
+    IDENTIFIER      shift and go to state 92
+
+    identifier                     shift and go to state 129
+
+state 126
+
+    (47) moreparams -> , param moreparams .
+
+    )               reduce using rule 47 (moreparams -> , param moreparams .)
+
+
+state 127
+
+    (43) member -> attributes IDENTIFIER IDENTIFIER ( paramlist ) raises ; .
+
+    CDATA           reduce using rule 43 (member -> attributes IDENTIFIER IDENTIFIER ( paramlist ) raises ; .)
+    CONST           reduce using rule 43 (member -> attributes IDENTIFIER IDENTIFIER ( paramlist ) raises ; .)
+    [               reduce using rule 43 (member -> attributes IDENTIFIER IDENTIFIER ( paramlist ) raises ; .)
+    IDENTIFIER      reduce using rule 43 (member -> attributes IDENTIFIER IDENTIFIER ( paramlist ) raises ; .)
+    READONLY        reduce using rule 43 (member -> attributes IDENTIFIER IDENTIFIER ( paramlist ) raises ; .)
+    ATTRIBUTE       reduce using rule 43 (member -> attributes IDENTIFIER IDENTIFIER ( paramlist ) raises ; .)
+    }               reduce using rule 43 (member -> attributes IDENTIFIER IDENTIFIER ( paramlist ) raises ; .)
+
+
+state 128
+
+    (66) raises -> RAISES ( . idlist )
+    (68) idlist -> . IDENTIFIER
+    (69) idlist -> . IDENTIFIER , idlist
+
+    IDENTIFIER      shift and go to state 131
+
+    idlist                         shift and go to state 130
+
+state 129
+
+    (48) param -> attributes paramtype IDENTIFIER identifier .
+
+    ,               reduce using rule 48 (param -> attributes paramtype IDENTIFIER identifier .)
+    )               reduce using rule 48 (param -> attributes paramtype IDENTIFIER identifier .)
+
+
+state 130
+
+    (66) raises -> RAISES ( idlist . )
+
+    )               shift and go to state 132
+
+
+state 131
+
+    (68) idlist -> IDENTIFIER .
+    (69) idlist -> IDENTIFIER . , idlist
+
+    )               reduce using rule 68 (idlist -> IDENTIFIER .)
+    ,               shift and go to state 133
+
+
+state 132
+
+    (66) raises -> RAISES ( idlist ) .
+
+    ;               reduce using rule 66 (raises -> RAISES ( idlist ) .)
+
+
+state 133
+
+    (69) idlist -> IDENTIFIER , . idlist
+    (68) idlist -> . IDENTIFIER
+    (69) idlist -> . IDENTIFIER , idlist
+
+    IDENTIFIER      shift and go to state 131
+
+    idlist                         shift and go to state 134
+
+state 134
+
+    (69) idlist -> IDENTIFIER , idlist .
+
+    )               reduce using rule 69 (idlist -> IDENTIFIER , idlist .)
+

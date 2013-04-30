@@ -1,0 +1,1 @@
+libcomposer.a.desc : nsComposeTxtSrvFilter.o nsComposerController.o nsComposerCommands.o nsComposerDocumentCommands.o nsComposerRegistration.o nsEditingSession.o nsComposerCommandsUpdater.o nsEditorSpellCheck.o

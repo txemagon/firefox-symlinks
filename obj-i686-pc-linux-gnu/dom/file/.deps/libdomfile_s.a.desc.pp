@@ -1,0 +1,1 @@
+libdomfile_s.a.desc : AsyncHelper.o DOMFileHandle.o File.o FileHandle.o FileHelper.o FileRequest.o FileService.o FileStreamWrappers.o LockedFile.o MemoryStreams.o MetadataHelper.o ArchiveEvent.o ArchiveZipEvent.o ArchiveZipFile.o ArchiveReader.o ArchiveRequest.o

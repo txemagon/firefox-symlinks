@@ -1,0 +1,1 @@
+../../toolkit/mozapps/update/_xpidlgen/nsIUpdateService.h

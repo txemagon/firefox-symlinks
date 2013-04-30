@@ -1,0 +1,1 @@
+../../dom/interfaces/smil/_xpidlgen/nsIDOMTimeEvent.h

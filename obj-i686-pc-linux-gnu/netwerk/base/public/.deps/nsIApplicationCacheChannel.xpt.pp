@@ -1,0 +1,1 @@
+_xpidlgen/nsIApplicationCacheChannel.xpt: /home/txema/work/firefox-20.0+build1/netwerk/base/public/nsIApplicationCacheChannel.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl /home/txema/work/firefox-20.0+build1/netwerk/base/public/nsIApplicationCacheContainer.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

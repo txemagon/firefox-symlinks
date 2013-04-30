@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/chrome/test/unit/test_data_protocol_registration.js

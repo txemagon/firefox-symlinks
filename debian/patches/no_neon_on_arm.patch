@@ -1,0 +1,62 @@
+--- mozilla/build/autoconf/arch.m4.orig	2012-07-13 17:43:33.687954382 -0600
++++ mozilla/build/autoconf/arch.m4	2012-07-13 17:50:38.719939349 -0600
+@@ -198,17 +198,17 @@
+       HAVE_ARM_SIMD=1
+   fi
+ 
+-  AC_MSG_CHECKING(for ARM NEON support in compiler)
+-  # We try to link so that this also fails when
+-  # building with LTO.
+-  AC_TRY_LINK([],
+-                 [asm(".fpu neon\n vadd.i8 d0, d0, d0");],
+-                 result="yes", result="no")
+-  AC_MSG_RESULT("$result")
+-  if test "$result" = "yes"; then
+-      AC_DEFINE(HAVE_ARM_NEON)
+-      HAVE_ARM_NEON=1
+-  fi
++  #AC_MSG_CHECKING(for ARM NEON support in compiler)
++  ## We try to link so that this also fails when
++  ## building with LTO.
++  #AC_TRY_LINK([],
++  #               [asm(".fpu neon\n vadd.i8 d0, d0, d0");],
++  #               result="yes", result="no")
++  #AC_MSG_RESULT("$result")
++  #if test "$result" = "yes"; then
++  #    AC_DEFINE(HAVE_ARM_NEON)
++  #    HAVE_ARM_NEON=1
++  #fi
+ fi # CPU_ARCH = arm
+ 
+ AC_SUBST(HAVE_ARM_SIMD)
+--- mozilla/js/src/build/autoconf/arch.m4.orig	2012-07-13 17:43:33.687954382 -0600
++++ mozilla/js/src/build/autoconf/arch.m4	2012-07-13 17:50:38.719939349 -0600
+@@ -198,17 +198,17 @@
+       HAVE_ARM_SIMD=1
+   fi
+ 
+-  AC_MSG_CHECKING(for ARM NEON support in compiler)
+-  # We try to link so that this also fails when
+-  # building with LTO.
+-  AC_TRY_LINK([],
+-                 [asm(".fpu neon\n vadd.i8 d0, d0, d0");],
+-                 result="yes", result="no")
+-  AC_MSG_RESULT("$result")
+-  if test "$result" = "yes"; then
+-      AC_DEFINE(HAVE_ARM_NEON)
+-      HAVE_ARM_NEON=1
+-  fi
++  #AC_MSG_CHECKING(for ARM NEON support in compiler)
++  ## We try to link so that this also fails when
++  ## building with LTO.
++  #AC_TRY_LINK([],
++  #               [asm(".fpu neon\n vadd.i8 d0, d0, d0");],
++  #               result="yes", result="no")
++  #AC_MSG_RESULT("$result")
++  #if test "$result" = "yes"; then
++  #    AC_DEFINE(HAVE_ARM_NEON)
++  #    HAVE_ARM_NEON=1
++  #fi
+ fi # CPU_ARCH = arm
+ 
+ AC_SUBST(HAVE_ARM_SIMD)

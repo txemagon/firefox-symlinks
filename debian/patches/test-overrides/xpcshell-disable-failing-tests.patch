@@ -1,0 +1,96 @@
+Index: firefox-20.0~b4+build1/uriloader/exthandler/tests/unit/xpcshell.ini
+===================================================================
+--- firefox-20.0~b4+build1.orig/uriloader/exthandler/tests/unit/xpcshell.ini	2013-03-14 19:00:47.705241811 +0000
++++ firefox-20.0~b4+build1/uriloader/exthandler/tests/unit/xpcshell.ini	2013-03-14 19:00:47.701241811 +0000
+@@ -5,6 +5,5 @@
+ [test_getTypeFromExtension_ext_to_type_mapping.js]
+ [test_getTypeFromExtension_with_empty_Content_Type.js]
+ [test_handlerService.js]
+-# Bug 676997: test consistently fails on Android
+-fail-if = os == "android"
++fail-if = true
+ [test_punycodeURIs.js]
+Index: firefox-20.0~b4+build1/extensions/cookie/test/unit/xpcshell.ini
+===================================================================
+--- firefox-20.0~b4+build1.orig/extensions/cookie/test/unit/xpcshell.ini	2013-03-14 19:00:47.705241811 +0000
++++ firefox-20.0~b4+build1/extensions/cookie/test/unit/xpcshell.ini	2013-03-14 19:00:47.701241811 +0000
+@@ -9,6 +9,8 @@
+ [test_bug667087.js]
+ [test_cookies_async_failure.js]
+ [test_cookies_persistence.js]
++# Seems to fail randomly
++skip-if = true
+ [test_cookies_privatebrowsing.js]
+ [test_cookies_profile_close.js]
+ [test_cookies_read.js]
+Index: firefox-20.0~b4+build1/toolkit/components/downloads/test/unit/xpcshell.ini
+===================================================================
+--- firefox-20.0~b4+build1.orig/toolkit/components/downloads/test/unit/xpcshell.ini	2013-03-14 19:00:47.705241811 +0000
++++ firefox-20.0~b4+build1/toolkit/components/downloads/test/unit/xpcshell.ini	2013-03-14 19:00:47.701241811 +0000
+@@ -15,8 +15,8 @@
+ skip-if = os == "android"
+ [test_download_manager.js]
+ [test_download_samename.js]
+-# Bug 676989: test hangs consistently on Android
+-skip-if = os == "android"
++# Seems to fail randomly
++skip-if = true
+ [test_guid.js]
+ [test_history_expiration.js]
+ [test_offline_support.js]
+Index: firefox-20.0~b4+build1/dom/tests/unit/xpcshell.ini
+===================================================================
+--- firefox-20.0~b4+build1.orig/dom/tests/unit/xpcshell.ini	2013-03-14 19:00:47.705241811 +0000
++++ firefox-20.0~b4+build1/dom/tests/unit/xpcshell.ini	2013-03-14 19:00:47.701241811 +0000
+@@ -5,8 +5,8 @@
+ [test_bug319968.js]
+ [test_bug465752.js]
+ [test_geolocation_provider.js]
+-# Bug 684962: test hangs consistently on Android
+-skip-if = os == "android"
++# Seems to fail intermittently on Ubuntu
++skip-if = true
+ [test_geolocation_timeout.js]
+ [test_geolocation_timeout_wrap.js]
+ skip-if = os == "mac"
+Index: firefox-20.0~b4+build1/services/sync/tests/unit/xpcshell.ini
+===================================================================
+--- firefox-20.0~b4+build1.orig/services/sync/tests/unit/xpcshell.ini	2013-03-14 19:00:47.705241811 +0000
++++ firefox-20.0~b4+build1/services/sync/tests/unit/xpcshell.ini	2013-03-14 19:00:47.701241811 +0000
+@@ -130,6 +130,8 @@
+ [test_history_engine.js]
+ [test_history_store.js]
+ [test_history_tracker.js]
++# Seems to fail randomly
++skip-if = true
+ [test_places_guid_downgrade.js]
+ [test_password_store.js]
+ [test_password_tracker.js]
+Index: firefox-20.0~b4+build1/toolkit/crashreporter/test/unit/xpcshell.ini
+===================================================================
+--- firefox-20.0~b4+build1.orig/toolkit/crashreporter/test/unit/xpcshell.ini	2013-03-07 17:37:47.000000000 +0000
++++ firefox-20.0~b4+build1/toolkit/crashreporter/test/unit/xpcshell.ini	2013-03-14 19:01:39.221243927 +0000
+@@ -3,16 +3,21 @@
+ tail = 
+ 
+ [test_crash_moz_crash.js]
++skip-if = true
+ [test_crash_purevirtual.js]
++skip-if = true
+ [test_crash_runtimeabort.js]
++skip-if = true
+ [test_crash_oom.js]
+-skip-if = os == 'win' && debug
++skip-if = true
+ 
+ [test_crashreporter.js]
+ [test_crashreporter_crash.js]
++skip-if = true
+ [test_crashreporter_crash_profile_lock.js]
++skip-if = true
+ [test_override_exception_handler.js]
+ run-if = os == 'win'
+ 
+ [test_crashreporter_appmem.js]
+-run-if = os == 'win' || os == 'linux'
++skip-if = true

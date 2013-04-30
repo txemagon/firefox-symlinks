@@ -1,0 +1,10 @@
+Name: @MOZ_DISPLAY_NAME@ restart required
+Name-fr: Relancement de @MOZ_DISPLAY_NAME@ requis
+Priority: High
+Terminal: False
+DontShowAfterReboot: True
+DisplayIf: pgrep -x @MOZ_APP_NAME@ -U $(id -u) > /dev/null
+Description: @MOZ_DISPLAY_NAME@ has been upgraded (or reinstalled) and must be restarted.
+ Please quit and restart your web browser now.
+Description-fr: @MOZ_DISPLAY_NAME@ a été mis à jour (ou réinstallé) et doit être relancé.
+ Veuillez quitter et redémarrer for navigateur.

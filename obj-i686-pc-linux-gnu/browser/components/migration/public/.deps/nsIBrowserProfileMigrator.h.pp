@@ -1,0 +1,1 @@
+_xpidlgen/nsIBrowserProfileMigrator.h: /home/txema/work/firefox-20.0+build1/browser/components/migration/public/nsIBrowserProfileMigrator.idl ../../../../dist/idl/nsISupports.idl ../../../../dist/idl/nsrootidl.idl

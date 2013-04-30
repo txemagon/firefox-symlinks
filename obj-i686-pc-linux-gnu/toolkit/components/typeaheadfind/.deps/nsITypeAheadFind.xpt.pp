@@ -1,0 +1,1 @@
+_xpidlgen/nsITypeAheadFind.xpt: /home/txema/work/firefox-20.0+build1/toolkit/components/typeaheadfind/nsITypeAheadFind.idl ../../../dist/idl/domstubs.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

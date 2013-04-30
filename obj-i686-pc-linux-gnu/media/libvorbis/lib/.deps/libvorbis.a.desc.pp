@@ -1,0 +1,1 @@
+libvorbis.a.desc : vorbis_mdct.o vorbis_smallft.o vorbis_block.o vorbis_info.o vorbis_envelope.o vorbis_window.o vorbis_lsp.o vorbis_lpc.o vorbis_analysis.o vorbis_synthesis.o vorbis_psy.o vorbis_floor1.o vorbis_floor0.o vorbis_res0.o vorbis_mapping0.o vorbis_registry.o vorbis_codebook.o vorbis_sharedbook.o vorbis_lookup.o vorbis_bitrate.o

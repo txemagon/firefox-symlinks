@@ -1,0 +1,11 @@
+prefix=/usr
+sdkdir=/@MOZ_SDKDIR@
+includedir=/@MOZ_INCDIR@
+idldir=/@MOZ_IDLDIR@
+
+Name: libxul
+Description: The Mozilla Runtime and Embedding Engine
+Version: @MOZ_VERSION@
+Requires: mozilla-nspr
+Libs: -L${sdkdir}/lib -lxpcomglue_s -lxul -lxpcom -lmozalloc
+Cflags: -I${includedir} @WCHAR_CFLAGS@

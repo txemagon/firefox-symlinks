@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/content/test/unit/test_isequalnode.js

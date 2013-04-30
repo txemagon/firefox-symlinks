@@ -1,0 +1,1 @@
+_xpidlgen/nsIMIMEInputStream.h: /home/txema/work/firefox-20.0+build1/netwerk/base/public/nsIMIMEInputStream.idl ../../../dist/idl/nsIInputStream.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

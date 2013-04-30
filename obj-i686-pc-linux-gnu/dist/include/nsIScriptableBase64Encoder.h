@@ -1,0 +1,1 @@
+../../xpcom/io/_xpidlgen/nsIScriptableBase64Encoder.h

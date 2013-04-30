@@ -1,0 +1,1 @@
+_xpidlgen/nsIBufEntropyCollector.h: /home/txema/work/firefox-20.0+build1/security/manager/boot/public/nsIBufEntropyCollector.idl ../../../../dist/idl/nsISupports.idl ../../../../dist/idl/nsrootidl.idl ../../../../dist/idl/nsIEntropyCollector.idl ../../../../dist/idl/nsISupports.idl ../../../../dist/idl/nsrootidl.idl

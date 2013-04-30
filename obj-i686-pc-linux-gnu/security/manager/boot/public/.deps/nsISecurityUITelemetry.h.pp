@@ -1,0 +1,1 @@
+_xpidlgen/nsISecurityUITelemetry.h: /home/txema/work/firefox-20.0+build1/security/manager/boot/public/nsISecurityUITelemetry.idl ../../../../dist/idl/nsISupports.idl ../../../../dist/idl/nsrootidl.idl

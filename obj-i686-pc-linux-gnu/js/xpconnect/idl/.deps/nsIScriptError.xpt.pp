@@ -1,0 +1,1 @@
+_xpidlgen/nsIScriptError.xpt: /home/txema/work/firefox-20.0+build1/js/xpconnect/idl/nsIScriptError.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl ../../../dist/idl/nsIConsoleMessage.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

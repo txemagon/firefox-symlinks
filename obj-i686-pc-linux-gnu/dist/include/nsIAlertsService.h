@@ -1,0 +1,1 @@
+../../toolkit/components/alerts/_xpidlgen/nsIAlertsService.h

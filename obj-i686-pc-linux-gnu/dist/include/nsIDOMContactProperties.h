@@ -1,0 +1,1 @@
+../../dom/interfaces/contacts/_xpidlgen/nsIDOMContactProperties.h

@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/dom/indexedDB/test/unit/test_put_get_values_autoIncrement.js

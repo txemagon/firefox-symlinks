@@ -1,0 +1,33 @@
+Description: Normalize the paths to distribution searchplugins so that
+ associated metadata is not lost on upgrades (when the install location changes)
+Author: Alexander Sack <asac@ubuntu.com>
+Bug: https://bugzilla.mozilla.org/show_bug.cgi?id=534663
+Forwarded: no
+---
+ toolkit/components/search/nsSearchService.js |    9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+--- a/toolkit/components/search/nsSearchService.js
++++ b/toolkit/components/search/nsSearchService.js
+@@ -54,6 +54,7 @@ const MODE_APPEND   = 0x10;
+ const MODE_TRUNCATE = 0x20;
+ 
+ // Directory service keys
++const NS_XPCOM_CURRENT_PROCESS_DIR = "XCurProcD";
+ const NS_APP_SEARCH_DIR_LIST  = "SrchPluginsDL";
+ const NS_APP_USER_SEARCH_DIR  = "UsrSrchPlugns";
+ const NS_APP_SEARCH_DIR       = "SrchPlugns";
+@@ -2776,6 +2777,13 @@ SearchService.prototype = {
+       if (!file.isFile() || file.fileSize == 0 || file.isHidden())
+         continue;
+ 
++      var appdirstr = getDir (NS_XPCOM_CURRENT_PROCESS_DIR).path
++                      + "/distribution/searchplugins";
++
++      // normalize distribution searchplugins if they are following links
++      if (file.path.indexOf(appdirstr) == 0)
++        file.normalize();
++
+       var fileURL = NetUtil.ioService.newFileURI(file).QueryInterface(Ci.nsIURL);
+       var fileExtension = fileURL.fileExtension.toLowerCase();
+       var isWritable = isInProfile && file.isWritable();

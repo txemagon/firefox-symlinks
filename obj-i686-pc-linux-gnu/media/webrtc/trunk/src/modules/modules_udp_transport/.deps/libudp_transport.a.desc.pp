@@ -1,0 +1,1 @@
+libudp_transport.a.desc : udp_transport/source/udp_transport_impl.o udp_transport/source/udp_socket_wrapper.o udp_transport/source/udp_socket_manager_wrapper.o udp_transport/source/udp_socket_posix.o udp_transport/source/udp_socket_manager_posix.o

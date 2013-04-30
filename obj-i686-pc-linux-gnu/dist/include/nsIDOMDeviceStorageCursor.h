@@ -1,0 +1,1 @@
+../../dom/interfaces/devicestorage/_xpidlgen/nsIDOMDeviceStorageCursor.h

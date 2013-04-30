@@ -1,0 +1,1 @@
+_xpidlgen/nsIPrintOptions.h: /home/txema/work/firefox-20.0+build1/widget/nsIPrintOptions.idl ../dist/idl/nsISupports.idl ../dist/idl/nsrootidl.idl /home/txema/work/firefox-20.0+build1/widget/nsIPrintSettings.idl ../dist/idl/nsISupports.idl ../dist/idl/nsrootidl.idl

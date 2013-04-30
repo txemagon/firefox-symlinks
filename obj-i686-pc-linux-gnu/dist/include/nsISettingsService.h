@@ -1,0 +1,1 @@
+../../dom/interfaces/settings/_xpidlgen/nsISettingsService.h

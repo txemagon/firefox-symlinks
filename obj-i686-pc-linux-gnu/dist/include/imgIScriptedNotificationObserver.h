@@ -1,0 +1,1 @@
+../../image/public/_xpidlgen/imgIScriptedNotificationObserver.h

@@ -1,0 +1,1 @@
+_xpidlgen/nsIWebBrowserFind.h: /home/txema/work/firefox-20.0+build1/embedding/components/find/public/nsIWebBrowserFind.idl ../../../../dist/idl/nsISupports.idl ../../../../dist/idl/nsrootidl.idl ../../../../dist/idl/domstubs.idl ../../../../dist/idl/nsISupports.idl ../../../../dist/idl/nsrootidl.idl

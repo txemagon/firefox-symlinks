@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/dom/tests/browser/browser_focus_steal_from_chrome_during_mousedown.js

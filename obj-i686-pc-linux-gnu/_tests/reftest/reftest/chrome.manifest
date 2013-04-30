@@ -1,0 +1,7 @@
+contract @mozilla.org/commandlinehandler/general-startup;1?type=reftest {32530271-8c1b-4b7d-a812-218e42c6bb23}
+interfaces components/test_necko.xpt
+category command-line-handler m-reftest @mozilla.org/commandlinehandler/general-startup;1?type=reftest
+content reftest chrome/reftest/content/
+component {32530271-8c1b-4b7d-a812-218e42c6bb23} components/reftest-cmdline.js
+component {54ef6f81-30af-4b1d-ac55-8ba811293e41} components/httpd.js
+contract @mozilla.org/server/jshttp;1 {54ef6f81-30af-4b1d-ac55-8ba811293e41}

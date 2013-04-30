@@ -1,0 +1,24 @@
+Index: firefox-trunk-19.0~a1~hg20121114r113217/toolkit/components/perf/Makefile.in
+===================================================================
+--- firefox-trunk-19.0~a1~hg20121114r113217.orig/toolkit/components/perf/Makefile.in	2012-11-14 21:08:31.000000000 +0000
++++ firefox-trunk-19.0~a1~hg20121114r113217/toolkit/components/perf/Makefile.in	2012-11-21 16:56:27.513804412 +0000
+@@ -6,6 +6,7 @@
+ topsrcdir = @top_srcdir@
+ srcdir = @srcdir@
+ VPATH = @srcdir@
++relativesrcdir = @relativesrcdir@
+ 
+ include $(DEPTH)/config/autoconf.mk
+ 
+Index: firefox-trunk-19.0~a1~hg20121114r113217/toolkit/forgetaboutsite/test/browser/Makefile.in
+===================================================================
+--- firefox-trunk-19.0~a1~hg20121114r113217.orig/toolkit/forgetaboutsite/test/browser/Makefile.in	2012-11-14 21:08:34.000000000 +0000
++++ firefox-trunk-19.0~a1~hg20121114r113217/toolkit/forgetaboutsite/test/browser/Makefile.in	2012-11-21 16:54:50.377800978 +0000
+@@ -6,6 +6,7 @@
+ topsrcdir := @top_srcdir@
+ srcdir    := @srcdir@
+ VPATH   := @srcdir@
++relativesrcdir	:= @relativesrcdir@
+ 
+ include $(DEPTH)/config/autoconf.mk
+ 

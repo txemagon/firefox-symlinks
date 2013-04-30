@@ -1,0 +1,358 @@
+# vim:syntax=apparmor
+# Author: Jamie Strandboge <jamie@canonical.com>
+
+#include <tunables/global>
+
+# We want to confine the binaries that match:
+#  /@MOZ_LIBDIR@/@MOZ_APP_NAME@
+#  /@MOZ_LIBDIR@/firefox
+# but not:
+#  /@MOZ_LIBDIR@/firefox.sh
+/@MOZ_LIBDIR@/firefox{,*[^s][^h]} {
+  #include <abstractions/audio>
+  #include <abstractions/base>
+  #include <abstractions/cups-client>
+  #include <abstractions/dbus>
+  #include <abstractions/fonts>
+  #include <abstractions/freedesktop.org>
+  #include <abstractions/gnome>
+  #include <abstractions/kde>
+  #include <abstractions/nameservice>
+  #include <abstractions/user-tmp>
+  #include <abstractions/X>
+
+  # for networking
+  network inet stream,
+  network inet6 stream,
+  @{PROC}/[0-9]*/net/if_inet6 r,
+  @{PROC}/[0-9]*/net/ipv6_route r,
+  @{PROC}/[0-9]*/net/dev r,
+  @{PROC}/[0-9]*/net/wireless r,
+
+  # should maybe be in abstractions
+  /etc/ r,
+  /etc/mime.types r,
+  /etc/mailcap r,
+  /etc/timezone r,
+  /etc/wildmidi/wildmidi.cfg r,
+  /etc/xdg/xubuntu/applications/defaults.list r,
+  /usr/bin/dbus-launch ixr,
+  /usr/bin/scim Ux,
+  /usr/bin/scim-bridge Ux,
+  /usr/bin/apport-bug Ux,
+  /usr/local/lib{,32,64}/*.so* mr,
+  /usr/lib/gstreamer0.10/gstreamer-0.10/gst-plugin-scanner ix,
+  /usr/bin/apturl Uxr,
+  /tmp/.X[0-9]*-lock r,
+
+  # firefox specific
+  /etc/firefox*/ r,
+  /etc/firefox*/** r,
+  /etc/xul-ext/** r,
+  /etc/xulrunner-2.0*/ r,
+  /etc/xulrunner-2.0*/** r,
+  /etc/gre.d/ r,
+  /etc/gre.d/* r,
+
+  # noisy
+  deny /@MOZ_LIBDIR@/** w,
+  deny /@MOZ_ADDONDIR@/** w,
+  deny /usr/lib/xulrunner-addons/** w,
+  deny /usr/lib/xulrunner-*/components/*.tmp w,
+  deny /.suspended r,
+  deny /boot/initrd.img* r,
+  deny /boot/vmlinuz* r,
+  deny /var/cache/fontconfig/ w,
+
+  # What is firefox doing with this?
+  deny /usr/bin/gconftool-2 x,
+
+  # These are needed when a new user starts firefox and firefox.sh is used
+  /@MOZ_LIBDIR@/** ixr,
+  /usr/bin/basename ixr,
+  /usr/bin/dirname ixr,
+  /usr/bin/pwd ixr,
+  /sbin/killall5 ixr,
+  /bin/which ixr,
+  /usr/bin/tr ixr,
+  @{PROC}/ r,
+  @{PROC}/[0-9]*/cmdline r,
+  @{PROC}/[0-9]*/mountinfo r,
+  @{PROC}/[0-9]*/stat r,
+  owner @{PROC}/[0-9]*/task/[0-9]*/stat r,
+  @{PROC}/[0-9]*/status r,
+  @{PROC}/filesystems r,
+
+  /etc/mtab r,
+  /etc/fstab r,
+
+  # Needed for the crash reporter
+  owner @{PROC}/[0-9]*/environ r,
+  owner @{PROC}/[0-9]*/auxv r,
+  /etc/lsb-release r,
+  /usr/bin/expr ix,
+  /sys/devices/system/cpu/ r,
+  /sys/devices/system/cpu/** r,
+
+  # allow access to documentation and other files the user may want to look
+  # at in /usr and /opt
+  /usr/ r,
+  /usr/** r,
+  /opt/ r,
+  /opt/** r,
+
+  # so browsing directories works
+  / r,
+  /**/ r,
+
+  # allow read and write to all user's files, except explicitly denied ones
+  @{HOME}/ r,
+  @{HOME}/** r,
+  owner @{HOME}/** w,
+  owner @{HOME}/Desktop/** r,
+
+  # removable media and filesystems
+  /media/** r,
+  /mnt/** r,
+  /srv/** r,
+  owner /media/** w,
+  owner /mnt/** w,
+  owner /srv/** w,
+
+  #include <abstractions/private-files>
+  audit deny @{HOME}/.ssh/** mrwkl,
+  audit deny @{HOME}/.gnome2_private/** mrwkl,
+
+  # comment this out if using gpg plugin/addons
+  audit deny @{HOME}/.gnupg/** mrwkl,
+
+  # per-user firefox configuration
+  owner @{HOME}/.{firefox,mozilla}/ rw,
+  owner @{HOME}/.{firefox,mozilla}/** rw,
+  owner @{HOME}/.{firefox,mozilla}/**/*.{db,parentlock,sqlite}* k,
+  owner @{HOME}/.{firefox,mozilla}/plugins/** rm,
+  owner @{HOME}/.{firefox,mozilla}/**/plugins/** rm,
+
+  #
+  # Extensions
+  # /usr/share/.../extensions/... is already covered by '/usr/** r', above.
+  # Allow 'x' for downloaded extensions, but inherit policy for safety
+  owner @{HOME}/.mozilla/**/extensions/** mixr,
+
+  deny /@MOZ_LIBDIR@/update.test w,
+  deny /usr/lib/mozilla/extensions/**/ w,
+  deny /usr/lib/xulrunner-addons/extensions/**/ w,
+  deny /usr/share/mozilla/extensions/**/ w,
+  deny /usr/share/mozilla/ w,
+
+  #
+  # Plugins/helpers
+  #
+  @{PROC}/[0-9]*/fd/ r,
+  /usr/lib/** rm,
+  /bin/bash ixr,
+  /bin/dash ixr,
+  /bin/grep ixr,
+  /bin/sed ixr,
+  /bin/ps Uxr,
+  /bin/uname Uxr,
+  /usr/bin/gnome-codec-install Uxr,
+  /usr/bin/m4 ixr,
+  /usr/bin/mkfifo Uxr,
+  /usr/lib/nspluginwrapper/i386/linux/npviewer Uxr,
+  /usr/bin/pulseaudio ixr,
+  /var/lib/ r,
+  /var/lib/** mr,
+
+  # about:memory
+  owner @{PROC}/[0-9]*/statm r,
+  owner @{PROC}/[0-9]*/smaps r,
+
+  # Needed for container to work in xul builds
+  /usr/lib/xulrunner-*/plugin-container ixr,
+
+  # for maximum plugin/helper compatibility
+  #/usr/bin/* Uxr,
+  #/usr/lib/*/** ixr,
+
+  #
+  # For stricter access, comment out the 'maximum plugin/helper compatibility'
+  # lines above and uncomment these
+  #
+
+  # for PDFs
+  owner @{HOME}/.adobe/** rw,
+  /opt/Adobe/Reader9/bin/acroread Uxr,
+  /opt/Adobe/Reader9/** r,
+  /usr/bin/evince PUxr,
+  /usr/bin/okular Uxr,
+
+  # Image viewers
+  /usr/bin/eog Uxr,
+  /usr/bin/gimp* Uxr,
+
+  # Openoffice.org
+  /usr/bin/ooffice Uxr,
+  /usr/bin/oocalc Uxr,
+  /usr/bin/oodraw Uxr,
+  /usr/bin/ooimpress Uxr,
+  /usr/bin/oowriter Uxr,
+  /usr/lib/openoffice/program/soffice Uxr,
+
+  # Multimedia
+  #include <abstractions/ubuntu-media-players>
+  owner @{HOME}/.macromedia/** rw,
+  /opt/real/RealPlayer/mozilla/nphelix.so rm,
+
+  # Bittorrent clients
+  #include <abstractions/ubuntu-bittorrent-clients>
+
+  # Archivers
+  /usr/bin/ark Uxr,
+  /usr/bin/file-roller Uxr,
+  /usr/bin/xarchiver Uxr,
+
+  # Text editors (It's All Text [https://addons.mozilla.org/en-US/firefox/addon/4125])
+  /usr/bin/emacsclient.emacs-snapshot Uxr,
+  /usr/bin/emacsclient.emacs22 Uxr,
+  /usr/bin/gedit Uxr,
+  /usr/bin/vim.gnome Uxr,
+  /usr/bin/leafpad Uxr,
+  /usr/bin/mousepad Uxr,
+
+  # Mozplugger
+  /etc/mozpluggerrc r,
+  /usr/bin/mozplugger-helper Uxr,
+
+  # Java
+  @{HOME}/.java/deployment/deployment.properties k,
+  /etc/java-*/ r,
+  /etc/java-*/** r,
+  /usr/lib/jvm/java-6-openjdk/jre/bin/java cx -> firefox_openjdk,
+  /usr/lib/jvm/java-*-sun-1.*/jre/bin/java{,_vm} cx -> firefox_java,
+  /usr/lib/jvm/java-*-sun-1.*/jre/lib/*/libnp*.so cx -> firefox_java,
+  /usr/lib/j2*-ibm/jre/bin/java cx -> firefox_java,
+
+  # for mailto:
+  #include <abstractions/ubuntu-email>
+  #include <abstractions/ubuntu-console-email>
+
+  # Terminals for using console applications. These abstractions should ideally
+  # have 'ix' to restrct access to what only firefox is allowed to do
+  #include <abstractions/ubuntu-gnome-terminal>
+
+  # By default, we won't support launching a terminal program in Xterm or
+  # KDE's konsole. It opens up too many unnecessary files for most users.
+  # People who need this functionality can uncomment the following:
+  ##include <abstractions/ubuntu-xterm>
+  ##include <abstractions/ubuntu-konsole>
+
+  # Miscellaneous (to be abstracted)
+  /usr/bin/nautilus Uxr,
+  /usr/bin/thunar Uxr,
+  /usr/bin/liferea-add-feed Uxr,
+
+
+  #
+  # Child profiles
+  #
+
+  # Profile for the supported OpenJDK in Ubuntu. This doesn't require the
+  # unfortunate workarounds of the proprietary Javas, so have a separate
+  # profile.
+  profile firefox_openjdk {
+    #include <abstractions/base>
+    #include <abstractions/fonts>
+    #include <abstractions/gnome>
+    #include <abstractions/kde>
+    #include <abstractions/nameservice>
+    #include <abstractions/ssl_certs>
+    #include <abstractions/user-tmp>
+    #include <abstractions/private-files-strict>
+
+    network inet stream,
+    network inet6 stream,
+    @{PROC}/[0-9]*/net/if_inet6 r,
+    @{PROC}/[0-9]*/net/ipv6_route r,
+
+    /etc/java-*/ r,
+    /etc/java-*/** r,
+    /etc/lsb-release r,
+    /etc/ssl/certs/java/* r,
+    /etc/timezone r,
+
+    @{PROC}/[0-9]*/ r,
+    @{PROC}/[0-9]*/fd/ r,
+    @{PROC}/filesystems r,
+    /sys/devices/system/cpu/ r,
+    /sys/devices/system/cpu/** r,
+    /usr/share/** r,
+    /var/lib/dbus/machine-id r,
+
+    /usr/bin/env ix,
+    /usr/lib/jvm/java-6-openjdk/jre/bin/java ix,
+    /usr/lib/jvm/java-6-openjdk/jre/lib/i386/client/classes.jsa m,
+
+    # Why would java need this?
+    deny /usr/bin/gconftool-2 x,
+
+    owner @{HOME}/ r,
+    owner @{HOME}/** rwk,
+  }
+
+  # Profile for commercial Javas. These need workarounds to work right (eg
+  # Sun's forcing of an executable stack (LP: #535247)).
+  profile firefox_java {
+    #include <abstractions/base>
+    #include <abstractions/fonts>
+    #include <abstractions/gnome>
+    #include <abstractions/kde>
+    #include <abstractions/nameservice>
+    #include <abstractions/ssl_certs>
+    #include <abstractions/user-tmp>
+    #include <abstractions/private-files-strict>
+
+    network inet stream,
+    network inet6 stream,
+    @{PROC}/[0-9]*/net/if_inet6 r,
+    @{PROC}/[0-9]*/net/ipv6_route r,
+    @{PROC}/loadavg r,
+
+    /etc/debian_version r,
+    /etc/java-*/ r,
+    /etc/java-*/** r,
+    /etc/lsb-release r,
+    /etc/ssl/certs/java/* r,
+    /etc/timezone r,
+
+    @{PROC}/[0-9]*/ r,
+    @{PROC}/[0-9]*/fd/ r,
+    @{PROC}/filesystems r,
+    /sys/devices/system/cpu/ r,
+    /sys/devices/system/cpu/** r,
+    /usr/share/** r,
+    /var/lib/dbus/machine-id r,
+
+    /usr/bin/env ix,
+    /usr/lib/jvm/java-*-sun-1.*/jre/bin/java{,_vm} ix,
+    /usr/lib/jvm/java-*-sun-1.*/jre/lib/i386/client/classes.jsa m,
+    /usr/lib/j2*-ibm/jre/bin/java ix,
+
+    # noisy, can't write here anyway
+    deny /etc/.java/ w,
+    deny /etc/.java/** w,
+
+    deny /usr/bin/gconftool-2 x,
+
+    owner @{HOME}/ r,
+    owner @{HOME}/** rwk,
+    owner @{HOME}/.fontconfig/*.cache* m,
+
+    # These are seriously unfortunate, but required due to LP: #535247
+    /etc/passwd m,
+    owner @{HOME}/.java/**/cache/** m,
+    owner /tmp/** m,
+    /usr/lib{,32,64}/jvm/**/*.jar mr,
+    /usr/share/fonts/** m,
+  }
+}

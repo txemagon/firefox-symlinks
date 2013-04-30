@@ -1,0 +1,1 @@
+../../dom/interfaces/xul/_xpidlgen/nsIDOMXULDescriptionElement.h

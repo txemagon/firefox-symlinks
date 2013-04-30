@@ -1,0 +1,1 @@
+../../toolkit/components/autocomplete/_xpidlgen/nsIAutoCompleteSimpleResult.h

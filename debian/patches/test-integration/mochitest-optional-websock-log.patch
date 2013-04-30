@@ -1,0 +1,44 @@
+Index: firefox-trunk-19.0~a1~hg20121114r113217/testing/mochitest/runtests.py
+===================================================================
+--- firefox-trunk-19.0~a1~hg20121114r113217.orig/testing/mochitest/runtests.py	2012-11-14 21:08:29.000000000 +0000
++++ firefox-trunk-19.0~a1~hg20121114r113217/testing/mochitest/runtests.py	2012-11-15 18:45:40.212997000 +0000
+@@ -70,6 +70,12 @@
+                     help = "file to which logging occurs")
+     defaults["logFile"] = ""
+ 
++    self.add_option("--websock-log-file",
++                    action = "store", type = "string",
++                    dest = "websockLogFile", metavar = "FILE",
++                    help = "file to which pywebsocket logs to")
++    defaults["websockLogFile"] = ""
++
+     self.add_option("--autorun",
+                     action = "store_true", dest = "autorun",
+                     help = "start running tests when the application starts")
+@@ -434,10 +440,11 @@
+ class WebSocketServer(object):
+   "Class which encapsulates the mod_pywebsocket server"
+ 
+-  def __init__(self, automation, options, scriptdir, debuggerInfo=None):
++  def __init__(self, automation, options, scriptdir, logfile, debuggerInfo=None):
+     self.port = options.webSocketPort
+     self._automation = automation
+     self._scriptdir = scriptdir
++    self._logfile = logfile
+     self.debuggerInfo = debuggerInfo
+ 
+   def start(self):
+@@ -455,9 +462,10 @@
+     cmd = [sys.executable, script]
+     if self.debuggerInfo and self.debuggerInfo['interactive']:
+         cmd += ['--interactive']
+-    cmd += ['-p', str(self.port), '-w', self._scriptdir, '-l',      \
+-           os.path.join(self._scriptdir, "websock.log"),            \
+-           '--log-level=debug', '--allow-handlers-outside-root-dir']
++    cmd += ['-p', str(self.port), '-w', self._scriptdir,       \
++            '--log-level=debug', '--allow-handlers-outside-root-dir']
++    if self._logfile:
++      cmd += ['-l', self._logfile]
+ 
+     self._process = self._automation.Process(cmd)
+     pid = self._process.pid

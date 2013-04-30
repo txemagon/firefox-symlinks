@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/image/test/mochitest/bug733553-informant.sjs

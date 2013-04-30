@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/toolkit/components/viewsource/test/browser/browser_bug699356.js

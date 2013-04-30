@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/netwerk/test/unit_ipc/disabled_test_bug528292_wrap.js

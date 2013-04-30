@@ -1,0 +1,1 @@
+libnksrtp_s.a.desc : ekt.o srtp.o aes.o aes_cbc.o aes_icm.o cipher.o null_cipher.o auth.o hmac.o null_auth.o sha1.o alloc.o crypto_kernel.o err.o key.o datatypes.o gf2_8.o stat.o rdb.o rdbx.o ut_sim.o ctr_prng.o prng.o rand_source.o

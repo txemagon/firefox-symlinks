@@ -1,0 +1,1 @@
+../../xpcom/system/_xpidlgen/nsIGSettingsService.h

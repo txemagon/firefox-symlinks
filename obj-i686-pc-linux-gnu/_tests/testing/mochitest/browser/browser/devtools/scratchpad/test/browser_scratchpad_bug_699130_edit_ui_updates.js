@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/browser/devtools/scratchpad/test/browser_scratchpad_bug_699130_edit_ui_updates.js

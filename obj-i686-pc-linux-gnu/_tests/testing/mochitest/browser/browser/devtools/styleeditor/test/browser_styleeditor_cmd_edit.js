@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/browser/devtools/styleeditor/test/browser_styleeditor_cmd_edit.js

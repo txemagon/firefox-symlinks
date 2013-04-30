@@ -1,0 +1,1 @@
+../../gfx/src/_xpidlgen/nsIScriptableRegion.h

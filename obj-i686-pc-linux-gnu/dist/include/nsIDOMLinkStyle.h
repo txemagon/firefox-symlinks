@@ -1,0 +1,1 @@
+../../dom/interfaces/stylesheets/_xpidlgen/nsIDOMLinkStyle.h

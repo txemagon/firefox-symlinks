@@ -1,0 +1,1 @@
+_xpidlgen/nsIHttpAuthenticableChannel.xpt: /home/txema/work/firefox-20.0+build1/netwerk/protocol/http/nsIHttpAuthenticableChannel.idl ../../../dist/idl/nsIProxiedChannel.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl ../../../dist/idl/nsIChannel.idl ../../../dist/idl/nsIRequest.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

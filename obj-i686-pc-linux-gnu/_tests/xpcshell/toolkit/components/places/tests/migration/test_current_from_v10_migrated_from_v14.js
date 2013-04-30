@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/toolkit/components/places/tests/migration/test_current_from_v10_migrated_from_v14.js

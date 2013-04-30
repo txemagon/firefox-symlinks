@@ -1,0 +1,1 @@
+libwebbrwsr.a.desc : nsWebBrowserModule.o ../webBrowser/nsDocShellTreeOwner.o ../webBrowser/nsWebBrowser.o ../webBrowser/nsCommandHandler.o ../webBrowser/nsWebBrowserContentPolicy.o ../webBrowser/nsContextMenuInfo.o ../webBrowser/nsEmbedStream.o ../webBrowser/libnsWebBrowser_s.a.desc

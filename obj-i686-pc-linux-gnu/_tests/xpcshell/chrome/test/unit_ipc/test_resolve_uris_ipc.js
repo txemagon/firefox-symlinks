@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/chrome/test/unit_ipc/test_resolve_uris_ipc.js

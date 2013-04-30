@@ -1,0 +1,1 @@
+_xpidlgen/mozISpellI18NManager.h: /home/txema/work/firefox-20.0+build1/extensions/spellcheck/idl/mozISpellI18NManager.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl /home/txema/work/firefox-20.0+build1/extensions/spellcheck/idl/mozISpellI18NUtil.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

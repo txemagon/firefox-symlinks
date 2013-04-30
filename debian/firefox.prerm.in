@@ -1,0 +1,15 @@
+#!/bin/sh
+
+set -e
+
+MOZ_APP_NAME=@MOZ_APP_NAME@
+
+if [ "$1" = "remove" ] ; then
+%%if DISTRIB_VERSION <= 1004
+    rm -f /var/lib/update-notifier/user.d/$MOZ_APP_NAME-restart-required
+%%endif
+    update-alternatives --remove gnome-www-browser /usr/bin/$MOZ_APP_NAME
+    update-alternatives --remove x-www-browser /usr/bin/$MOZ_APP_NAME
+fi
+
+#DEBHELPER#

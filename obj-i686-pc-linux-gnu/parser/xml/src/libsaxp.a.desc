@@ -1,0 +1,1 @@
+OBJS = /home/txema/work/firefox-20.0+build1/obj-i686-pc-linux-gnu/parser/xml/src/nsSAXAttributes.o /home/txema/work/firefox-20.0+build1/obj-i686-pc-linux-gnu/parser/xml/src/nsSAXLocator.o /home/txema/work/firefox-20.0+build1/obj-i686-pc-linux-gnu/parser/xml/src/nsSAXXMLReader.o

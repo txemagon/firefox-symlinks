@@ -1,0 +1,1 @@
+_xpidlgen/nsIDashboard.h: /home/txema/work/firefox-20.0+build1/netwerk/base/public/nsIDashboard.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl /home/txema/work/firefox-20.0+build1/netwerk/base/public/nsIDashboardEventNotifier.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

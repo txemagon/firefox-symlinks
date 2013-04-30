@@ -1,0 +1,1 @@
+../../toolkit/components/places/_xpidlgen/mozIPlacesAutoComplete.h

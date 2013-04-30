@@ -1,0 +1,1 @@
+libgkforms_s.a.desc : nsButtonFrameRenderer.o nsComboboxControlFrame.o nsFieldSetFrame.o nsFileControlFrame.o nsFormControlFrame.o nsGfxButtonControlFrame.o nsGfxCheckboxControlFrame.o nsGfxRadioControlFrame.o nsProgressFrame.o nsMeterFrame.o nsTextControlFrame.o nsHTMLButtonControlFrame.o nsImageControlFrame.o nsLegendFrame.o nsListControlFrame.o nsSelectsAreaFrame.o

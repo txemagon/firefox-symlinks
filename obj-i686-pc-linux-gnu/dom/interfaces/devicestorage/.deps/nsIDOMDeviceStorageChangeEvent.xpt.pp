@@ -1,0 +1,1 @@
+_xpidlgen/nsIDOMDeviceStorageChangeEvent.xpt: /home/txema/work/firefox-20.0+build1/dom/interfaces/devicestorage/nsIDOMDeviceStorageChangeEvent.idl ../../../dist/idl/domstubs.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl ../../../dist/idl/nsIDOMEvent.idl ../../../dist/idl/domstubs.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

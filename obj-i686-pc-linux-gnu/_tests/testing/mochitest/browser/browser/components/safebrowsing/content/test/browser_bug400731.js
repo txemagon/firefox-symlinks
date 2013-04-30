@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/browser/components/safebrowsing/content/test/browser_bug400731.js

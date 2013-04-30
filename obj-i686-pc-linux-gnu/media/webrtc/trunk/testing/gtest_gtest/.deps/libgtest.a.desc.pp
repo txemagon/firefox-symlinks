@@ -1,0 +1,1 @@
+libgtest.a.desc : gtest/src/gtest-death-test.o gtest/src/gtest-filepath.o gtest/src/gtest-port.o gtest/src/gtest-printers.o gtest/src/gtest-test-part.o gtest/src/gtest-typed-test.o gtest/src/gtest.o multiprocess_func_list.o

@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/services/sync/tests/unit/fake_login_manager.js

@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/extensions/cookie/test/unit/test_bug667087.js

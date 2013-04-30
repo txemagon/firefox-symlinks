@@ -1,0 +1,1 @@
+_xpidlgen/nsILocalFileWin.h: /home/txema/work/firefox-20.0+build1/xpcom/io/nsILocalFileWin.idl /home/txema/work/firefox-20.0+build1/xpcom/io/nsILocalFile.idl /home/txema/work/firefox-20.0+build1/xpcom/io/nsIFile.idl ../../dist/idl/nsISupports.idl ../../dist/idl/nsrootidl.idl

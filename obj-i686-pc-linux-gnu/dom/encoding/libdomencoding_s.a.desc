@@ -1,0 +1,1 @@
+OBJS = /home/txema/work/firefox-20.0+build1/obj-i686-pc-linux-gnu/dom/encoding/EncodingUtils.o /home/txema/work/firefox-20.0+build1/obj-i686-pc-linux-gnu/dom/encoding/TextDecoder.o /home/txema/work/firefox-20.0+build1/obj-i686-pc-linux-gnu/dom/encoding/TextEncoder.o

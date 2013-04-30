@@ -1,0 +1,1 @@
+libprefetch_s.a.desc : nsPrefetchService.o nsOfflineCacheUpdate.o nsOfflineCacheUpdateService.o OfflineCacheUpdateGlue.o OfflineCacheUpdateChild.o OfflineCacheUpdateParent.o

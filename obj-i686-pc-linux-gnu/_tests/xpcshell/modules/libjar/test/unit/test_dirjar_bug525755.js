@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/modules/libjar/test/unit/test_dirjar_bug525755.js

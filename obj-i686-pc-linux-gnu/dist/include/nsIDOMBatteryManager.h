@@ -1,0 +1,1 @@
+../../dom/battery/_xpidlgen/nsIDOMBatteryManager.h

@@ -1,0 +1,1 @@
+libdomipc_s.a.desc : AppProcessPermissions.o Blob.o ContentProcess.o ContentParent.o ContentChild.o CrashReporterParent.o CrashReporterChild.o PermissionMessageUtils.o ProcessPriorityManager.o StructuredCloneUtils.o TabParent.o TabChild.o TabContext.o TabMessageUtils.o

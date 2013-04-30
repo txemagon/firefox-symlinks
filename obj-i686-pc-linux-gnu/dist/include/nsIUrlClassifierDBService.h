@@ -1,0 +1,1 @@
+../../toolkit/components/url-classifier/_xpidlgen/nsIUrlClassifierDBService.h

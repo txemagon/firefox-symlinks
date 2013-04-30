@@ -1,0 +1,1 @@
+_xpidlgen/nsIPluginTagInfo.xpt: /home/txema/work/firefox-20.0+build1/dom/plugins/base/nsIPluginTagInfo.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl /home/txema/work/firefox-20.0+build1/dom/plugins/base/nspluginroot.idl

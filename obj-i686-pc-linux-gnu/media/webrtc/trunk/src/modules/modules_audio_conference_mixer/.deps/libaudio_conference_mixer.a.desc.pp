@@ -1,0 +1,1 @@
+libaudio_conference_mixer.a.desc : audio_conference_mixer/source/audio_frame_manipulator.o audio_conference_mixer/source/level_indicator.o audio_conference_mixer/source/audio_conference_mixer_impl.o audio_conference_mixer/source/time_scheduler.o

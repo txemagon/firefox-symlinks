@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/browser/devtools/scratchpad/test/browser_scratchpad_bug_646070_chrome_context_pref.js

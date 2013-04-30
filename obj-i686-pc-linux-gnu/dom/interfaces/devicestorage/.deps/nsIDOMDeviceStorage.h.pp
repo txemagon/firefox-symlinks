@@ -1,0 +1,1 @@
+_xpidlgen/nsIDOMDeviceStorage.h: /home/txema/work/firefox-20.0+build1/dom/interfaces/devicestorage/nsIDOMDeviceStorage.idl ../../../dist/idl/domstubs.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl ../../../dist/idl/nsIDOMEventTarget.idl ../../../dist/idl/domstubs.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

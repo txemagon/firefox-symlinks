@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/dom/indexedDB/test/unit/test_add_twice_failure.js

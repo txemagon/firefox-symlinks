@@ -1,0 +1,1 @@
+_xpidlgen/nsIEventListenerService.xpt: /home/txema/work/firefox-20.0+build1/content/events/public/nsIEventListenerService.idl ../../../dist/idl/nsIDOMEventListener.idl ../../../dist/idl/domstubs.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

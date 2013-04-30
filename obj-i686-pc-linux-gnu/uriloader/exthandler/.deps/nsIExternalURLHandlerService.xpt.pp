@@ -1,0 +1,1 @@
+_xpidlgen/nsIExternalURLHandlerService.xpt: /home/txema/work/firefox-20.0+build1/uriloader/exthandler/nsIExternalURLHandlerService.idl ../../dist/idl/nsIMIMEInfo.idl ../../dist/idl/nsISupports.idl ../../dist/idl/nsrootidl.idl

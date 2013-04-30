@@ -1,0 +1,1 @@
+../../hal/_xpidlgen/nsIRecoveryService.h

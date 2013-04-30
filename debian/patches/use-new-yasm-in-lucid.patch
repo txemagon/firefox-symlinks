@@ -1,0 +1,57 @@
+Description: Use the renamed yasm in Lucid
+Author: Chris Coulson <chris.coulson@canonical.com>
+Forwarded: not-needed
+
+Index: firefox-trunk-18.0~a1~hg20120911r104752/configure.in
+===================================================================
+--- firefox-trunk-18.0~a1~hg20120911r104752.orig/configure.in	2012-09-11 14:37:16.000000000 +0100
++++ firefox-trunk-18.0~a1~hg20120911r104752/configure.in	2012-09-11 14:39:00.007824904 +0100
+@@ -3979,11 +3979,11 @@
+ dnl ======================
+ 
+ AC_MSG_CHECKING([for YASM assembler])
+-AC_CHECK_PROGS(YASM, yasm, "")
++AC_CHECK_PROGS(YASM, yasm-1, "")
+ 
+ if test -n "$YASM"; then
+   dnl Pull out yasm's version string
+-  YASM_VERSION=`yasm --version | $AWK '/^yasm/ { print $2 }'`
++  YASM_VERSION=`yasm-1 --version | $AWK '/^yasm/ { print $2 }'`
+   _YASM_MAJOR_VERSION=`echo ${YASM_VERSION} | $AWK -F\. '{ print $1 }'`
+   _YASM_MINOR_VERSION=`echo ${YASM_VERSION} | $AWK -F\. '{ print $2 }'`
+   _YASM_RELEASE=`      echo ${YASM_VERSION} | $AWK -F\. '{ print $3 }'`
+@@ -5905,7 +5905,7 @@
+ dnl it doesn't exist or we have too old of a version.
+ if test -n "$LIBJPEG_TURBO_X86_ASM" -o -n "$LIBJPEG_TURBO_X64_ASM" ; then
+     AC_MSG_CHECKING([for Yasm assembler])
+-    AC_CHECK_PROGS(LIBJPEG_TURBO_AS, yasm, "")
++    AC_CHECK_PROGS(LIBJPEG_TURBO_AS, yasm-1, "")
+ 
+     if test -z "$LIBJPEG_TURBO_AS" ; then
+         AC_MSG_ERROR([Yasm is required to build with libjpeg-turbo's optimized JPEG decoding routines, but you do not appear to have Yasm installed.  Either install it or configure with --disable-libjpeg-turbo to use the pure C JPEG decoder.  See https://developer.mozilla.org/en/YASM for more details.])
+Index: firefox-trunk-18.0~a1~hg20120911r104752/config/config.mk
+===================================================================
+--- firefox-trunk-18.0~a1~hg20120911r104752.orig/config/config.mk	2012-09-11 03:05:00.000000000 +0100
++++ firefox-trunk-18.0~a1~hg20120911r104752/config/config.mk	2012-09-11 14:38:06.255822695 +0100
+@@ -149,7 +149,7 @@
+ endif
+ 
+ ifneq (,$(MOZ_DEBUG)$(MOZ_DEBUG_SYMBOLS))
+-  ifeq ($(AS),yasm)
++  ifeq ($(AS),yasm-1)
+     ifeq ($(OS_ARCH)_$(GNU_CC),WINNT_)
+       _DEBUG_ASFLAGS += -g cv8
+     else
+Index: firefox-trunk-18.0~a1~hg20120911r104752/js/src/config/config.mk
+===================================================================
+--- firefox-trunk-18.0~a1~hg20120911r104752.orig/js/src/config/config.mk	2012-09-11 03:07:15.000000000 +0100
++++ firefox-trunk-18.0~a1~hg20120911r104752/js/src/config/config.mk	2012-09-11 14:38:06.255822695 +0100
+@@ -149,7 +149,7 @@
+ endif
+ 
+ ifneq (,$(MOZ_DEBUG)$(MOZ_DEBUG_SYMBOLS))
+-  ifeq ($(AS),yasm)
++  ifeq ($(AS),yasm-1)
+     ifeq ($(OS_ARCH)_$(GNU_CC),WINNT_)
+       _DEBUG_ASFLAGS += -g cv8
+     else

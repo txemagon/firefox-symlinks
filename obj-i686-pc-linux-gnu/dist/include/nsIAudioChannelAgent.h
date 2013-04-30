@@ -1,0 +1,1 @@
+../../dom/audiochannel/_xpidlgen/nsIAudioChannelAgent.h

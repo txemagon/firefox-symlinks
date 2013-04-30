@@ -1,0 +1,1 @@
+libexthandler_s.a.desc : nsExternalHelperAppService.o nsExternalProtocolHandler.o nsMIMEInfoImpl.o nsLocalHandlerApp.o nsOSHelperAppService.o nsGNOMERegistry.o nsMIMEInfoUnix.o ExternalHelperAppChild.o ExternalHelperAppParent.o nsDBusHandlerApp.o

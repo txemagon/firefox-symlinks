@@ -1,0 +1,1 @@
+../../dom/base/_xpidlgen/nsIScriptChannel.h

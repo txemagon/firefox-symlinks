@@ -1,0 +1,1 @@
+../../dom/interfaces/storage/_xpidlgen/nsIDOMStorageManager.h

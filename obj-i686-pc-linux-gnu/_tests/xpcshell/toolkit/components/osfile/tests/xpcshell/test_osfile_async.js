@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/toolkit/components/osfile/tests/xpcshell/test_osfile_async.js

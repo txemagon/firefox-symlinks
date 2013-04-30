@@ -1,0 +1,1 @@
+libaccessibility_xul_s.a.desc : XULAlertAccessible.o XULColorPickerAccessible.o XULComboboxAccessible.o XULElementAccessibles.o XULFormControlAccessible.o XULListboxAccessible.o XULMenuAccessible.o XULSelectControlAccessible.o XULSliderAccessible.o XULTabAccessible.o XULTreeAccessible.o XULTreeGridAccessible.o

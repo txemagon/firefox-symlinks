@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/intl/uconv/tests/unit/test_encode_CP1252.js

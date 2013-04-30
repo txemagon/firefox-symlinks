@@ -1,0 +1,1 @@
+_xpidlgen/fuelIApplication.h: /home/txema/work/firefox-20.0+build1/browser/fuel/public/fuelIApplication.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl ../../../dist/idl/extIApplication.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

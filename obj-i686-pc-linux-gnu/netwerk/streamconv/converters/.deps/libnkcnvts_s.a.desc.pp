@@ -1,0 +1,1 @@
+libnkcnvts_s.a.desc : mozTXTToHTMLConv.o nsUnknownDecoder.o nsHTTPCompressConv.o nsTXTToHTMLConv.o nsDirIndex.o nsDirIndexParser.o nsIndexedToHTML.o nsMultiMixedConv.o ParseFTPList.o nsFTPDirListingConv.o nsBinHexDecoder.o

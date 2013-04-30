@@ -1,0 +1,1 @@
+_xpidlgen/nsITelemetry.h: /home/txema/work/firefox-20.0+build1/toolkit/components/telemetry/nsITelemetry.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl ../../../dist/idl/nsIFile.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

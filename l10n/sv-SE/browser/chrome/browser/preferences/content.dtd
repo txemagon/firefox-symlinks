@@ -1,0 +1,41 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
+<!ENTITY  blockPopups.label           "Blockera popup-fönster">
+<!ENTITY  blockPopups.accesskey       "B">
+<!ENTITY  popupExceptions.label       "Undantag…">
+<!ENTITY  popupExceptions.accesskey   "U">
+
+<!ENTITY  loadImages.label            "Hämta bilder automatiskt">
+<!ENTITY  loadImages.accesskey        "m">
+<!ENTITY  exceptions.label            "Undantag…">
+<!ENTITY  exceptions.accesskey        "d">
+
+<!ENTITY  enableJavaScript.label      "Aktivera JavaScript">
+<!ENTITY  enableJavaScript.accesskey  "k">
+<!ENTITY  advancedJS.label            "Avancerat…">
+<!ENTITY  advancedJS.accesskey        "A">
+
+<!ENTITY  enableJava.label            "Aktivera Java">
+<!ENTITY  enableJava.accesskey        "k">
+
+
+<!ENTITY  fontsAndColors.label        "Teckensnitt och färger">
+
+<!ENTITY  defaultFont.label           "Standardteckensnitt:">
+<!ENTITY  defaultFont.accesskey       "c">
+<!ENTITY  defaultSize.label           "Storlek:">
+<!ENTITY  defaultSize.accesskey       "S">
+
+<!ENTITY  advancedFonts.label         "Avancerat…">
+<!ENTITY  advancedFonts.accesskey     "v">
+
+<!ENTITY  colors.label                "Färger…">
+<!ENTITY  colors.accesskey            "F">
+
+
+<!ENTITY languages.label              "Språk">
+<!ENTITY chooseLanguage.label         "Välj språk som webbsidor ska visas i">
+<!ENTITY chooseButton.label           "Välj…">
+<!ENTITY chooseButton.accesskey       "ä">

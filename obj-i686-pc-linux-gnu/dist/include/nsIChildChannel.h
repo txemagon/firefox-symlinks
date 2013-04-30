@@ -1,0 +1,1 @@
+../../netwerk/base/public/_xpidlgen/nsIChildChannel.h

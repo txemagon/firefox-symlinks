@@ -1,0 +1,1 @@
+../../layout/forms/_xpidlgen/nsICapturePicker.h

@@ -1,0 +1,374 @@
+Index: firefox-20.0~b4+build1/layout/reftests/bugs/reftest.list
+===================================================================
+--- firefox-20.0~b4+build1.orig/layout/reftests/bugs/reftest.list	2013-03-14 18:50:19.869216020 +0000
++++ firefox-20.0~b4+build1/layout/reftests/bugs/reftest.list	2013-03-14 18:50:19.861216020 +0000
+@@ -1314,8 +1314,8 @@
+ != 481948-2.html 481948-2-ref.html
+ skip-if(B2G) fails-if(Android) random-if(winWidget) fails-if(gtk2Widget) == 481948-3.html 481948-3-ref.html # questionable test, see bug 488364
+ == 482398-1.html 482398-1-ref.html
+-random-if(d2d) == 482592-1a.xhtml 482592-1-ref.html # bug 586771
+-random-if(d2d) == 482592-1b.xhtml 482592-1-ref.html # bug 586771
++fails == 482592-1a.xhtml 482592-1-ref.html # bug 586771
++fails == 482592-1b.xhtml 482592-1-ref.html # bug 586771
+ random-if(winWidget) == 482659-1a.html 482659-1-ref.html
+ == 482659-1b.html 482659-1-ref.html
+ == 482659-1c.html 482659-1-ref.html
+@@ -1631,7 +1631,7 @@
+ HTTP(..) == 621253-2-externalFilter.html 621253-2-ref.html
+ == 621253-2-internalFilter.html 621253-2-ref.html
+ fails-if(Android) HTTP(..) == 619511-1.html 619511-1-ref.html
+-skip-if(B2G) random-if(winWidget) fuzzy-if(OSX==10.8,19,17) == 621918-1.svg 621918-1-ref.svg # 1-pixel diacritic positioning discrepancy in rotated text (may depend on platform fonts)
++fails == 621918-1.svg 621918-1-ref.svg # 1-pixel diacritic positioning discrepancy in rotated text (may depend on platform fonts)
+ random-if(winWidget) HTTP(..) == 621918-2.svg 621918-2-ref.svg # same 1px issue as above, and HTTP(..) for filters.svg, used to mask antialiasing issues where glyphs touch
+ fuzzy-if(d2d,5,1) == 622585-1.html 622585-1-ref.html # bug 789402
+ fails-if(Android) == 625409-1.html 625409-1-ref.html
+Index: firefox-20.0~b4+build1/layout/reftests/first-letter/reftest.list
+===================================================================
+--- firefox-20.0~b4+build1.orig/layout/reftests/first-letter/reftest.list	2013-03-14 18:50:19.869216020 +0000
++++ firefox-20.0~b4+build1/layout/reftests/first-letter/reftest.list	2013-03-14 18:50:19.861216020 +0000
+@@ -35,7 +35,7 @@
+ != 229764-1.html 229764-ref.html
+ == 229764-2.html 229764-ref.html
+ == 329069-1.html 329069-1-ref.html
+-== 329069-2.html 329069-2-ref.html
++fails == 329069-2.html 329069-2-ref.html
+ == 329069-3.html 329069-3-ref.html
+ == 329069-4.html 329069-4-ref.html
+ fails-if(!cocoaWidget) == 329069-5.html 329069-5-ref.html # bug 603710
+Index: firefox-20.0~b4+build1/layout/reftests/mathml/reftest.list
+===================================================================
+--- firefox-20.0~b4+build1.orig/layout/reftests/mathml/reftest.list	2013-03-14 18:50:19.869216020 +0000
++++ firefox-20.0~b4+build1/layout/reftests/mathml/reftest.list	2013-03-14 18:54:24.397226065 +0000
+@@ -29,7 +29,7 @@
+ == mfenced-7.html mfenced-7-ref.html
+ != mfenced-8.html mfenced-8-ref.html
+ == mfenced-9.html mfenced-9-ref.html
+-fails-if(winWidget) == mfenced-10.html mfenced-10-ref.html
++random == mfenced-10.html mfenced-10-ref.html
+ == mi-mathvariant-1.xhtml mi-mathvariant-1-ref.xhtml
+ == mi-mathvariant-2.xhtml mi-mathvariant-2-ref.xhtml
+ != non-spacing-accent-1.xhtml non-spacing-accent-1-ref.xhtml
+Index: firefox-20.0~b4+build1/parser/htmlparser/tests/reftest/reftest.list
+===================================================================
+--- firefox-20.0~b4+build1.orig/parser/htmlparser/tests/reftest/reftest.list	2013-03-14 18:50:19.869216020 +0000
++++ firefox-20.0~b4+build1/parser/htmlparser/tests/reftest/reftest.list	2013-03-14 18:50:19.865216020 +0000
+@@ -1,5 +1,5 @@
+ == bug535530-1.html bug535530-1-ref.html
+-== view-source:bug535530-2.html bug535530-2-ref.html
++fails == view-source:bug535530-2.html bug535530-2-ref.html
+ == bug566280-1.html bug566280-1-ref.html
+ == bug577418-1.html bug577418-1-ref.html
+ == bug582788-1.html bug582788-1-ref.html
+Index: firefox-20.0~b4+build1/layout/reftests/text/reftest.list
+===================================================================
+--- firefox-20.0~b4+build1.orig/layout/reftests/text/reftest.list	2013-03-14 18:50:19.869216020 +0000
++++ firefox-20.0~b4+build1/layout/reftests/text/reftest.list	2013-03-14 18:50:19.865216020 +0000
+@@ -106,7 +106,7 @@
+ == wordbreak-1.html wordbreak-1-ref.html
+ == wordbreak-2.html wordbreak-2-ref.html
+ == wordbreak-3.html wordbreak-3-ref.html
+-== wordbreak-4a.html wordbreak-4a-ref.html
++fails == wordbreak-4a.html wordbreak-4a-ref.html
+ == wordbreak-4b.html wordbreak-4b-ref.html
+ == wordbreak-5.html wordbreak-5-ref.html
+ == wordbreak-6.html wordbreak-6-ref.html
+@@ -184,52 +184,52 @@
+ pref(gfx.font_rendering.graphite.enabled,true) HTTP(..) == glyph-decomposition-graphite.html glyph-decomposition-graphite-ref.html
+ 
+ # Tests for hyphenation with -moz-hyphens
+-== auto-hyphenation-1.html auto-hyphenation-1-ref.html
+-!= auto-hyphenation-1.html auto-hyphenation-1-notref.html
+-== auto-hyphenation-1a.html auto-hyphenation-1-ref.html
+-== auto-hyphenation-2.html auto-hyphenation-2-ref.html
+-== auto-hyphenation-3.html auto-hyphenation-3-ref.html
+-== auto-hyphenation-4.html auto-hyphenation-4-ref.html
+-== auto-hyphenation-5.html auto-hyphenation-5-ref.html
+-== auto-hyphenation-6.html auto-hyphenation-6-ref.html
+-== auto-hyphenation-7.html auto-hyphenation-7-ref.html
+-== auto-hyphenation-8.html auto-hyphenation-4-ref.html
+-== auto-hyphenation-9.html auto-hyphenation-4-ref.html
+-== auto-hyphenation-10.html auto-hyphenation-4-ref.html
+-== auto-hyphenation-af-1.html auto-hyphenation-af-1-ref.html
+-== auto-hyphenation-bg-1.html auto-hyphenation-bg-1-ref.html
+-== auto-hyphenation-ca-1.html auto-hyphenation-ca-1-ref.html
+-== auto-hyphenation-cy-1.html auto-hyphenation-cy-1-ref.html
+-== auto-hyphenation-da-1.html auto-hyphenation-da-1-ref.html
+-== auto-hyphenation-de-1901-1.html auto-hyphenation-de-1901-1-ref.html
+-== auto-hyphenation-de-1996-1.html auto-hyphenation-de-1996-1-ref.html
+-!= auto-hyphenation-de-1901-1.html auto-hyphenation-de-1996-1.html
+-== auto-hyphenation-de-ch-1.html auto-hyphenation-de-ch-1-ref.html
+-== auto-hyphenation-eo-1.html auto-hyphenation-eo-1-ref.html
+-== auto-hyphenation-es-1.html auto-hyphenation-es-1-ref.html
+-== auto-hyphenation-et-1.html auto-hyphenation-et-1-ref.html
+-== auto-hyphenation-fi-1.html auto-hyphenation-fi-1-ref.html
+-== auto-hyphenation-fr-1.html auto-hyphenation-fr-1-ref.html
+-== auto-hyphenation-gl-1.html auto-hyphenation-gl-1-ref.html
+-== auto-hyphenation-hr-1.html auto-hyphenation-hr-1-ref.html
+-== auto-hyphenation-hsb-1.html auto-hyphenation-hsb-1-ref.html
+-== auto-hyphenation-hu-1.html auto-hyphenation-hu-1-ref.html
+-== auto-hyphenation-ia-1.html auto-hyphenation-ia-1-ref.html
+-== auto-hyphenation-is-1.html auto-hyphenation-is-1-ref.html
+-== auto-hyphenation-it-1.html auto-hyphenation-it-1-ref.html
+-== auto-hyphenation-kmr-1.html auto-hyphenation-kmr-1-ref.html
+-== auto-hyphenation-la-1.html auto-hyphenation-la-1-ref.html
+-== auto-hyphenation-lt-1.html auto-hyphenation-lt-1-ref.html
+-== auto-hyphenation-mn-1.html auto-hyphenation-mn-1-ref.html
+-== auto-hyphenation-nb-1.html auto-hyphenation-nb-1-ref.html
+-== auto-hyphenation-nl-1.html auto-hyphenation-nl-1-ref.html
+-== auto-hyphenation-nn-1.html auto-hyphenation-nn-1-ref.html
+-== auto-hyphenation-pt-1.html auto-hyphenation-pt-1-ref.html
+-== auto-hyphenation-ru-1.html auto-hyphenation-ru-1-ref.html
+-== auto-hyphenation-sh-1.html auto-hyphenation-sh-1-ref.html
+-== auto-hyphenation-sl-1.html auto-hyphenation-sl-1-ref.html
+-== auto-hyphenation-sr-1.html auto-hyphenation-sr-1-ref.html
+-== auto-hyphenation-sv-1.html auto-hyphenation-sv-1-ref.html # test swedish patterns
+-!= auto-hyphenation-sv-1.html auto-hyphenation-sv-1-notref.html # verify swedish != english
+-== auto-hyphenation-tr-1.html auto-hyphenation-tr-1-ref.html
+-== auto-hyphenation-uk-1.html auto-hyphenation-uk-1-ref.html
++skip == auto-hyphenation-1.html auto-hyphenation-1-ref.html
++skip != auto-hyphenation-1.html auto-hyphenation-1-notref.html
++skip == auto-hyphenation-1a.html auto-hyphenation-1-ref.html
++skip == auto-hyphenation-2.html auto-hyphenation-2-ref.html
++skip == auto-hyphenation-3.html auto-hyphenation-3-ref.html
++skip == auto-hyphenation-4.html auto-hyphenation-4-ref.html
++skip == auto-hyphenation-5.html auto-hyphenation-5-ref.html
++skip == auto-hyphenation-6.html auto-hyphenation-6-ref.html
++skip == auto-hyphenation-7.html auto-hyphenation-7-ref.html
++skip == auto-hyphenation-8.html auto-hyphenation-4-ref.html
++skip == auto-hyphenation-9.html auto-hyphenation-4-ref.html
++skip == auto-hyphenation-10.html auto-hyphenation-4-ref.html
++skip == auto-hyphenation-af-1.html auto-hyphenation-af-1-ref.html
++skip == auto-hyphenation-bg-1.html auto-hyphenation-bg-1-ref.html
++skip == auto-hyphenation-ca-1.html auto-hyphenation-ca-1-ref.html
++skip == auto-hyphenation-cy-1.html auto-hyphenation-cy-1-ref.html
++skip == auto-hyphenation-da-1.html auto-hyphenation-da-1-ref.html
++skip == auto-hyphenation-de-1901-1.html auto-hyphenation-de-1901-1-ref.html
++skip == auto-hyphenation-de-1996-1.html auto-hyphenation-de-1996-1-ref.html
++skip != auto-hyphenation-de-1901-1.html auto-hyphenation-de-1996-1.html
++skip == auto-hyphenation-de-ch-1.html auto-hyphenation-de-ch-1-ref.html
++skip == auto-hyphenation-eo-1.html auto-hyphenation-eo-1-ref.html
++skip == auto-hyphenation-es-1.html auto-hyphenation-es-1-ref.html
++skip == auto-hyphenation-et-1.html auto-hyphenation-et-1-ref.html
++skip == auto-hyphenation-fi-1.html auto-hyphenation-fi-1-ref.html
++skip == auto-hyphenation-fr-1.html auto-hyphenation-fr-1-ref.html
++skip == auto-hyphenation-gl-1.html auto-hyphenation-gl-1-ref.html
++skip == auto-hyphenation-hr-1.html auto-hyphenation-hr-1-ref.html
++skip == auto-hyphenation-hsb-1.html auto-hyphenation-hsb-1-ref.html
++skip == auto-hyphenation-hu-1.html auto-hyphenation-hu-1-ref.html
++skip == auto-hyphenation-ia-1.html auto-hyphenation-ia-1-ref.html
++skip == auto-hyphenation-is-1.html auto-hyphenation-is-1-ref.html
++skip == auto-hyphenation-it-1.html auto-hyphenation-it-1-ref.html
++skip == auto-hyphenation-kmr-1.html auto-hyphenation-kmr-1-ref.html
++skip == auto-hyphenation-la-1.html auto-hyphenation-la-1-ref.html
++skip == auto-hyphenation-lt-1.html auto-hyphenation-lt-1-ref.html
++skip == auto-hyphenation-mn-1.html auto-hyphenation-mn-1-ref.html
++skip == auto-hyphenation-nb-1.html auto-hyphenation-nb-1-ref.html
++skip == auto-hyphenation-nl-1.html auto-hyphenation-nl-1-ref.html
++skip == auto-hyphenation-nn-1.html auto-hyphenation-nn-1-ref.html
++skip == auto-hyphenation-pt-1.html auto-hyphenation-pt-1-ref.html
++skip == auto-hyphenation-ru-1.html auto-hyphenation-ru-1-ref.html
++skip == auto-hyphenation-sh-1.html auto-hyphenation-sh-1-ref.html
++skip == auto-hyphenation-sl-1.html auto-hyphenation-sl-1-ref.html
++skip == auto-hyphenation-sr-1.html auto-hyphenation-sr-1-ref.html
++skip == auto-hyphenation-sv-1.html auto-hyphenation-sv-1-ref.html # test swedish patterns
++skip != auto-hyphenation-sv-1.html auto-hyphenation-sv-1-notref.html # verify swedish != english
++skip == auto-hyphenation-tr-1.html auto-hyphenation-tr-1-ref.html
++skip == auto-hyphenation-uk-1.html auto-hyphenation-uk-1-ref.html
+Index: firefox-20.0~b4+build1/editor/reftests/reftest.list
+===================================================================
+--- firefox-20.0~b4+build1.orig/editor/reftests/reftest.list	2013-03-14 18:50:19.869216020 +0000
++++ firefox-20.0~b4+build1/editor/reftests/reftest.list	2013-03-14 18:50:19.865216020 +0000
+@@ -17,46 +17,46 @@
+ == emptypasswd-1.html emptypasswd-ref.html
+ == emptypasswd-2.html emptypasswd-ref.html
+ == caret_on_positioned.html caret_on_positioned-ref.html
+-skip-if(B2G) fails-if(Android) != spellcheck-input-disabled.html spellcheck-input-ref.html
++fails != spellcheck-input-disabled.html spellcheck-input-ref.html
+ == spellcheck-input-attr-before.html spellcheck-input-nofocus-ref.html
+-skip-if(B2G) fails-if(Android) != spellcheck-input-attr-before.html spellcheck-input-ref.html
++fails != spellcheck-input-attr-before.html spellcheck-input-ref.html
+ == spellcheck-input-attr-after.html spellcheck-input-nofocus-ref.html
+-skip-if(B2G) fails-if(Android) != spellcheck-input-attr-after.html spellcheck-input-ref.html
++fails != spellcheck-input-attr-after.html spellcheck-input-ref.html
+ == spellcheck-input-attr-inherit.html spellcheck-input-nofocus-ref.html
+-skip-if(B2G) fails-if(Android) != spellcheck-input-attr-inherit.html spellcheck-input-ref.html
++fails != spellcheck-input-attr-inherit.html spellcheck-input-ref.html
+ == spellcheck-input-attr-dynamic.html spellcheck-input-nofocus-ref.html
+-skip-if(B2G) fails-if(Android) != spellcheck-input-attr-dynamic.html spellcheck-input-ref.html
++fails != spellcheck-input-attr-dynamic.html spellcheck-input-ref.html
+ == spellcheck-input-attr-dynamic-inherit.html spellcheck-input-nofocus-ref.html
+-skip-if(B2G) fails-if(Android) != spellcheck-input-attr-dynamic-inherit.html spellcheck-input-ref.html
++fails != spellcheck-input-attr-dynamic-inherit.html spellcheck-input-ref.html
+ == spellcheck-input-property-dynamic.html spellcheck-input-nofocus-ref.html
+-skip-if(B2G) fails-if(Android) != spellcheck-input-property-dynamic.html spellcheck-input-ref.html
++fails != spellcheck-input-property-dynamic.html spellcheck-input-ref.html
+ == spellcheck-input-property-dynamic-inherit.html spellcheck-input-nofocus-ref.html
+-skip-if(B2G) fails-if(Android) != spellcheck-input-property-dynamic-inherit.html spellcheck-input-ref.html
++fails != spellcheck-input-property-dynamic-inherit.html spellcheck-input-ref.html
+ == spellcheck-input-attr-dynamic-override.html spellcheck-input-nofocus-ref.html
+-skip-if(B2G) fails-if(Android) != spellcheck-input-attr-dynamic-override.html spellcheck-input-ref.html
++fails != spellcheck-input-attr-dynamic-override.html spellcheck-input-ref.html
+ == spellcheck-input-attr-dynamic-override-inherit.html spellcheck-input-nofocus-ref.html
+-skip-if(B2G) fails-if(Android) != spellcheck-input-attr-dynamic-override-inherit.html spellcheck-input-ref.html
++fails != spellcheck-input-attr-dynamic-override-inherit.html spellcheck-input-ref.html
+ == spellcheck-input-property-dynamic-override.html spellcheck-input-nofocus-ref.html
+-skip-if(B2G) fails-if(Android) != spellcheck-input-property-dynamic-override.html spellcheck-input-ref.html
++fails != spellcheck-input-property-dynamic-override.html spellcheck-input-ref.html
+ == spellcheck-input-property-dynamic-override-inherit.html spellcheck-input-nofocus-ref.html
+-skip-if(B2G) fails-if(Android) != spellcheck-input-property-dynamic-override-inherit.html spellcheck-input-ref.html
++fails != spellcheck-input-property-dynamic-override-inherit.html spellcheck-input-ref.html
+ == spellcheck-textarea-attr.html spellcheck-textarea-nofocus-ref.html
+ #the random-if(Android) tests pass on android native, but fail on android-xul, see bug 728942
+-skip-if(B2G) random-if(Android) != spellcheck-textarea-attr.html spellcheck-textarea-ref.html
++fails != spellcheck-textarea-attr.html spellcheck-textarea-ref.html
+ needs-focus == spellcheck-textarea-focused.html spellcheck-textarea-ref.html
+ needs-focus == spellcheck-textarea-focused-reframe.html spellcheck-textarea-ref.html
+ needs-focus == spellcheck-textarea-focused-notreadonly.html spellcheck-textarea-ref2.html
+-skip-if(B2G) random-if(Android) != spellcheck-textarea-nofocus.html spellcheck-textarea-ref.html
+-skip-if(B2G) random-if(Android) != spellcheck-textarea-disabled.html spellcheck-textarea-ref.html
+-skip-if(B2G) random-if(Android) != spellcheck-textarea-attr-inherit.html spellcheck-textarea-ref.html
+-skip-if(B2G) random-if(Android) != spellcheck-textarea-attr-dynamic.html spellcheck-textarea-ref.html
+-skip-if(B2G) random-if(Android) != spellcheck-textarea-attr-dynamic-inherit.html spellcheck-textarea-ref.html
+-skip-if(B2G) random-if(Android) != spellcheck-textarea-property-dynamic.html spellcheck-textarea-ref.html
+-skip-if(B2G) random-if(Android) != spellcheck-textarea-property-dynamic-inherit.html spellcheck-textarea-ref.html
+-skip-if(B2G) random-if(Android) != spellcheck-textarea-attr-dynamic-override.html spellcheck-textarea-ref.html
+-skip-if(B2G) random-if(Android) != spellcheck-textarea-attr-dynamic-override-inherit.html spellcheck-textarea-ref.html
+-skip-if(B2G) random-if(Android) != spellcheck-textarea-property-dynamic-override.html spellcheck-textarea-ref.html
+-skip-if(B2G) random-if(Android) != spellcheck-textarea-property-dynamic-override-inherit.html spellcheck-textarea-ref.html
++fails != spellcheck-textarea-nofocus.html spellcheck-textarea-ref.html
++fails != spellcheck-textarea-disabled.html spellcheck-textarea-ref.html
++fails != spellcheck-textarea-attr-inherit.html spellcheck-textarea-ref.html
++fails != spellcheck-textarea-attr-dynamic.html spellcheck-textarea-ref.html
++fails != spellcheck-textarea-attr-dynamic-inherit.html spellcheck-textarea-ref.html
++fails != spellcheck-textarea-property-dynamic.html spellcheck-textarea-ref.html
++fails != spellcheck-textarea-property-dynamic-inherit.html spellcheck-textarea-ref.html
++fails != spellcheck-textarea-attr-dynamic-override.html spellcheck-textarea-ref.html
++fails != spellcheck-textarea-attr-dynamic-override-inherit.html spellcheck-textarea-ref.html
++fails != spellcheck-textarea-property-dynamic-override.html spellcheck-textarea-ref.html
++fails != spellcheck-textarea-property-dynamic-override-inherit.html spellcheck-textarea-ref.html
+ needs-focus == caret_on_focus.html caret_on_focus-ref.html
+ needs-focus != caret_on_textarea_lastline.html caret_on_textarea_lastline-ref.html
+ needs-focus == input-text-onfocus-reframe.html input-text-onfocus-reframe-ref.html
+@@ -65,13 +65,13 @@
+ == nobogusnode-1.html nobogusnode-ref.html
+ == nobogusnode-2.html nobogusnode-ref.html
+ == spellcheck-hyphen-valid.html spellcheck-hyphen-valid-ref.html
+-skip-if(B2G) fails-if(Android) != spellcheck-hyphen-invalid.html spellcheck-hyphen-invalid-ref.html
++fails != spellcheck-hyphen-invalid.html spellcheck-hyphen-invalid-ref.html
+ == spellcheck-slash-valid.html spellcheck-slash-valid-ref.html
+ == spellcheck-period-valid.html spellcheck-period-valid-ref.html
+ == spellcheck-space-valid.html spellcheck-space-valid-ref.html
+ == spellcheck-comma-valid.html spellcheck-comma-valid-ref.html
+ == spellcheck-hyphen-multiple-valid.html spellcheck-hyphen-multiple-valid-ref.html
+-skip-if(B2G) fails-if(Android) != spellcheck-hyphen-multiple-invalid.html spellcheck-hyphen-multiple-invalid-ref.html
++fails != spellcheck-hyphen-multiple-invalid.html spellcheck-hyphen-multiple-invalid-ref.html
+ == spellcheck-dotafterquote-valid.html spellcheck-dotafterquote-valid-ref.html
+ == spellcheck-url-valid.html spellcheck-url-valid-ref.html
+ == unneeded_scroll.html unneeded_scroll-ref.html
+@@ -97,4 +97,4 @@
+ == 694880-3.html 694880-ref.html
+ == 388980-1.html 388980-1-ref.html
+ needs-focus == spellcheck-superscript-1.html spellcheck-superscript-1-ref.html
+-skip-if(B2G) fails-if(Android) needs-focus != spellcheck-superscript-2.html spellcheck-superscript-2-ref.html # bug 783658
++fails needs-focus != spellcheck-superscript-2.html spellcheck-superscript-2-ref.html # bug 783658
+Index: firefox-20.0~b4+build1/layout/reftests/font-face/reftest.list
+===================================================================
+--- firefox-20.0~b4+build1.orig/layout/reftests/font-face/reftest.list	2013-03-14 18:50:19.869216020 +0000
++++ firefox-20.0~b4+build1/layout/reftests/font-face/reftest.list	2013-03-14 18:50:19.865216020 +0000
+@@ -27,8 +27,8 @@
+ # assumes AAT fonts are only supported on MacOS
+ skip-if(B2G) random-if(cocoaWidget) HTTP(..) == src-list-format-7.html src-list-format-2-ref.html
+ skip-if(B2G) random-if(!cocoaWidget) HTTP(..) == src-list-format-7.html src-list-format-3-ref.html
+-fails-if(Android||B2G) == src-list-local-full.html src-list-local-full-ref.html # bug 773482
+-fails-if(Android||B2G) == src-list-local-full-quotes.html src-list-local-full-ref.html # bug 773482
++fails == src-list-local-full.html src-list-local-full-ref.html # bug 773482
++fails == src-list-local-full-quotes.html src-list-local-full-ref.html # bug 773482
+ skip-if(B2G) HTTP(..) == src-list-local-fallback.html src-list-local-fallback-ref.html
+ 
+ # data url tests (these don't need the HTTP server)
+@@ -95,8 +95,8 @@
+ # random-if(cocoaWidget) HTTP(..) == src-format-arabic.html src-format-arabic-ot-ref.html
+ 
+ # bug 769194 - src:local() completely broken on android
+-skip-if(B2G) fails-if(Android) == local-1.html local-1-ref.html # bug 773482
+-skip-if(B2G) fails-if(Android) == local-styled-1.html local-styled-1-ref.html # bug 773482
++fails == local-1.html local-1-ref.html # bug 773482
++fails == local-styled-1.html local-styled-1-ref.html # bug 773482
+ 
+ skip-if(B2G) HTTP(..) == synthetic-weight-style.html synthetic-weight-style-ref.html # bug 773482
+ skip-if(B2G) HTTP(..) == synthetic-variations.html synthetic-variations-ref.html
+Index: firefox-20.0~b4+build1/layout/reftests/forms/reftest.list
+===================================================================
+--- firefox-20.0~b4+build1.orig/layout/reftests/forms/reftest.list	2013-03-14 18:50:19.869216020 +0000
++++ firefox-20.0~b4+build1/layout/reftests/forms/reftest.list	2013-03-14 18:50:19.865216020 +0000
+@@ -25,7 +25,7 @@
+ skip-if(B2G) fails-if(Android) == textbox-setsize.xul textbox-setsize-ref.xul
+ skip-if(B2G) fails-if(Android) == textarea-resize.html textarea-resize-ref.html
+ # an offset seems to apply to the native resizer on windows so skip this test for now
+-skip-if(B2G) fails-if(Android) skip-if(winWidget) == textarea-resize-background.html textarea-resize-background-ref.html
++fails == textarea-resize-background.html textarea-resize-background-ref.html
+ skip-if(B2G) fails-if(Android) != textarea-ltr.html textarea-rtl.html
+ skip-if(B2G) fails-if(Android) != textarea-ltr-scrollbar.html textarea-rtl-scrollbar.html
+ skip-if(B2G) fails-if(Android) != textarea-in-ltr-doc-scrollbar.html textarea-in-rtl-doc-scrollbar.html
+Index: firefox-20.0~b4+build1/layout/reftests/text-overflow/reftest.list
+===================================================================
+--- firefox-20.0~b4+build1.orig/layout/reftests/text-overflow/reftest.list	2013-03-14 18:50:19.869216020 +0000
++++ firefox-20.0~b4+build1/layout/reftests/text-overflow/reftest.list	2013-03-14 18:50:19.865216020 +0000
+@@ -7,7 +7,7 @@
+ fuzzy-if(OSX==10.8,1,1) HTTP(..) == anonymous-block.html anonymous-block-ref.html
+ skip-if(B2G) HTTP(..) == false-marker-overlap.html false-marker-overlap-ref.html
+ HTTP(..) == visibility-hidden.html visibility-hidden-ref.html
+-skip-if(B2G) HTTP(..) == block-padding.html block-padding-ref.html
++fails HTTP(..) == block-padding.html block-padding-ref.html
+ HTTP(..) == quirks-decorations.html quirks-decorations-ref.html
+ HTTP(..) == quirks-line-height.html quirks-line-height-ref.html
+ HTTP(..) == standards-decorations.html standards-decorations-ref.html
+@@ -18,7 +18,7 @@
+ skip-if(Android||B2G) == clipped-elements.html clipped-elements-ref.html
+ HTTP(..) == theme-overflow.html theme-overflow-ref.html
+ skip-if(B2G) HTTP(..) == table-cell.html table-cell-ref.html
+-HTTP(..) == two-value-syntax.html two-value-syntax-ref.html
++fails HTTP(..) == two-value-syntax.html two-value-syntax-ref.html
+ skip-if(B2G) HTTP(..) == single-value.html single-value-ref.html 
+-skip-if(B2G) HTTP(..) == atomic-under-marker.html atomic-under-marker-ref.html
++fails HTTP(..) == atomic-under-marker.html atomic-under-marker-ref.html
+ fuzzy(1,702) skip-if(Android||B2G) HTTP(..) == xulscroll.html xulscroll-ref.html
+Index: firefox-20.0~b4+build1/layout/reftests/box-shadow/reftest.list
+===================================================================
+--- firefox-20.0~b4+build1.orig/layout/reftests/box-shadow/reftest.list	2013-03-14 18:50:19.869216020 +0000
++++ firefox-20.0~b4+build1/layout/reftests/box-shadow/reftest.list	2013-03-14 18:50:19.865216020 +0000
+@@ -11,7 +11,7 @@
+ == boxshadow-rounding.html boxshadow-rounding-ref.html
+ fails-if(Android) == boxshadow-button.html boxshadow-button-ref.html
+ fails-if(Android) == boxshadow-fileupload.html boxshadow-fileupload-ref.html
+-== boxshadow-inner-basic.html boxshadow-inner-basic-ref.svg
++fuzzy(1,4) == boxshadow-inner-basic.html boxshadow-inner-basic-ref.svg
+ random-if(layersGPUAccelerated) == boxshadow-mixed.html boxshadow-mixed-ref.html
+ random-if(d2d) == boxshadow-rounded-spread.html boxshadow-rounded-spread-ref.html
+ HTTP(..) == boxshadow-dynamic.xul boxshadow-dynamic-ref.xul
+Index: firefox-20.0~b4+build1/layout/reftests/flexbox/reftest.list
+===================================================================
+--- firefox-20.0~b4+build1.orig/layout/reftests/flexbox/reftest.list	2013-03-14 18:50:19.869216020 +0000
++++ firefox-20.0~b4+build1/layout/reftests/flexbox/reftest.list	2013-03-14 18:50:19.865216020 +0000
+@@ -15,7 +15,7 @@
+ fails == flexbox-align-self-baseline-horiz-2.xhtml  flexbox-align-self-baseline-horiz-2-ref.xhtml # bug 793456, and possibly others
+ # This one fails on windows R (but not Ru, strangely). On Windows R, the
+ # single-line <label> flex item has a different background size in test vs. ref
+-random-if(winWidget) == flexbox-align-self-baseline-horiz-3.xhtml  flexbox-align-self-baseline-horiz-3-ref.xhtml # XXXdholbert investigate
++fuzzy(40,3) == flexbox-align-self-baseline-horiz-3.xhtml  flexbox-align-self-baseline-horiz-3-ref.xhtml # XXXdholbert investigate
+ # XXXdholbert This test needs the flexbox pref to be enabled _at startup time_
+ # (when we parse ua.css) in order to pass -- so it'll fail (only in release
+ # builds) until we enable the flexbox pref in those builds in bug 841876:
+Index: firefox-20.0~b4+build1/layout/reftests/font-matching/reftest.list
+===================================================================
+--- firefox-20.0~b4+build1.orig/layout/reftests/font-matching/reftest.list	2013-03-07 17:37:16.000000000 +0000
++++ firefox-20.0~b4+build1/layout/reftests/font-matching/reftest.list	2013-03-14 18:51:31.925218980 +0000
+@@ -72,7 +72,7 @@
+ 
+ # bug 724231 - applying synthetic styles to a single @font-face font
+ # should apply artificial obliquing, not switch to a true styled face
+-!= synthetic-style-1.html synthetic-style-1-notref.html
++skip != synthetic-style-1.html synthetic-style-1-notref.html
+ != synthetic-style-2.html synthetic-style-2-notref.html
+ 
+ # Bug 765906 - synthetic bold should be used if necessary together with system fallback.

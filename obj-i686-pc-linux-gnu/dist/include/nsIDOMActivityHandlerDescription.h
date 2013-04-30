@@ -1,0 +1,1 @@
+../../dom/activities/interfaces/_xpidlgen/nsIDOMActivityHandlerDescription.h

@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/parser/xml/test/unit/test_xml_declaration.js

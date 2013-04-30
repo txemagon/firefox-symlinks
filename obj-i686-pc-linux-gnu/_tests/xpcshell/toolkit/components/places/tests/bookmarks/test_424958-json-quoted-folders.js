@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/toolkit/components/places/tests/bookmarks/test_424958-json-quoted-folders.js

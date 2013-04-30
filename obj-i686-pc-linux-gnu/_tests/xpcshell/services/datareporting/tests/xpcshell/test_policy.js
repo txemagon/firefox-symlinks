@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/services/datareporting/tests/xpcshell/test_policy.js

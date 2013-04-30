@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/docshell/test/unit/test_bug414201_jfif.js

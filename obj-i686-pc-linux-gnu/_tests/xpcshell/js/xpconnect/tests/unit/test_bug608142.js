@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/js/xpconnect/tests/unit/test_bug608142.js

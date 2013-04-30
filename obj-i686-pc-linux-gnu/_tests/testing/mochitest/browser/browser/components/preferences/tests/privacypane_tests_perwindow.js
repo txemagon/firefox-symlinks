@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/browser/components/preferences/tests/privacypane_tests_perwindow.js

@@ -1,0 +1,1 @@
+_xpidlgen/nsIContentViewerFile.xpt: /home/txema/work/firefox-20.0+build1/docshell/base/nsIContentViewerFile.idl ../../dist/idl/nsISupports.idl ../../dist/idl/nsrootidl.idl ../../dist/idl/nsIPrintSettings.idl ../../dist/idl/nsISupports.idl ../../dist/idl/nsrootidl.idl

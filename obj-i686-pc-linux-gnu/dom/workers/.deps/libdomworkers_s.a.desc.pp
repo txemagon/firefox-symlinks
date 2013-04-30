@@ -1,0 +1,1 @@
+libdomworkers_s.a.desc : ChromeWorkerScope.o DOMBindingBase.o Events.o EventListenerManager.o EventTarget.o Exceptions.o File.o FileReaderSync.o ImageData.o Location.o Navigator.o Principal.o RuntimeService.o ScriptLoader.o TextDecoder.o TextEncoder.o Worker.o WorkerPrivate.o WorkerScope.o XMLHttpRequestEventTarget.o XMLHttpRequestUpload.o XMLHttpRequest.o

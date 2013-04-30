@@ -1,0 +1,1 @@
+/home/txema/work/firefox-20.0+build1/browser/devtools/scratchpad/test/browser_scratchpad_bug714942_goto_line_ui.js

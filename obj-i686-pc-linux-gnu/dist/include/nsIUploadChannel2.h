@@ -1,0 +1,1 @@
+../../netwerk/base/public/_xpidlgen/nsIUploadChannel2.h

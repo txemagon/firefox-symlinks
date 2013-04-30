@@ -1,0 +1,1 @@
+_xpidlgen/nsIRDFDelegateFactory.h: /home/txema/work/firefox-20.0+build1/rdf/base/idl/nsIRDFDelegateFactory.idl ../../../dist/idl/nsrootidl.idl ../../../dist/idl/nsISupports.idl ../../../dist/idl/nsrootidl.idl

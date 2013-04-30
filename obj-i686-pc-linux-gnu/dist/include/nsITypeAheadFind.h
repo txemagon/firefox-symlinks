@@ -1,0 +1,1 @@
+../../toolkit/components/typeaheadfind/_xpidlgen/nsITypeAheadFind.h

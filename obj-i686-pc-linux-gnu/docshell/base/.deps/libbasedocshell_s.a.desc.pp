@@ -1,0 +1,1 @@
+libbasedocshell_s.a.desc : nsDocShell.o nsDocShellLoadInfo.o nsDocShellEditorData.o nsDocShellTransferableHooks.o nsDocShellEnumerator.o nsDSURIContentListener.o nsDefaultURIFixup.o nsWebNavigationInfo.o nsAboutRedirector.o nsDownloadHistory.o SerializedLoadContext.o LoadContext.o

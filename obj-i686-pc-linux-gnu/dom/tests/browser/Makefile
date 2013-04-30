@@ -1,0 +1,64 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+DEPTH := ../../..
+topsrcdir := /home/txema/work/firefox-20.0+build1
+srcdir := /home/txema/work/firefox-20.0+build1/dom/tests/browser
+VPATH := /home/txema/work/firefox-20.0+build1/dom/tests/browser
+relativesrcdir := dom/tests/browser
+
+include $(DEPTH)/config/autoconf.mk
+
+MOCHITEST_BROWSER_FILES := \
+  browser_focus_steal_from_chrome.js \
+  browser_focus_steal_from_chrome_during_mousedown.js \
+  browser_autofocus_background.js \
+  browser_ConsoleAPITests.js \
+  test-console-api.html \
+  browser_ConsoleStorageAPITests.js \
+  browser_autofocus_preference.js \
+  browser_bug396843.js \
+  browser_xhr_sandbox.js \
+  browser_geolocation_privatebrowsing_page.html \
+  network_geolocation.sjs \
+  $(NULL)
+
+ifdef MOZ_PER_WINDOW_PRIVATE_BROWSING
+MOCHITEST_BROWSER_FILES += \
+  browser_geolocation_privatebrowsing_perwindowpb.js \
+  browser_localStorage_privatestorageevent.js \
+  page_privatestorageevent.html
+  $(NULL)
+else
+MOCHITEST_BROWSER_FILES += \
+  browser_ConsoleStoragePBTest.js \
+  browser_geolocation_privatebrowsing.js \
+  $(NULL)
+endif
+
+ifeq (Linux,$(OS_ARCH))
+MOCHITEST_BROWSER_FILES += \
+  browser_webapps_permissions.js \
+  test-webapp.webapp \
+  test-webapp-reinstall.webapp \
+  test-webapp-original.webapp \
+  test-webapps-permissions.html \
+  $(NULL)
+endif
+
+ifdef MOZ_PER_WINDOW_PRIVATE_BROWSING
+MOCHITEST_BROWSER_FILES += \
+  browser_ConsoleStoragePBTest_perwindowpb.js \
+  $(NULL)
+else
+MOCHITEST_BROWSER_FILES += \
+  browser_ConsoleStoragePBTest.js \
+  $(NULL)
+endif
+
+
+# TODO: Re-enable permissions tests on Mac and Windows, bug 795334
+# TODO: disabled test browser_webapps_perms_reinstall.js, re-enable when bug 794920 is fixed
+
+include $(topsrcdir)/config/rules.mk
